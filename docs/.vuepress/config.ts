@@ -7,7 +7,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     lang: 'zh-CN',
     title: 'Junjie',
     description: 'Front-end-Developer',
-    dest:'docs/dist',
+    dest: 'docs/dist',
 
     // 主题和它的配置
     theme: '@vuepress/theme-default',
@@ -24,6 +24,10 @@ export default defineUserConfig<DefaultThemeOptions>({
                 link: '/notes'
             },
             {
+                text: '面试题',
+                link: '/interview'
+            },
+            {
                 text: '简历',
                 link: '/resume/'
             },
@@ -32,26 +36,38 @@ export default defineUserConfig<DefaultThemeOptions>({
                 link: 'https://v2.vuepress.vuejs.org/zh'
             },
             // 字符串 - 页面文件路径
-            // '/bar/README.md',
+            // '/bar/README.md', interview
         ],
         sidebar: {
             '/notes': [
                 {
                     text: 'HTML',
-                    collapsible: true,
+                    // collapsible: true,
                     children: ['/notes/html.md'],
                 },
                 {
                     text: 'CSS',
-                    collapsible: true,
+                    // collapsible: true,
                     children: ['/notes/css.md'],
                 },
                 {
+                    text: 'JavaScript',
+                    // collapsible: true,
+                    children: ['/notes/js'],
+                },
+                {
                     text: 'Vue',
-                    collapsible: true,
+                    // collapsible: true,
                     children: ['/notes/vue/vue3'],
                 },
             ],
+            '/interview': [
+                {
+                    text: '面试题',
+                    // collapsible: true,
+                    children: ['/interview/html', '/interview/css', '/interview/js', '/interview/vue'],
+                },
+            ]
         },
     },
 })
