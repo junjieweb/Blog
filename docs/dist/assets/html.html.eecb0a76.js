@@ -1,0 +1,1 @@
+const e={key:"v-142c0567",path:"/interview/html.html",title:"HTML\u9762\u8BD5\u9898",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1649439915e3,contributors:[{name:"Junjie",email:"90107547+junjieweb@users.noreply.github.com",commits:1}]},filePathRelative:"interview/html.md"};export{e as data};
