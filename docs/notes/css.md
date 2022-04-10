@@ -238,3 +238,75 @@ https://specifishity.com/
 用做链接的 `<a>` 元素、 `<span>`、 `<em>` 以及 `<strong>` 都是默认处于 `inline` 状态的。
 
 我们通过对盒子[`display`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/display) 属性的设置，比如 `inline` 或者 `block` ，来控制盒子的外部显示类型。
+
+组成部分：`content(width|height) + padding(内边距) + border(边框) + margin(外边距)`
+
+百分比单位根据父元素的`width`计算
+
+w3c标准：`width = width`
+
+IE标准：`width = content + padding + border`
+
+切换盒模型的标准：
+
+- w3c(默认)：`box-sizing: content-box`
+- IE：`box-sizing: border-box`
+
+```css
+/* 清除浮动 */
+.clearfix::after{
+    content: '';
+    clear: both;
+    display: block;
+}
+```
+
+
+## overflow和BFC-定位/绝对定位
+
+### overflow
+
+处理内容溢出
+
+- 溢出隐藏：`hidden`
+- 溢出自动添加滚动条：`scroll`
+
+### BFC
+
+块级格式化上下文，如果一个元素具有BFC，内部元素再怎么弄，都不会影响到外面的元素
+
+**开启BFC的方式：**
+
+- `float`的值不是none
+- `overflow`的值不是默认值
+- `display: table-cell;`
+- `position`的值不是`static和relative`
+
+
+### 定位
+
+#### 相对定位`position: relative`
+
+1. 不设置偏移量元素不会发生变化
+2. 元素不会脱离文档流
+3. 不会改变元素的性质
+4. 元素会提升一个层级
+5. 相对于自身在文档流中的位置进行定位
+
+#### 绝对定位`position: absolute;`
+
+1. 不设置偏移量元素不会发生变化
+2. 元素会脱离文档流
+3. 会改变元素性质，行内元素变块元素，块元素高度被内容撑开
+4. 元素会提升一个等级
+5. 相对其包含块进行定位
+    1. 初始包含块：`html`根元素
+    2. 默认包含块是离当前元素最近的祖先元素
+    3. 对于绝对定位元素，包含快是离它最近的开启了定位的祖先元素。如果所有元素都没有开启定位，则其包含块就是初始包含块
+
+#### 固定定位`position: fixed;`
+
+1. 大部分特点和绝对定位一样
+2. 相对于视口进行定位的
+3. 会固定在网页的视口上，不会随网页滚动
+
