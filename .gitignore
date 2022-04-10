@@ -1,6 +1,12 @@
-node_modules
-.temp
+#忽略规则
+#忽略当前文件夹下
+node_modules/
 .cache
+.temp
+
+.DS_Store
+node_modules
+/dist
 
 # local env files
 .env.local

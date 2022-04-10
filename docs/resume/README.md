@@ -10,19 +10,14 @@
 
 ## 专业技能
 
-- 熟练使用 HTML(5) + CSS(3)，能够完成复杂布局
-
-- 熟悉 JavaScript 基本特性，熟练使用 ES6+ 语法，了解TypeScript
-
-- 熟悉组件化开发，擅长使用 Vue 及相关生态
-
-- 熟练使用主流工具库，如 jQuery, ElementUI, ECharts, Axios, Swiper 等
-
-- 熟练使用Sass/Less等CSS预处理语言
-
-- 了解Node.js，express
-
-- 了解小程序开发，了解uni-app
+1. 在工作中可以熟练运用HTML+CSS来制作符合W3C规范页面
+2. 在工作中可以使用原生JS开发，有良好的编码习惯，了解很多作者设计js原理;会使 用es5,es6，会使用jQuery开发；
+3. 在工作中熟练使用html5+css3实现移动端布局，使用rem以及弹性盒，实现适配，解决多端适配使用（淘宝无限适配方案）；
+4. 在工作中使用axios实现与后台交互，并且对于axios进行二次的封装，实现数据页面渲染和逻辑层判断（注册登录的token验证等等）
+5. 在工作中熟练各种流程工具和构建打包工具：git,采用gitflow管理形式，包管理工具npm；
+6. 在工作中熟练使用Vue全家桶进行项目开发，看过部分vue源码，了解双向绑定原理，虚拟dom，diff算法等等 ，使用过element-ui开发项目
+7. 了解node.Js，熟悉express框架，可以写接口
+8. 了解SEO相关内容
 
 ## 项目经历
 
