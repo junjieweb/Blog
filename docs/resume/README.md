@@ -6,7 +6,7 @@
 
 - 联系方式：`13xxxxxx`
 
-- 邮箱：`xxx@qq.com`
+- 邮箱：`junjieweb@qq.com`
 
 ## 专业技能
 

@@ -232,25 +232,233 @@ function deepCopy(obj) {
 let newObj = deepCopy(obj)
 ```
 
-
-
 ## JS继承
 
+### 原型链
+
+为什么设计原型：继承、让对象的属性和方法实现共享
+
+函数：`prototype`，对象：`__ptoto__`
+
+原型链：每一个对象都有原型`__proto__`，这个原型还有自己的原型，最终形成了原型链，原型链的最顶端是null
+
+如果要查找对象的属性或方法，先在对象中查找，如果没有找到，去对象的原型中找，如果还没找到，去对象的原型的原型中去找，直到找不到，返回undefined
+
 ### 原型链继承
+
+儿子继承父亲`Child.prototype = new Parent()`
+
+优点：共享属性和方法
+
+缺点：无法给父构造函数传递参数
+
+面试题
+
+```javascript
+function Foo(){
+    getName = function(){alert(1)}
+    return this
+}
+Foo.getName = function(){alert(2)}
+Foo.prototype.getName = function(){alert(3)}
+var getName = function(){alert(4)}
+function getName(){alert(5)}
+// **优先级**：变量 > 函数 > 形参 > 变量提升
+Foo.getName() // 2
+getName() // 4
+// 全局getName = function(){alert(1)}
+Foo().getName() // 1
+getName() // 1
+new Foo().getName() // 3
+```
 
 
 
 ### 构造函数继承
 
+每次生成一个对象，对象本身的属性和方法不共享
 
+优点：可以向父构造函数传递参数
+
+缺点：不可以共享属性和方法
+
+`call/apply/bind`
+
+```javascript
+function Parent() {
+    this.name = 'tom'
+    this.arr = [1, 2, 3]
+}
+
+function Child() {
+    // 让Parent的this指向对象
+    Parent.call(this)
+}
+
+const obj1 = new Child()
+const obj2 = new Child()
+obj1.arr[0] = 10
+console.log(obj1.arr) // [10, 2, 3]
+console.log(obj2.arr) // [1, 2, 3]
+```
 
 ### 组合继承
 
+原型链继承+借用构造函数继承
+
+既可以传递参数，也可以实现该有的共享性
+
+```javascript
+function Parent(name) {
+    this.name = name
+    this.arr = [1, 2, 3]
+}
+
+function Child(name) {
+    // 借用构造函数
+    Parent.call(this, name)
+}
+
+Parent.prototype.run = function () {
+
+}
+// 原型
+Child.prototype = new Parent()
+
+const obj1 = new Child('张三')
+const obj2 = new Child('李四')
+obj1.arr[0] = 10
+console.log(obj1)
+console.log(obj2)
+console.log(obj1.run === obj2.run)
+```
 
 
 ## ES6
 
-## H5C3
+https://es6.ruanyifeng.com/
+
+### let、var、const
+
+let：声明变量
+
+1. let声明的变量只在代码块内有效
+2. 不可以重复声明同一个变量
+3. 不存在变量提升
+
+const：常量
+
+1. const声明的变量只在代码块内有效
+2. 不可以重复声明同一个变量
+3. 不存在变量提升
+
+var和let的区别？
+
+1. var声明的变量没有块作用域，let声明的有块作用域
+2. var可以声明同一个变量（覆盖），let不可以
+3. var有变量提升，let没有
+
+### 变量的结构赋值
+
+#### 数组的解构赋值
+
+```javascript
+// 表示，可以从数组中提取值，按照对应位置，对变量赋值。
+let [a, b, c] = [10, 20, 30]
+```
+
+#### 对象的结构赋值
+
+```javascript
+let {a, b} = {a: 10, b: 20}
+```
+
+#### 字符串的结构赋值
+
+```javascript
+const [a, b, c, d, e] = 'hello';
+a // "h"
+b // "e"
+c // "l"
+d // "l"
+e // "o"
+```
+
+### 箭头函数
+
+```javascript
+var f = v => v;
+
+// 等同于
+var f = function (v) {
+    return v;
+};
+```
+
+使用注意点
+
+1. 箭头函数没有自己的`this`对象。
+
+2. 不可以当作构造函数，也就是说，不可以对箭头函数使用`new`命令，否则会抛出一个错误。
+
+3. 不可以使用`arguments`对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。
+
+4. 不可以使用`yield`命令，因此箭头函数不能用作 Generator 函数。
+
+### Class
+
+基本用法
+
+```javascript
+class Person {
+    constructor(name) {
+        this.name = name
+    }
+    run(){
+        return '这是run方法'
+    }
+}
+const p = new Person('tom')
+```
+
+继承
+
+```javascript
+class Child extends Parent{
+    constructor(){
+        super()
+    }
+}
+```
+
+### Promise
+
+Promise是异步编程的一种解决方案
+
+功能：写异步的代码，同步的执行出来，让代码更好的维护易读
+
+同步：只有前一个任务执行完，才能继续执行下一个任务
+
+异步：不进入主线程，进入任务队列，只有任务队列通知主线程，某个异步任务才可以执行，该任务才会进入主线程
+
+1. 每一个Promise实例都有3种状态：初始化(pending)、成功(fulfilled)、失败(rejected)
+2. 每一个Promise实例在刚被new出来的那一刻，状态都是初始化(pending)
+3. executor函数会接收到2个参数，它们都是函数，分别用形参：resolve、reject接收
+
+### async和await
+
+async修饰的函数返回一个Promise对象，Promise实例的结果由async函数执行的返回值决定
+
+await右侧的表达式一般为Promise实例对象, 但也可以是其它的值
+
+- 如果表达式是Promise实例对象, await后的返回值是promise成功的值
+- 如果表达式是其它值, 直接将此值作为await的返回值
+
+await必须写在async函数中, 但async函数中可以没有await
+
+如果await的Promise实例对象失败了, 就会抛出异常, 需要通过try...catch来捕获处理
+
+
 
 
 
