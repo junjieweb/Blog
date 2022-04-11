@@ -57,8 +57,8 @@ export default defineUserConfig<DefaultThemeOptions>({
                 },
                 {
                     text: 'Vue',
-                    // collapsible: true,
-                    children: ['/notes/vue/vue3'],
+                    collapsible: true,
+                    children: ['/notes/vue', '/notes/vue/vue3'],
                 },
             ],
             '/interview': [
