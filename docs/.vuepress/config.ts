@@ -6,7 +6,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     base: '/Front-end-Developer/',
     lang: 'zh-CN',
     title: 'Junjie',
-    description: 'Front-end-Developer',
+    description: 'Front-end web developer',
     // dest: 'docs/dist',
 
     // 主题和它的配置
@@ -21,11 +21,11 @@ export default defineUserConfig<DefaultThemeOptions>({
             },
             {
                 text: '笔记',
-                link: '/notes'
+                link: '/notes/'
             },
             {
                 text: '面试题',
-                link: '/interview'
+                link: '/interview/'
             },
             {
                 text: '简历',
@@ -36,36 +36,35 @@ export default defineUserConfig<DefaultThemeOptions>({
                 link: 'https://v2.vuepress.vuejs.org/zh'
             },
             // 字符串 - 页面文件路径
-            // '/bar/README.md', interview
+            // '/bar/vue2_base.md', interview
         ],
         sidebar: {
-            '/notes': [
+            '/notes/': [
                 {
-                    text: 'HTML',
+                    text: '笔记',
                     // collapsible: true,
-                    children: ['/notes/html.md'],
-                },
-                {
-                    text: 'CSS',
-                    // collapsible: true,
-                    children: ['/notes/css.md'],
-                },
-                {
-                    text: 'JavaScript',
-                    // collapsible: true,
-                    children: ['/notes/js'],
-                },
-                {
-                    text: 'Vue',
-                    collapsible: true,
-                    children: ['/notes/vue', '/notes/vue/vue3'],
+                    children: [
+                        '/notes/README.md',
+                        '/notes/line.md',
+                        '/notes/html.md',
+                        '/notes/css.md',
+                        '/notes/js.md',
+                        '/notes/vue/vue2_base.md',
+                        '/notes/vue/vue2_cli.md',
+                        '/notes/vue/vue3.md'
+                    ],
                 },
             ],
-            '/interview': [
+            '/interview/': [
                 {
                     text: '面试题',
                     // collapsible: true,
-                    children: ['/interview/html', '/interview/css', '/interview/js', '/interview/vue'],
+                    children: [
+                        '/interview/html',
+                        '/interview/css',
+                        '/interview/js',
+                        '/interview/vue'
+                    ],
                 },
             ]
         },

@@ -1,4 +1,4 @@
-# vue_basic
+# Vue2基础
 
 ## 初识Vue
 

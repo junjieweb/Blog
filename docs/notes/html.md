@@ -23,7 +23,7 @@
 <html>
     <!--头部标签,关于网页的一些配置信息-->
     <head>
-        <!-- 告诉浏览器采用哪一种字符集打开当前页面。注意：并不是设置当前页面的字符编码方式。 -->
+        <!-- 指定文档中字符的编码 -->
         <meta charset="UTF-8">
   		<meta http-equiv="X-UA-Compatible" content="IE=edge">
   		<meta name="viewport" content="width=device-width, initial-scale=1.0">
