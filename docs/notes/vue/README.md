@@ -181,7 +181,7 @@ Vue中数据代理的好处：
 
 1. 定义：要用的属性不存在，要通过已有属性计算得来。
 
-2. 原理：底层借助了Objcet.defineproperty方法提供的getter和setter。
+2. 原理：底层借助了Object.defineProperty方法提供的getter和setter。
 
 3. get函数什么时候执行？
 
@@ -257,11 +257,11 @@ Vue中数据代理的好处：
 
    写法：
 
-   ```javascript
-   (1).v-if="表达式" 
-   (2).v-else-if="表达式"
-   (3).v-else="表达式"
-   ```
+   `v-if="表达式" `
+
+   `v-else-if="表达式"`
+
+   `v-else="表达式"`
 
    适用于：切换频率较低的场景。
 
@@ -269,7 +269,7 @@ Vue中数据代理的好处：
 
    注意：`v-if可以和:v-else-if、v-else`一起使用，但要求结构不能被“打断”。
 
-2. v-show
+4. v-show
 
    写法：`v-show="表达式"`
 
@@ -279,7 +279,7 @@ Vue中数据代理的好处：
 
    备注：使用v-if的时，元素可能无法获取到，而使用v-show一定可以获取到。
 
-3. v-for指令:
+5. v-for指令:
 
    1. 用于展示列表数据
 
@@ -395,7 +395,7 @@ Vue中数据代理的好处：
 
    1. 过滤器也可以接收额外参数、多个过滤器也可以串联
 
-   2. 并没有改变原本的数据, 是产生新的对应的数据
+   2. 并没有改变原本的数据, 是产生新地对应的数据
 
 ## 内置指令
 
@@ -465,15 +465,7 @@ Vue中数据代理的好处：
 
    1. 局部指令：
 
-      ```javascript
-      new Vue({
-         directives:{指令名:配置对象}
-      })
-      或
-      new Vue({
-         directives{指令名:回调函数}
-      })
-      ```
+      `new Vue({directives:{指令名:配置对象}})`或`new Vue({directives{指令名:回调函数}})`
 
    2. 全局指令：
 
@@ -520,7 +512,7 @@ Vue中数据代理的好处：
 ```javascript
 new Vue({
       el:'#root',
-      data:{,
+      data:{},
       methods: {},
       watch:{},
       //初始化前
