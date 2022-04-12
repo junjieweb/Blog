@@ -1,1 +1,0 @@
-const e={key:"v-78b3c03d",path:"/interview/css.html",title:"CSS\u9762\u8BD5\u9898",lang:"zh-CN",frontmatter:{},excerpt:"",headers:[],git:{updatedTime:1649439915e3,contributors:[{name:"Junjie",email:"90107547+junjieweb@users.noreply.github.com",commits:1}]},filePathRelative:"interview/css.md"};export{e as data};
