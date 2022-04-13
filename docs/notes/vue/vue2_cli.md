@@ -98,8 +98,8 @@
 
    第二步使用混入：
 
-   全局混入：```Vue.mixin(xxx)```
-   局部混入：```mixins:['xxx']```
+   全局混入：`Vue.mixin(xxx)`
+   局部混入：`mixins:['xxx']`
 
 ## 插件
 
@@ -126,12 +126,12 @@
     }
     ```
 
-4. 使用插件：```Vue.use()```
+4. 使用插件：`Vue.use()`
 
 ## scoped样式
 
 1. 作用：让样式在局部生效，防止冲突。
-2. 写法：```<style scoped>```
+2. 写法：`<style scoped>`
 
 ## 总结TodoList案例
 
@@ -195,7 +195,7 @@
 
 3. 绑定自定义事件：
 
-    1. 第一种方式，在父组件中：```<Demo @atguigu="test"/>```  或 ```<Demo v-on:atguigu="test"/>```
+    1. 第一种方式，在父组件中：`<Demo @hello="test"/>`  或 `<Demo v-on:hello="test"/>`
 
     2. 第二种方式，在父组件中：
 
@@ -203,19 +203,19 @@
         <Demo ref="demo"/>
         ......
         mounted(){
-           this.$refs.xxx.$on('atguigu',this.test)
+           this.$refs.xxx.$on('hello',this.test)
         }
         ```
 
-    3. 若想让自定义事件只能触发一次，可以使用```once```修饰符，或```$once```方法。
+    3. 若想让自定义事件只能触发一次，可以使用`once`修饰符，或`$once`方法。
 
-4. 触发自定义事件：```this.$emit('atguigu',数据)```
+4. 触发自定义事件：```this.$emit('hello',数据)```
 
-5. 解绑自定义事件```this.$off('atguigu')```
+5. 解绑自定义事件```this.$off('hello')```
 
 6. 组件上也可以绑定原生DOM事件，需要使用```native```修饰符。
 
-7. 注意：通过```this.$refs.xxx.$on('atguigu',回调)```绑定自定义事件时，回调<span style="color:red">要么配置在methods中</span>
+7. 注意：通过```this.$refs.xxx.$on('hello',回调)```绑定自定义事件时，回调<span style="color:red">要么配置在methods中</span>
    ，<span style="color:red">要么用箭头函数</span>，否则this指向会出问题！
 
 ## 全局事件总线（GlobalEventBus）
@@ -224,33 +224,51 @@
 
 2. 安装全局事件总线：
 
-   ```js
-   new Vue({
-    ......
-    beforeCreate() {
-     Vue.prototype.$bus = this //安装全局事件总线，$bus就是当前应用的vm
-    },
-       ......
-   }) 
+   ```javascript
+    import Vue from 'vue';
+    import App from './App.vue';
+    
+    Vue.config.productionTip = false
+    
+    new Vue({
+        el: '#app',
+        beforeCreate() {
+            Vue.prototype.$bus = this //安装全局事件总线
+        },
+        render: (h) => h(App),
+    });
+
    ```
 
 3. 使用事件总线：
 
     1. 接收数据：A组件想接收数据，则在A组件中给$bus绑定自定义事件，事件的<span style="color:red">回调留在A组件自身。</span>
 
-       ```js
-       methods(){
-         demo(data){......}
-       }
-       ......
-       mounted() {
-         this.$bus.$on('xxxx',this.demo)
-       }
-       ```
+    ```vue
+    <script>
+    export default {
+      name: "School",
+      data() {
+        return {
+          name: "bilibili",
+          address: "北京",
+        };
+      },
+      mounted() {
+        this.$bus.$on("hello", (data) => {
+          console.log("我是School组件，收到了数据", data);
+        });
+      },
+      beforeDestroy() {
+        this.$bus.$off("hello");
+      },
+    };
+    </script>
+    ```
 
-    2. 提供数据：```this.$bus.$emit('xxxx',数据)```
+    2. 提供数据：`this.$bus.$emit('hello',数据)`
 
-4. 最好在beforeDestroy钩子中，用$off去解绑<span style="color:red">当前组件所用到的</span>事件。
+4. 最好在`beforeDestroy`钩子中，用`$off`去解绑<span style="color:red">当前组件所用到的</span>事件。
 
 ## 消息订阅与发布（pubsub）
 
