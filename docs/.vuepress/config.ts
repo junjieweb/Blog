@@ -7,6 +7,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     lang: 'zh-CN',
     title: 'Junjie',
     description: 'Front-end web developer',
+    head: [['link', { rel: 'icon', href: '/images/logo.png' }]],
     // dest: 'docs/dist',
 
     // 主题和它的配置

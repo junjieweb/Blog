@@ -1,7 +1,7 @@
 ---
 home: true
 title: 首页
-heroImage: /images/hero.png
+heroImage: images/logo.svg
 actions:
    - text: 前端笔记
      link: /notes/index.html
