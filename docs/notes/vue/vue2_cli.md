@@ -37,6 +37,8 @@
 
 2. 使用vue.config.js可以对脚手架进行个性化定制，详情见：<https://cli.vuejs.org/zh>
 
+3. 关闭esLint语法检查：`lintOnSave: false`
+
 ## ref属性
 
 1. 被用来给元素或子组件注册引用信息（id的替代者）
