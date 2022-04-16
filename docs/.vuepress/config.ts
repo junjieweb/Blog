@@ -4,12 +4,10 @@ import type {DefaultThemeOptions} from 'vuepress'
 export default defineUserConfig<DefaultThemeOptions>({
     // 站点配置
     base: '/Front-end-Developer/',
-    lang: 'zh-CN',
+    lang: '',
     title: 'Junjie',
     description: 'Front-end web developer',
-    head: [['link', { rel: 'icon', href: '/images/logo.png' }]],
-    // dest: 'docs/dist',
-
+    head: [['link', { rel: 'icon', href: '/images/logo.svg' }]],
     // 主题和它的配置
     theme: '@vuepress/theme-default',
     themeConfig: {
@@ -42,11 +40,17 @@ export default defineUserConfig<DefaultThemeOptions>({
         sidebar: {
             '/notes/': [
                 {
-                    text: '笔记',
-                    // collapsible: true,
+                    text: 'MDN',
+                    collapsible: true,
                     children: [
                         '/notes/README.md',
                         '/notes/line.md',
+                    ],
+                },
+                {
+                    text: '笔记',
+                    collapsible: true,
+                    children: [
                         '/notes/html.md',
                         '/notes/css.md',
                         '/notes/js.md',

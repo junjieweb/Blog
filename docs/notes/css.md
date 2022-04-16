@@ -2,9 +2,9 @@
 
 ## 简介
 
-**层叠样式表** (Cascading Style Sheets，缩写为 **CSS**），是一种 [样式表](https://developer.mozilla.org/zh-CN/docs/Web/API/StyleSheet) 语言，用来描述 [HTML](https://developer.mozilla.org/zh-CN/docs/Web/HTML) 或 [XML](https://developer.mozilla.org/zh-CN/docs/Web/XML/XML_Introduction)（包括如 [SVG](https://developer.mozilla.org/zh-CN/docs/Web/SVG)、[MathML](https://developer.mozilla.org/zh-CN/docs/Web/MathML)、[XHTML](https://developer.mozilla.org/zh-CN/docs/Glossary/XHTML) 之类的 XML 分支语言）文档的呈现。CSS 描述了在屏幕、纸质、音频等其它媒体上的元素应该如何被渲染的问题。
+**层叠样式表** (Cascading Style Sheets，缩写为 **CSS**），是一种 [样式表](https://developer.mozilla.org//docs/Web/API/StyleSheet) 语言，用来描述 [HTML](https://developer.mozilla.org//docs/Web/HTML) 或 [XML](https://developer.mozilla.org//docs/Web/XML/XML_Introduction)（包括如 [SVG](https://developer.mozilla.org//docs/Web/SVG)、[MathML](https://developer.mozilla.org//docs/Web/MathML)、[XHTML](https://developer.mozilla.org//docs/Glossary/XHTML) 之类的 XML 分支语言）文档的呈现。CSS 描述了在屏幕、纸质、音频等其它媒体上的元素应该如何被渲染的问题。
 
-CSS 是**开放网络**的核心语言之一，由 [W3C 规范](https://w3.org/Style/CSS/#specs) 实现跨浏览器的标准化。CSS节省了大量的工作。 样式可以通过定义保存在外部.css文件中，同时控制多个网页的布局，这意味着开发者不必经历在所有网页上编辑布局的麻烦。CSS 被分为不同等级：CSS1 现已废弃， CSS2.1 是推荐标准， [CSS3](https://developer.mozilla.org/zh-CN/docs/CSS/CSS3) 分成多个小模块且正在标准化中。
+CSS 是**开放网络**的核心语言之一，由 [W3C 规范](https://w3.org/Style/CSS/#specs) 实现跨浏览器的标准化。CSS节省了大量的工作。 样式可以通过定义保存在外部.css文件中，同时控制多个网页的布局，这意味着开发者不必经历在所有网页上编辑布局的麻烦。CSS 被分为不同等级：CSS1 现已废弃， CSS2.1 是推荐标准， [CSS3](https://developer.mozilla.org//docs/CSS/CSS3) 分成多个小模块且正在标准化中。
 
 **编写的位置**
 
@@ -40,11 +40,11 @@ h1 {
 }
 ```
 
-语法由一个 [选择器(selector)](https://developer.mozilla.org/zh-CN/docs/Glossary/CSS_Selector)起头。 它 *选择(selects)* 了我们将要用来添加样式的 HTML 元素。 在这个例子中我们为一级标题（主标题[`` (en-US)](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Heading_Elements)）添加样式。
+语法由一个 [选择器(selector)](https://developer.mozilla.org//docs/Glossary/CSS_Selector)起头。 它 *选择(selects)* 了我们将要用来添加样式的 HTML 元素。 在这个例子中我们为一级标题（主标题[`` (zh-CN)](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Heading_Elements)）添加样式。
 
 接着输入一对大括号`{ }`。 在大括号内部定义一个或多个形式为 **属性(property):值(value);** 的 **声明(declarations)**。每个声明都指定了我们所选择元素的一个属性，之后跟一个我们想赋给这个属性的值。
 
-冒号之前是属性，冒号之后是值。不同的 CSS [属性(properties) (en-US)](https://developer.mozilla.org/en-US/docs/Glossary/property/CSS) 对应不同的合法值。在这个例子中，我们指定了 `color` 属性，它可以接受许多[颜色值](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units#color)；还有 `font-size` 属性，它可以接收许多 [size units](https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Values_and_units#numbers_lengths_and_percentages) 值。
+冒号之前是属性，冒号之后是值。不同的 CSS [属性(properties) (zh-CN)](https://developer.mozilla.org/zh-CN/docs/Glossary/property/CSS) 对应不同的合法值。在这个例子中，我们指定了 `color` 属性，它可以接受许多[颜色值](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Values_and_units#color)；还有 `font-size` 属性，它可以接收许多 [size units](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Values_and_units#numbers_lengths_and_percentages) 值。
 
 ## 选择器
 
@@ -130,59 +130,59 @@ CSS选择器是CSS规则的第一部分。它是元素和其他部分组合起�
  </thead>
  <tbody>
   <tr>
-   <td><a href="/zh-CN/docs/Web/CSS/Type_selectors">类型选择器</a></td>
+   <td><a href="//docs/Web/CSS/Type_selectors">类型选择器</a></td>
    <td><code>h1 {&nbsp; }</code></td>
-   <td><a href="/zh-CN/docs/user:chrisdavidmills/CSS_Learn/CSS_Selectors/Type_Class_and_ID_Selectors#Type_selectors" class="page-not-created" title="This is a link to an unwritten page">类型选择器</a></td>
+   <td><a href="//docs/user:chrisdavidmills/CSS_Learn/CSS_Selectors/Type_Class_and_ID_Selectors#Type_selectors" class="page-not-created" title="This is a link to an unwritten page">类型选择器</a></td>
   </tr>
   <tr>
-   <td><a href="/zh-CN/docs/Web/CSS/Universal_selectors">通配选择器</a></td>
+   <td><a href="//docs/Web/CSS/Universal_selectors">通配选择器</a></td>
    <td><code>* {&nbsp; }</code></td>
-   <td><a href="/zh-CN/docs/user:chrisdavidmills/CSS_Learn/CSS_Selectors/Type_Class_and_ID_Selectors#The_universal_selector" class="page-not-created" title="This is a link to an unwritten page">通配选择器</a></td>
+   <td><a href="//docs/user:chrisdavidmills/CSS_Learn/CSS_Selectors/Type_Class_and_ID_Selectors#The_universal_selector" class="page-not-created" title="This is a link to an unwritten page">通配选择器</a></td>
   </tr>
   <tr>
-   <td><a href="/zh-CN/docs/Web/CSS/Class_selectors">类选择器</a></td>
+   <td><a href="//docs/Web/CSS/Class_selectors">类选择器</a></td>
    <td><code>.box {&nbsp; }</code></td>
-   <td><a href="/zh-CN/docs/user:chrisdavidmills/CSS_Learn/CSS_Selectors/Type_Class_and_ID_Selectors#Class_selectors">类选择器</a></td>
+   <td><a href="//docs/user:chrisdavidmills/CSS_Learn/CSS_Selectors/Type_Class_and_ID_Selectors#Class_selectors">类选择器</a></td>
   </tr>
   <tr>
-   <td><a href="/zh-CN/docs/Web/CSS/ID_selectors">ID选择器</a></td>
+   <td><a href="//docs/Web/CSS/ID_selectors">ID选择器</a></td>
    <td><code>#unique { }</code></td>
-   <td><a href="/zh-CN/docs/user:chrisdavidmills/CSS_Learn/CSS_Selectors/Type_Class_and_ID_Selectors#ID_Selectors">ID选择器</a></td>
+   <td><a href="//docs/user:chrisdavidmills/CSS_Learn/CSS_Selectors/Type_Class_and_ID_Selectors#ID_Selectors">ID选择器</a></td>
   </tr>
   <tr>
-   <td><a href="/zh-CN/docs/Web/CSS/Attribute_selectors">标签属性选择器</a></td>
+   <td><a href="//docs/Web/CSS/Attribute_selectors">标签属性选择器</a></td>
    <td><code>a[title] {&nbsp; }</code></td>
-   <td><a href="/zh-CN/docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Attribute_selectors">标签属性选择器</a></td>
+   <td><a href="//docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Attribute_selectors">标签属性选择器</a></td>
   </tr>
   <tr>
-   <td><a href="/zh-CN/docs/Web/CSS/Pseudo-classes">伪类选择器</a></td>
+   <td><a href="//docs/Web/CSS/Pseudo-classes">伪类选择器</a></td>
    <td><code>p:first-child { }</code></td>
-   <td><a href="/zh-CN/docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Pseuso-classes_and_Pseudo-elements#What_is_a_pseudo-class">伪类</a></td>
+   <td><a href="//docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Pseuso-classes_and_Pseudo-elements#What_is_a_pseudo-class">伪类</a></td>
   </tr>
   <tr>
-   <td><a href="/zh-CN/docs/Web/CSS/Pseudo-elements">伪元素选择器</a></td>
+   <td><a href="//docs/Web/CSS/Pseudo-elements">伪元素选择器</a></td>
    <td><code>p::first-line { }</code></td>
-   <td><a href="/zh-CN/docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Pseuso-classes_and_Pseudo-elements#What_is_a_pseudo-element">伪元素</a></td>
+   <td><a href="//docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Pseuso-classes_and_Pseudo-elements#What_is_a_pseudo-element">伪元素</a></td>
   </tr>
   <tr>
-   <td><a href="/zh-CN/docs/Web/CSS/Descendant_combinator">后代选择器</a></td>
+   <td><a href="//docs/Web/CSS/Descendant_combinator">后代选择器</a></td>
    <td><code>article p</code></td>
-   <td><a href="/zh-CN/docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Combinators#Descendant_Selector">后代运算符</a></td>
+   <td><a href="//docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Combinators#Descendant_Selector">后代运算符</a></td>
   </tr>
   <tr>
-   <td><a href="/zh-CN/docs/Web/CSS/Child_combinator">子代选择器</a></td>
+   <td><a href="//docs/Web/CSS/Child_combinator">子代选择器</a></td>
    <td><code>article &gt; p</code></td>
-   <td><a href="/zh-CN/docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Combinators#Child_combinator">子代选择器</a></td>
+   <td><a href="//docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Combinators#Child_combinator">子代选择器</a></td>
   </tr>
   <tr>
-   <td><a href="/zh-CN/docs/Web/CSS/Adjacent_sibling_combinator">相邻兄弟选择器</a></td>
+   <td><a href="//docs/Web/CSS/Adjacent_sibling_combinator">相邻兄弟选择器</a></td>
    <td><code>h1 + p</code></td>
-   <td><a href="/zh-CN/docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Combinators#Adjacent_sibling">相邻兄弟</a></td>
+   <td><a href="//docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Combinators#Adjacent_sibling">相邻兄弟</a></td>
   </tr>
   <tr>
-   <td><a href="/zh-CN/docs/Web/CSS/General_sibling_combinator">通用兄弟选择器</a></td>
+   <td><a href="//docs/Web/CSS/General_sibling_combinator">通用兄弟选择器</a></td>
    <td><code>h1 ~ p</code></td>
-   <td><a href="/zh-CN/docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Combinators#General_sibling">通用兄弟</a></td>
+   <td><a href="//docs/User:chrisdavidmills/CSS_Learn/CSS_Selectors/Combinators#General_sibling">通用兄弟</a></td>
   </tr>
  </tbody>
 </table>
@@ -223,7 +223,7 @@ https://specifishity.com/
 
 - 盒子会在内联的方向上扩展并占据父容器在该方向上的所有可用空间，在绝大数情况下意味着盒子会和父容器一样宽
 - 每个盒子都会换行
-- [`width`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width) 和 [`height`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/height) 属性可以发挥作用
+- [`width`](https://developer.mozilla.org//docs/Web/CSS/width) 和 [`height`](https://developer.mozilla.org//docs/Web/CSS/height) 属性可以发挥作用
 - 内边距（padding）, 外边距（margin） 和 边框（border） 会将其他元素从当前盒子周围“推开”
 
 除非特殊指定，诸如标题(`<h1>`等)和段落(`<p>`)默认情况下都是块级的盒子。
@@ -231,13 +231,13 @@ https://specifishity.com/
 如果一个盒子对外显示为 `inline`，那么他的行为如下:
 
 - 盒子不会产生换行。
--  [`width`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/width) 和 [`height`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/height) 属性将不起作用。
+-  [`width`](https://developer.mozilla.org//docs/Web/CSS/width) 和 [`height`](https://developer.mozilla.org//docs/Web/CSS/height) 属性将不起作用。
 - 垂直方向的内边距、外边距以及边框会被应用但是不会把其他处于 `inline` 状态的盒子推开。
 - 水平方向的内边距、外边距以及边框会被应用且会把其他处于 `inline` 状态的盒子推开。
 
 用做链接的 `<a>` 元素、 `<span>`、 `<em>` 以及 `<strong>` 都是默认处于 `inline` 状态的。
 
-我们通过对盒子[`display`](https://developer.mozilla.org/zh-CN/docs/Web/CSS/display) 属性的设置，比如 `inline` 或者 `block` ，来控制盒子的外部显示类型。
+我们通过对盒子[`display`](https://developer.mozilla.org//docs/Web/CSS/display) 属性的设置，比如 `inline` 或者 `block` ，来控制盒子的外部显示类型。
 
 组成部分：`content(width|height) + padding(内边距) + border(边框) + margin(外边距)`
 

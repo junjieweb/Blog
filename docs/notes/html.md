@@ -3,8 +3,8 @@
 ## 简介
 
 1. **HTML**（超文本标记语言——HyperText Markup Language）是构成 Web 世界的一砖一瓦。它定义了网页内容的含义和结构。除 HTML
-   以外的其它技术则通常用来描述一个网页的表现与展示效果（如 [CSS](https://developer.mozilla.org/zh-CN/docs/Web/CSS)
-   ），或功能与行为（如 [JavaScript](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript)）。
+   以外的其它技术则通常用来描述一个网页的表现与展示效果（如 [CSS](https://developer.mozilla.org//docs/Web/CSS)
+   ），或功能与行为（如 [JavaScript](https://developer.mozilla.org//docs/Web/JavaScript)）。
 
 2. “超文本”（hypertext）是指连接单个网站内或多个网站间的网页的链接。链接是网络的一个基本方面。只要将内容上传到互联网，并将其与他人创建的页面相链接，你就成为了万维网的积极参与者。
 
@@ -12,14 +12,14 @@
    标签可以写成 `<Title>`，`<TITLE>` 或以任何其他方式。
 
 4. HTML(HyperText Markup Language) 不是一门编程语言，而是一种用来告知浏览器如何组织页面的**标记语言**。HTML 可复杂、可简单，一切取决于开发者。它由一系列的**
-   元素（[elements](https://developer.mozilla.org/zh-CN/docs/Glossary/Element)）**组成，这些元素可以用来包围不同部分的内容，使其以某种方式呈现或者工作。
-   一对标签（ [tags](https://developer.mozilla.org/zh-CN/docs/Glossary/Tag)）可以为一段文字或者一张图片添加超链接，将文字设置为斜体，改变字号，等等。
+   元素（[elements](https://developer.mozilla.org//docs/Glossary/Element)）**组成，这些元素可以用来包围不同部分的内容，使其以某种方式呈现或者工作。
+   一对标签（ [tags](https://developer.mozilla.org//docs/Glossary/Tag)）可以为一段文字或者一张图片添加超链接，将文字设置为斜体，改变字号，等等。
 
 ## 什么是 HTML?
 
-[HTML](https://developer.mozilla.org/zh-CN/docs/Glossary/HTML) (HyperText Markup Language) 不是一门编程语言，而是一种用来告知浏览器如何组织页面的**
-标记语言**。它由一系列的**元素（[elements](https://developer.mozilla.org/zh-CN/docs/Glossary/Element)）**
-组成，这些元素可以用来包围不同部分的内容，使其以某种方式呈现或者工作。 一对标签（ [tags](https://developer.mozilla.org/zh-CN/docs/Glossary/Tag)
+[HTML](https://developer.mozilla.org//docs/Glossary/HTML) (HyperText Markup Language) 不是一门编程语言，而是一种用来告知浏览器如何组织页面的**
+标记语言**。它由一系列的**元素（[elements](https://developer.mozilla.org//docs/Glossary/Element)）**
+组成，这些元素可以用来包围不同部分的内容，使其以某种方式呈现或者工作。 一对标签（ [tags](https://developer.mozilla.org//docs/Glossary/Tag)
 ）可以为一段文字或者一张图片添加超链接，将文字设置为斜体，改变字号，等等。
 
 > **注：**HTML 标签不区分大小写。也就是说，输入标签时既可以使用大写字母也可以使用小写字母。例如，标签`<title>`写作`<title>、<TITLE>、<Title>、<TiTlE>`
@@ -66,7 +66,7 @@
 
 ### 布尔属性
 
-有时你会看到没有值的属性，它是合法的。这些属性被称为布尔属性，他们只能有跟它的属性名一样的属性值。例如[`disabled`](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Input#attr-disabled)
+有时你会看到没有值的属性，它是合法的。这些属性被称为布尔属性，他们只能有跟它的属性名一样的属性值。例如[`disabled`](https://developer.mozilla.org//docs/Web/HTML/Element/Input#attr-disabled)
 属性，他们可以标记表单输入使之变为不可用(变灰色)，此时用户不能向他们输入任何数据。
 
 ```
@@ -95,7 +95,7 @@
 <!-- 声明文档类型。只需要知道 `<!DOCTYPE html>` 是最短有效的文档声明。 -->
 <!DOCTYPE html>
 <!-- 这个元素包裹了整个完整的页面，是一个根元素。 -->
-<html lang="zh-CN">
+<html lang="">
 <!-- 这个元素是一个容器，它包含了所有你想包含在HTML页面中但不想在HTML页面中显示的内容。
 这些内容包括你想在搜索结果中出现的关键字和页面描述，CSS样式，字符集声明等等。 -->
 <head>
@@ -146,7 +146,7 @@
 -->
 <!DOCTYPE html>
 <!--网页的根标签,所有其它的标签都被包含-->
-<html lang="zh-CN">
+<html lang="">
 <!--头部标签,关于网页的一些配置信息-->
 <head>
     <!-- 指定文档中字符的编码 -->
