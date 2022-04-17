@@ -384,9 +384,10 @@ display有一个特殊的值，它在内联和块之间提供了一个中间状�
 都很重要。浮动定位和清除浮动时只会应用于同一个BFC内的元素。浮动不会影响其它BFC中元素的布局，而清除浮动只能清除同一BFC中在它前面的元素的浮动。外边距折叠（[Margin collapsing](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Box_Model/Mastering_margin_collapsing)
 ）也只会发生在属于同一BFC的块级元素之间。
 
-## 浮动（float）
+## 浮动 float
 
-[float](https://developer.mozilla.org/zh-CN/docs/Web/CSS/float) CSS 属性指定一个元素应沿其容器的左侧或右侧放置，允许文本和内联元素环绕它。该元素从网页的正常流动（文档流）中移除，尽管仍然保持部分的流动性（与绝对定位相反）。
+[float](https://developer.mozilla.org/zh-CN/docs/Web/CSS/float) CSS
+属性指定一个元素应沿其容器的左侧或右侧放置，允许文本和内联元素环绕它。该元素从网页的正常流动（文档流）中移除，尽管仍然保持部分的流动性（与绝对定位相反）。
 
 `float: none;` `float: left;` `float: right;`
 
@@ -401,9 +402,11 @@ display有一个特殊的值，它在内联和块之间提供了一个中间状�
 
 ## 定位 position
 
-CSS [position](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position) 属性用于指定一个元素在文档中的定位方式。`top`，`right`，`bottom` 和 `left` 属性则决定了该元素的最终位置。
+CSS [position](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position) 属性用于指定一个元素在文档中的定位方式。`top`，`right`，`bottom`
+和 `left` 属性则决定了该元素的最终位置。
 
 #### 定位类型
+
 - **定位元素（positioned element）** 是其计算后位置属性为 `relative`, `absolute`, `fixed` 或 `sticky` 的一个元素（换句话说，除static以外的任何东西）。
 - **相对定位元素（relatively positioned element）** 是计算后位置属性为 `relative` 的元素。
 - **绝对定位元素（absolutely positioned element）** 是计算后位置属性为 `absolute` 或 `fixed` 的元素。
@@ -434,3 +437,132 @@ CSS [position](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position) 属性
 2. 相对于视口进行定位的
 3. 会固定在网页的视口上，不会随网页滚动
 
+#### 定位的水平垂直居中
+
+水平居中：`left: 50%;` 走父元素宽度的一半，`margin-left: -自身宽度/2;`，往回走。
+
+垂直居中：`top: 50%;` 走父元素高度的一半，`margin-top: -自身高度/2;`，往回走。
+
+## 弹性盒 flex
+
+弹性盒子是一种用于按行或按列布局元素的一维布局方法 。元素可以膨胀以填充额外的空间, 收缩以适应更小的空间。
+
+使用弹性盒，必须先设置弹性盒容器：`display: flex;` 或 `display: inline-flex;`
+
+### flex 模型说明
+
+当元素表现为 flex 框时，它们沿着两个轴来布局：
+
+![flex_terms.png](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox/flex_terms.png)
+
+- **主轴（main axis）** 是沿着 flex 元素放置的方向延伸的轴（比如页面上的横向的行、纵向的列）。该轴的开始和结束被称为 **main start** 和 **main end**。
+- **交叉轴（cross axis）** 是垂直于 flex 元素放置方向的轴。该轴的开始和结束被称为 **cross start** 和 **cross end**。
+- 设置了 `display: flex` 的父元素被称之为 **flex 容器（flex container）。**
+- 在 flex 容器中表现为柔性的盒子的元素被称之为 **flex 项**（**flex item**）。
+
+### flex 容器
+
+#### 弹性元素的排布方式
+
+`flex-direction: row | row-reverse | column | column-reverse;`
+
+- `row`：横向从左到右排列（左对齐），默认的排列方式。
+- `row-reverse`：反转横向排列（右对齐，从后往前排，最后一项排在最前面。
+- `column`：纵向排列。
+- `column-reverse`：反转纵向排列，从后往前排，最后一项排在最上面
+
+#### 弹性元素的换行方式
+
+`flex-wrap: nowrap|wrap|wrap-reverse|initial|inherit;`
+
+- `nowrap` - 默认， 弹性容器为单行。该情况下弹性子项可能会溢出容器。
+- `wrap` - 弹性容器为多行。该情况下弹性子项溢出的部分会被放置到新行，子项内部会发生断行
+- `wrap-reverse` -反转 wrap 排列。
+
+#### flex-flow 缩写
+
+`flex-direction` 和 `flex-wrap` — 的缩写 `flex-flow`。
+
+`flex-direction: row;` 和 `flex-wrap: wrap;` 可以替换为 `flex-flow: row wrap;`
+
+#### 主轴对齐方式
+
+`justify-content: flex-start | flex-end | center | space-between | space-around;`
+
+- `flex-start`：弹性项目向行头紧挨着填充。这个是默认值。第一个弹性项的main-start外边距边线被放置在该行的main-start边线，而后续弹性项依次平齐摆放。
+
+- `flex-end`：弹性项目向行尾紧挨着填充。第一个弹性项的main-end外边距边线被放置在该行的main-end边线，而后续弹性项依次平齐摆放。
+
+- `center`：弹性项目居中紧挨着填充。（如果剩余的自由空间是负的，则弹性项目将在两个方向上同时溢出）。
+
+- `space-between`
+  ：弹性项目平均分布在该行上。如果剩余空间为负或者只有一个弹性项，则该值等同于flex-start。否则，第1个弹性项的外边距和行的main-start边线对齐，而最后1个弹性项的外边距和行的main-end边线对齐，然后剩余的弹性项分布在该行上，相邻项目的间隔相等。
+
+- `space-around`
+  ：弹性项目平均分布在该行上，两边留有一半的间隔空间。如果剩余空间为负或者只有一个弹性项，则该值等同于center。否则，弹性项目沿该行分布，且彼此间隔相等（比如是20px），同时首尾两边和弹性容器之间留有一半的间隔（1/2*
+  20px=10px）。
+
+效果图展示：
+![img.png](../.vuepress/public/images/css/img.png)
+
+#### 侧轴对齐方式
+
+`align-items: flex-start | flex-end | center | baseline | stretch;`
+
+- `flex-start`：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
+- `flex-end`：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
+- `center`：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
+- `baseline`：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'`flex-start`'等效。其它情况下，该值将参与基线对齐。
+- `stretch`：如果指定侧轴大小的属性值为`auto`，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照`min/max-width/height`属性的限制。
+
+#### 侧轴元素额外空间的分配
+
+`align-content` 属性用于修改 `flex-wrap` 属性的行为。类似于 `align-items`, 但它不是设置弹性子元素的对齐，而是设置各个行的对齐。
+
+`align-content: flex-start | flex-end | center | space-between | space-around | stretch;`
+
+- `stretch` - 默认。各行将会伸展以占用剩余的空间。
+- `flex-start` - 各行向弹性盒容器的起始位置堆叠。
+- `flex-end` - 各行向弹性盒容器的结束位置堆叠。
+- `center` -各行向弹性盒容器的中间位置堆叠。
+- `space-between` -各行在弹性盒容器中平均分布。
+- `space-around` - 各行在弹性盒容器中平均分布，两端保留子元素与子元素之间间距大小的一半。
+
+### flex 元素
+
+#### 指定弹性元素的排列顺序
+
+`order: 0;`
+
+- 所有 `flex` 项默认的 `order` 值是 0。
+- 相同 order 值的 flex 项按源顺序显示。
+- 用整数值来定义排列顺序，数值小的排在前面。可以为负值。
+
+#### 完美居中
+
+使用弹性盒子，居中变的很简单，只需要设置弹性元素 `margin: auto;` 可以使得弹性元素在两上轴方向上完全居中
+
+#### 弹性元素自身在侧轴方向上的对齐方式。
+
+`align-self: auto | flex-start | flex-end | center | baseline | stretch`
+
+- `auto`：如果`align-self`'的值为`auto`，则其计算值为元素的父元素的`align-items`值，如果其没有父元素，则计算值为`stretch`。
+- `flex-start`：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
+- `flex-end`：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
+- `center`：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
+- `baseline`：如弹性盒子元素的行内轴与侧轴为同一条，则该值与`flex-start`等效。其它情况下，该值将参与基线对齐。
+- `stretch`：如果指定侧轴大小的属性值为`auto`，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照`min/max-width/height`属性的限制。
+
+#### 简写属性
+
+flex 属性用于指定弹性子元素如何分配空间。
+
+`flex: auto | initial | none | inherit |  [ flex-grow ] || [ flex-shrink ] || [ flex-basis ]`
+
+- `auto`: 计算值为 1 1 auto
+- `initial`: 计算值为 0 1 auto
+- `none`：计算值为 0 0 auto
+- `inherit`：从父元素继承
+- `[ flex-grow ]`：定义弹性盒子元素的扩展比率。
+- `[ flex-shrink ]`：定义弹性盒子元素的收缩比率。
+- `[ flex-basis ]`：定义弹性盒子元素的默认基准值。
