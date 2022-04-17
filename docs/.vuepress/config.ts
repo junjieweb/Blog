@@ -52,6 +52,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                     collapsible: true,
                     children: [
                         '/notes/tools/README.md',
+                        '/notes/tools/websites.md',
                     ],
                 },
                 {
