@@ -220,7 +220,17 @@
 
 ## 音视频标签
 
-**audio** 标签用来向页面中引入一个外部的音频文件`<audio src="" controls autoplay loop></audio>`
+**audio** 标签用来向页面中引入外部的音频文件
+
+```html
+<!-- 引入单个文件 -->
+<audio src="" controls autoplay loop></audio>
+<!-- 引入多个文件 -->
+<audio src="" controls autoplay loop>
+    <source src="" type="">
+    <source src="" type="">
+</audio>
+```
 
 音视频文件引入时，默认情况下不允许用户自己控制播放停止
 
@@ -291,6 +301,23 @@ HTML表单是用户和web站点或应用程序之间交互的主要内容之一�
 ```html
   <!-- action 请求提交的路径 -->
 <form action="">
+    <!-- 邮箱类型 -->
+    <input type="email" name="" id="">
+    <!-- 网址类型 -->
+    <input type="url" name="" id="">
+    <!-- 本地时间类型 -->
+    <input type="datetime-local" name="" id="">
+    <!-- 月类型 -->
+    <input type="month" name="" id="">
+    <!-- 日类型 -->
+    <input type="date" name="" id="">
+    <!-- 周类型 -->
+    <input type="week" name="" id="">
+    <!-- 颜色 -->
+    <input type="color" name="" id="">
+    <!-- 滑块 -->
+    <input type="range" name="" id="">
+
     <!-- 文本框 -->
     <input type="text">
     <!-- 密码框 -->
