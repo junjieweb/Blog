@@ -2,14 +2,17 @@
 
 ## 简介
 
-**层叠样式表** (Cascading Style Sheets，缩写为 **CSS**），是一种 [样式表](https://developer.mozilla.org//docs/Web/API/StyleSheet) 语言，用来描述 [HTML](https://developer.mozilla.org//docs/Web/HTML) 或 [XML](https://developer.mozilla.org//docs/Web/XML/XML_Introduction)（包括如 [SVG](https://developer.mozilla.org//docs/Web/SVG)、[MathML](https://developer.mozilla.org//docs/Web/MathML)、[XHTML](https://developer.mozilla.org//docs/Glossary/XHTML) 之类的 XML 分支语言）文档的呈现。CSS 描述了在屏幕、纸质、音频等其它媒体上的元素应该如何被渲染的问题。
+**层叠样式表** (Cascading Style Sheets，缩写为 **CSS**），用于设置和布置网页 - 例如，更改内容的字体，颜色，大小和间距，将其拆分为多个列，或添加动画和其他装饰功能。
 
-CSS 是**开放网络**的核心语言之一，由 [W3C 规范](https://w3.org/Style/CSS/#specs) 实现跨浏览器的标准化。CSS节省了大量的工作。 样式可以通过定义保存在外部.css文件中，同时控制多个网页的布局，这意味着开发者不必经历在所有网页上编辑布局的麻烦。CSS 被分为不同等级：CSS1 现已废弃， CSS2.1 是推荐标准， [CSS3](https://developer.mozilla.org//docs/CSS/CSS3) 分成多个小模块且正在标准化中。
+CSS 是**开放网络**的核心语言之一，由 [W3C 规范](https://w3.org/Style/CSS/#specs) 实现跨浏览器的标准化。CSS节省了大量的工作。
+样式可以通过定义保存在外部.css文件中，同时控制多个网页的布局，这意味着开发者不必经历在所有网页上编辑布局的麻烦。CSS 被分为不同等级：CSS1 现已废弃， CSS2.1
+是推荐标准， [CSS3](https://developer.mozilla.org//docs/CSS/CSS3) 分成多个小模块且正在标准化中。
 
-**编写的位置**
+#### 编写的位置
 
 1. 第一种：内联样式：可将css代码编写到标签的style属性中
-   - `<p style="color: red; font-size: 30px;">海内存知己，天涯若比邻！</p>`
+
+   `<p style="color: red; font-size: 30px;">海内存知己，天涯若比邻！</p>`
 
 2. 第二种：内部样式表：可以将css代码编写到一个style标签中
 
@@ -25,68 +28,96 @@ CSS 是**开放网络**的核心语言之一，由 [W3C 规范](https://w3.org/S
 
 3. 第三种：外部样式表：可以将css代码编写到一个外部文件中，然后通过link标签引入
 
-   `<link rel="stylesheet" href="./style.css">`
+   `<link rel="stylesheet" href="./index.css">`
 
-**CSS 语法**
+## CSS 语法
 
-CSS是一门基于规则的语言 —— 你能定义用于你的网页中特定元素样式的一组规则. 比如“我希望页面中的主标题是红色的大字”
-
-下面这段代码使用非常简单的 CSS 规则实现了之前提到的效果:
+和 HTML 类似，CSS 也不是真正的编程语言，甚至不是标记语言。它是一门样式表语言，这也就是说人们可以用它来选择性地为 HTML 元素添加样式。举例来说，要选择一个 HTML 页面里所有的段落元素，然后将其中的文本改成红色，可以这样写
+CSS：
 
 ```css
-h1 {
+p {
     color: red;
-    font-size: 5em;
 }
 ```
 
-语法由一个 [选择器(selector)](https://developer.mozilla.org//docs/Glossary/CSS_Selector)起头。 它 *选择(selects)* 了我们将要用来添加样式的 HTML 元素。 在这个例子中我们为一级标题（主标题[`` (zh-CN)](https://developer.mozilla.org/zh-CN/docs/Web/HTML/Element/Heading_Elements)）添加样式。
+#### “CSS 规则集”详解
 
-接着输入一对大括号`{ }`。 在大括号内部定义一个或多个形式为 **属性(property):值(value);** 的 **声明(declarations)**。每个声明都指定了我们所选择元素的一个属性，之后跟一个我们想赋给这个属性的值。
+让我们来仔细看一看上述CSS：
 
-冒号之前是属性，冒号之后是值。不同的 CSS [属性(properties) (zh-CN)](https://developer.mozilla.org/zh-CN/docs/Glossary/property/CSS) 对应不同的合法值。在这个例子中，我们指定了 `color` 属性，它可以接受许多[颜色值](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Values_and_units#color)；还有 `font-size` 属性，它可以接收许多 [size units](https://developer.mozilla.org/zh-CN/docs/Learn/CSS/Building_blocks/Values_and_units#numbers_lengths_and_percentages) 值。
+![图解CSS声明](https://mdn.mozillademos.org/files/16483/css-declaration.png)
+
+整个结构称为 **规则集**（通常简称“规则”），各部分释义如下：
+
+- 选择器（Selector）
+
+  HTML 元素的名称位于规则集开始。它选择了一个或多个需要添加样式的元素（在这个例子中就是 `p` 元素）。要给不同元素添加样式只需要更改选择器就行了。
+
+- 声明（**Declaration**）
+
+  一个单独的规则，如 `color: red;` 用来指定添加样式元素的**属性**。
+
+- 属性（**Properties**）
+
+  改变 HTML 元素样式的途径。（本例中 `color` 就是元素的属性。）CSS 中，由编写人员决定修改哪个属性以改变规则。
+
+- 属性的值（Property value）
+
+  在属性的右边，冒号后面即**属性的值**，它从指定属性的众多外观中选择一个值（我们除了 `red` 之外还有很多属性值可以用于 `color` ）。
+
+注意其他重要的语法：
+
+- 每个规则集（除了选择器的部分）都应该包含在成对的大括号里（`{}`）。
+- 在每个声明里要用冒号（`:`）将属性与属性值分隔开。
+- 在每个规则集里要用分号（`;`）将各个声明分隔开。
+
+如果要同时修改多个属性，只需要将它们用分号隔开，就像这样：
+
+```css
+p {
+    color: red;
+    width: 500px;
+    border: 1px solid black;
+}
+```
+
+#### 多元素选择
+
+也可以选择多种类型的元素并为它们添加一组相同的样式。将不同的选择器用逗号分开。例如：
+
+```css
+p, li, h1 {
+    color: red;
+}
+```
 
 ## 选择器
 
 CSS选择器是CSS规则的第一部分。它是元素和其他部分组合起来告诉浏览器哪个HTML元素应当是被选为应用规则中的CSS属性值的方式。选择器所选择的元素，叫做“选择器的对象”。
 
-**常用选择器**
+#### 基本选择器
 
-- 元素选择器：根据标签名来选中指定的元素 `p{}`
-- id选择器：根据元素的id属性值选中一个元素 `#myid{}`
-- 类选择器：根据元素的class属性选中一组元素 `.myclass{}`
-- 通配选择器：选中页面中的所有元素 `*{}`
+| 选择器名称              | 选择的内容              | 示例            |
+|:-------------------|:-------------------|:--------------|
+| 通配选择器              | 选中页面中的所有元素         | `*{}`         |
+| 元素选择器（也称作标签或类型选择器） | 所有指定(该)类型的 HTML 元素 | `p{}`         |
+| ID 选择器             | 具有特定 ID 的元素        | `#my-id{}`    |
+| 类选择器               | 具有特定类的元素           | `.my-class{}` |
+| 属性选择器              | 拥有特定属性的元素          | `img[src]`    |
+| 选择器列表              | 同时选择多个选择器对应的元素     | `div,p,span`  |
+| 子元素选择器             | 选择指定父元素的指定子元素      | `ul > li`     |
+| 后代元素选择器            | 选中指定元素内的指定后代元素     | `div span`    |
+| 相邻兄弟选择器            | 选择指定元素第一个指定兄弟元素    | `div + p`     |
+| 通用兄弟选择器            | 指定元素所有指定兄弟元素       | `div ~ p`     |
 
-**复合选择器**
 
-- 交集选择器：选中同时符合多个条件的元素
-   - 语法：选择器1选择器2选择器n{}
-   - 注意：交集选择器中如果有元素选择器，必须使用元素选择器开头
-- 选择器分组（并集选择器）：同时选择多个选择器对应的元素
-   - 语法：选择器1,选择器2,选择器n{}
-   - `#myid,.p,h1,span,div.myclass{}`
-
-**关系选择器**
-
-- 父元素：直接包含子元素的元素叫做父元素
-- 子元素：直接被父元素包含的元素是子元素
-- 祖先元素：直接或间接包含后代的元素叫做祖先元素，一个元素的父元素也是它的祖先元素
-- 后代元素：直接或间接被祖先元素包含的元素叫做后代元素，子元素也是后代元素
-- 兄弟元素：拥有相同父元素的元素是兄弟元素
-- 子元素选择器：选中指定父元素的指定子元素 `父元素 > 子元素{}`
-- 后代元素选择器：选中指定元素内的指定后代元素 `祖先 后代{}`
-- 选择下一个兄弟 `前一个 + 下一个{}`
-- 选择下边所有的兄弟 `兄 ~ 弟{}`
-
-**属性选择器**
 
 - 根据元素的属性来获取元素
-   - [属性名] 选择含有指定属性的元素
-   - [属性名 = 属性值] 选择含有指定属性和属性值的元素
-   - [属性名 ^= 属性值] 选择属性值以指定值开头的元素
-   - [属性名 $= 属性值] 选择属性值以指定值结尾的元素
-   - [属性名 *= 属性值] 选择属性值中含有某值的元素的元素
-
+    - [属性名] 选择含有指定属性的元素
+    - [属性名 = 属性值] 选择含有指定属性和属性值的元素
+    - [属性名 ^= 属性值] 选择属性值以指定值开头的元素
+    - [属性名 $= 属性值] 选择属性值以指定值结尾的元素
+    - [属性名 *= 属性值] 选择属性值中含有某值的元素的元素
 
 **伪类选择器**
 
@@ -94,31 +125,30 @@ CSS选择器是CSS规则的第一部分。它是元素和其他部分组合起�
 - 伪类用来描述一个元素的特殊状态
 - 比如：第一个子元素、被点击的元素、鼠标移入的元素
 - 伪类一般情况下都是使用:开头
-   - :first-child 第一个子元素
-   - :first-of-type      同类型的第一个子元素
-   - :last-child 最后一个子元素
-   - :last-of-type      同类型的最后一个子元素
-   - :nth-child(n) 选中第n个子元素
-   - :nth-of-type(n)      同类型的第N个子元素 
-   - :only-child 唯一的子元素      
-   - :only-of-type      同类型中唯一的子元素 
-   - :empty 空元素 
-   - :not() 除了 
-   - :link      正常的链接（没访问过的链接） 
-   - :visited 访问过的链接
-   - :hover 鼠标移入的状态 
-   - :active 鼠标点击的状态
-
+    - :first-child 第一个子元素
+    - :first-of-type 同类型的第一个子元素
+    - :last-child 最后一个子元素
+    - :last-of-type 同类型的最后一个子元素
+    - :nth-child(n) 选中第n个子元素
+    - :nth-of-type(n)      同类型的第N个子元素
+    - :only-child 唯一的子元素
+    - :only-of-type 同类型中唯一的子元素
+    - :empty 空元素
+    - :not() 除了
+    - :link 正常的链接（没访问过的链接）
+    - :visited 访问过的链接
+    - :hover 鼠标移入的状态
+    - :active 鼠标点击的状态
 
 **伪元素选择器**
 
 - 伪元素，表示页面中一些特殊的并不真实存在的元素（特殊的位置）
 - 伪元素使用 :: 开头
-   - ::before 元素内部的开始位置 
-   - ::after 元素内部的结束位置 
-   - ::selection 选中的内容 
-   - ::first-letter 第一个字母（汉字） 
-   - ::first-line 第一行 
+    - ::before 元素内部的开始位置
+    - ::after 元素内部的结束位置
+    - ::selection 选中的内容
+    - ::first-letter 第一个字母（汉字）
+    - ::first-line 第一行
 
 <table class="standard-table">
  <thead>
@@ -202,8 +232,9 @@ CSS选择器是CSS规则的第一部分。它是元素和其他部分组合起�
 
 - 比较优先级时，需要将所有的选择器的优先级相加计算，最后优先级越高，则越优先显示（分组选择器是单独计算的）
 
-- - 选择器的累加不会超过其最大的数量级，类选择器在高也不会超过id选择器
-   - 如果优先级计算后相等，此时则优先使用靠下的样式
+-
+    - 选择器的累加不会超过其最大的数量级，类选择器在高也不会超过id选择器
+    - 如果优先级计算后相等，此时则优先使用靠下的样式
 
 - 可以在某一个样式的后面添加 **!important**，则此时该样式会获取到最高的优先级，甚至超过内联样式
 
@@ -217,13 +248,15 @@ https://specifishity.com/
 
 在 CSS 中，所有的元素都被一个个的“盒子（box）”包围着，理解这些“盒子”的基本原理，是我们使用CSS实现准确布局、处理元素排列的关键。
 
-在 CSS 中我们广泛地使用两种“盒子” —— **块级盒子** (**block box**) 和 **内联盒子** (**inline box**)**。**这两种盒子会在**页面流**（page flow）和**元素之间的关系**方面表现出不同的行为:
+在 CSS 中我们广泛地使用两种“盒子” —— **块级盒子** (**block box**) 和 **内联盒子** (**inline box**)**。**这两种盒子会在**页面流**（page flow）和**元素之间的关系**
+方面表现出不同的行为:
 
 一个被定义成块级的（block）盒子会表现出以下行为:
 
 - 盒子会在内联的方向上扩展并占据父容器在该方向上的所有可用空间，在绝大数情况下意味着盒子会和父容器一样宽
 - 每个盒子都会换行
-- [`width`](https://developer.mozilla.org//docs/Web/CSS/width) 和 [`height`](https://developer.mozilla.org//docs/Web/CSS/height) 属性可以发挥作用
+- [`width`](https://developer.mozilla.org//docs/Web/CSS/width)
+  和 [`height`](https://developer.mozilla.org//docs/Web/CSS/height) 属性可以发挥作用
 - 内边距（padding）, 外边距（margin） 和 边框（border） 会将其他元素从当前盒子周围“推开”
 
 除非特殊指定，诸如标题(`<h1>`等)和段落(`<p>`)默认情况下都是块级的盒子。
@@ -231,7 +264,8 @@ https://specifishity.com/
 如果一个盒子对外显示为 `inline`，那么他的行为如下:
 
 - 盒子不会产生换行。
--  [`width`](https://developer.mozilla.org//docs/Web/CSS/width) 和 [`height`](https://developer.mozilla.org//docs/Web/CSS/height) 属性将不起作用。
+- [`width`](https://developer.mozilla.org//docs/Web/CSS/width)
+  和 [`height`](https://developer.mozilla.org//docs/Web/CSS/height) 属性将不起作用。
 - 垂直方向的内边距、外边距以及边框会被应用但是不会把其他处于 `inline` 状态的盒子推开。
 - 水平方向的内边距、外边距以及边框会被应用且会把其他处于 `inline` 状态的盒子推开。
 
@@ -254,13 +288,12 @@ IE标准：`width = content + padding + border`
 
 ```css
 /* 清除浮动 */
-.clearfix::after{
+.clearfix::after {
     content: '';
     clear: both;
     display: block;
 }
 ```
-
 
 ## overflow和BFC-定位/绝对定位
 
@@ -281,7 +314,6 @@ IE标准：`width = content + padding + border`
 - `overflow`的值不是默认值
 - `display: table-cell;`
 - `position`的值不是`static和relative`
-
 
 ### 定位
 
