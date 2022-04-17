@@ -4,10 +4,10 @@ import type {DefaultThemeOptions} from 'vuepress'
 export default defineUserConfig<DefaultThemeOptions>({
     // 站点配置
     base: '/Front-end-Developer/',
-    lang: '',
+    lang: 'zh-CN',
     title: 'Junjie',
     description: 'Front-end web developer',
-    head: [['link', { rel: 'icon', href: '/images/logo.svg' }]],
+    head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
     // 主题和它的配置
     theme: '@vuepress/theme-default',
     themeConfig: {
