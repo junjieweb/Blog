@@ -48,6 +48,13 @@ export default defineUserConfig<DefaultThemeOptions>({
                     ],
                 },
                 {
+                    text: 'Tools',
+                    collapsible: true,
+                    children: [
+                        '/notes/tools/README.md',
+                    ],
+                },
+                {
                     text: '笔记',
                     collapsible: true,
                     children: [
