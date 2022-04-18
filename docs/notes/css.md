@@ -455,65 +455,174 @@ CSS [position](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position) 属性
 
 ![flex_terms.png](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox/flex_terms.png)
 
-- **主轴（main axis）** 是沿着 flex 元素放置的方向延伸的轴（比如页面上的横向的行、纵向的列）。该轴的开始和结束被称为 **main start** 和 **main end**。
-- **交叉轴（cross axis）** 是垂直于 flex 元素放置方向的轴。该轴的开始和结束被称为 **cross start** 和 **cross end**。
-- 设置了 `display: flex` 的父元素被称之为 **flex 容器（flex container）。**
-- 在 flex 容器中表现为柔性的盒子的元素被称之为 **flex 项**（**flex item**）。
+- **弹性容器**：设置了`display:flex;` 或 `display: inline-flex;` 的元素称为 **flex 容器（flex container）。**
 
-### flex 容器
+- **弹性元素**：设置了 `display:flex;` 元素的子元素称为 **flex 项**（**flex item**）。
 
-#### 弹性元素的排布方式
+    - 弹性盒可以嵌套，一个元素可以是弹性容器，也可以是弹性元素
+
+- **主轴（main axis）**：弹性元素的排列方向称为主轴。该轴的开始和结束被称为 **main start** 和 **main end**。
+
+- **侧轴（cross axis）**：与主轴垂直方向的称为侧轴。该轴的开始和结束被称为 **cross start** 和 **cross end**。
+
+### flex 容器相关属性
+
+#### 弹性容器中弹性元素的排列方式 `flex-direction`。
 
 `flex-direction: row | row-reverse | column | column-reverse;`
 
-- `row`：横向从左到右排列（左对齐），默认的排列方式。
-- `row-reverse`：反转横向排列（右对齐，从后往前排，最后一项排在最前面。
-- `column`：纵向排列。
-- `column-reverse`：反转纵向排列，从后往前排，最后一项排在最上面
+- `row`：默认值，弹性元素在容器中水平排列，自左向右。（主轴：自左向右）
+    <ul style="margin:0;padding:0;width: 300px;border: #777777 1px solid;list-style: none;display: flex;flex-direction: row">
+        <li style="width: 50px;height: 30px;background: #bbffcc;text-align: center;line-height: 30px;">1</li>
+        <li style="width: 50px;height: 30px;background: pink;text-align: center;line-height: 30px;">2</li>
+        <li style="width: 50px;height: 30px;background: orange;;text-align: center;line-height: 30px;">3</li>
+    </ul>
 
-#### 弹性元素的换行方式
+- `row-reverse`：弹性元素在容器中反向水平排列，自右向左。（主轴：自右向左）
+    <ul style="margin:0;padding:0;width: 300px;border: #777777 1px solid;list-style: none;display: flex;flex-direction: row-reverse">
+        <li style="width: 50px;height: 30px;background: #bbffcc;text-align: center;line-height: 30px;">1</li>
+        <li style="width: 50px;height: 30px;background: pink;text-align: center;line-height: 30px;">2</li>
+        <li style="width: 50px;height: 30px;background: orange;;text-align: center;line-height: 30px;">3</li>
+    </ul>
+- `column`：弹性元素纵向排列，自上向下。（主轴：自上向下）
+    <ul style="margin:0;padding:0;width: 300px;border: #777777 1px solid;list-style: none;display: flex;flex-direction: column">
+        <li style="width: 50px;height: 30px;background: #bbffcc;text-align: center;line-height: 30px;">1</li>
+        <li style="width: 50px;height: 30px;background: pink;text-align: center;line-height: 30px;">2</li>
+        <li style="width: 50px;height: 30px;background: orange;;text-align: center;line-height: 30px;">3</li>
+    </ul>
+- `column-reverse`：弹性元素反向纵向排列，自下向上。（主轴：自下向上）
+    <ul style="margin:0;padding:0;width: 300px;border: #777777 1px solid;list-style: none;display: flex;flex-direction: column-reverse">
+        <li style="width: 50px;height: 30px;background: #bbffcc;text-align: center;line-height: 30px;">1</li>
+        <li style="width: 50px;height: 30px;background: pink;text-align: center;line-height: 30px;">2</li>
+        <li style="width: 50px;height: 30px;background: orange;;text-align: center;line-height: 30px;">3</li>
+    </ul>
+
+#### 弹性容器中弹性元素的换行方式
 
 `flex-wrap: nowrap|wrap|wrap-reverse|initial|inherit;`
 
-- `nowrap` - 默认， 弹性容器为单行。该情况下弹性子项可能会溢出容器。
-- `wrap` - 弹性容器为多行。该情况下弹性子项溢出的部分会被放置到新行，子项内部会发生断行
-- `wrap-reverse` -反转 wrap 排列。
+- `nowrap` - 默认值，溢出部分不换行。
+    <ul style="margin:0;padding:0;width: 120px;border: #777777 1px solid;list-style: none;display: flex;flex-direction: row">
+        <li style="width: 50px;height: 30px;background: #bbffcc;text-align: center;line-height: 30px;flex-shrink: 0">1</li>
+        <li style="width: 50px;height: 30px;background: pink;text-align: center;line-height: 30px;flex-shrink: 0">2</li>
+        <li style="width: 50px;height: 30px;background: orange;;text-align: center;line-height: 30px;flex-shrink: 0">3</li>
+    </ul>
 
-#### flex-flow 缩写
+- `wrap` - 沿着侧轴方向自动换行。
+    <ul style="margin:0;padding:0;width: 120px;border: #777777 1px solid;list-style: none;display: flex;flex-direction: row;flex-wrap: wrap">
+        <li style="width: 50px;height: 30px;background: #bbffcc;text-align: center;line-height: 30px;flex-shrink: 0">1</li>
+        <li style="width: 50px;height: 30px;background: pink;text-align: center;line-height: 30px;flex-shrink: 0">2</li>
+        <li style="width: 50px;height: 30px;background: orange;;text-align: center;line-height: 30px;flex-shrink: 0">3</li>
+    </ul>
+- `wrap-reverse` - 沿着侧轴反向自动换行。
+    <ul style="margin:0;padding:0;width: 120px;border: #777777 1px solid;list-style: none;display: flex;flex-direction: row;flex-wrap: wrap-reverse">
+        <li style="width: 50px;height: 30px;background: #bbffcc;text-align: center;line-height: 30px;flex-shrink: 0">1</li>
+        <li style="width: 50px;height: 30px;background: pink;text-align: center;line-height: 30px;flex-shrink: 0">2</li>
+        <li style="width: 50px;height: 30px;background: orange;;text-align: center;line-height: 30px;flex-shrink: 0">3</li>
+    </ul>
 
-`flex-direction` 和 `flex-wrap` — 的缩写 `flex-flow`。
+#### 简写属性 flex-flow
 
-`flex-direction: row;` 和 `flex-wrap: wrap;` 可以替换为 `flex-flow: row wrap;`
+`flex-direction` 和 `flex-wrap` — 的缩写 `flex-flow`。可以同时设置排列方式和换行方式。
 
-#### 主轴对齐方式
+`flex-direction: row;` 和 `flex-wrap: wrap;` 可以替换为 `flex-flow: row wrap;`，没有前后顺序要求。
+
+#### 主轴上元素的对齐方式
 
 `justify-content: flex-start | flex-end | center | space-between | space-around;`
 
-- `flex-start`：弹性项目向行头紧挨着填充。这个是默认值。第一个弹性项的main-start外边距边线被放置在该行的main-start边线，而后续弹性项依次平齐摆放。
+- `flex-start`：元素沿着主轴的起边排列。
+    <ul style="margin:0;padding:0;width: 300px;border: #777777 1px solid;list-style: none;display: flex;flex-direction: row;justify-content: flex-start">
+        <li style="width: 50px;height: 30px;background: #bbffcc;text-align: center;line-height: 30px;flex-shrink: 0">1</li>
+        <li style="width: 50px;height: 30px;background: pink;text-align: center;line-height: 30px;flex-shrink: 0">2</li>
+        <li style="width: 50px;height: 30px;background: orange;;text-align: center;line-height: 30px;flex-shrink: 0">3</li>
+    </ul>
 
-- `flex-end`：弹性项目向行尾紧挨着填充。第一个弹性项的main-end外边距边线被放置在该行的main-end边线，而后续弹性项依次平齐摆放。
+- `flex-end`：元素沿着主轴的终边排列。
+    <ul style="margin:0;padding:0;width: 300px;border: #777777 1px solid;list-style: none;display: flex;flex-direction: row;justify-content: flex-end">
+        <li style="width: 50px;height: 30px;background: #bbffcc;text-align: center;line-height: 30px;flex-shrink: 0">1</li>
+        <li style="width: 50px;height: 30px;background: pink;text-align: center;line-height: 30px;flex-shrink: 0">2</li>
+        <li style="width: 50px;height: 30px;background: orange;;text-align: center;line-height: 30px;flex-shrink: 0">3</li>
+    </ul>
+- `center`：弹性元素居中排列。（如果剩余的自由空间是负的，则弹性项目将在两个方向上同时溢出）。
+    <ul style="margin:0;padding:0;width: 300px;border: #777777 1px solid;list-style: none;display: flex;flex-direction: row;justify-content: center">
+        <li style="width: 50px;height: 30px;background: #bbffcc;text-align: center;line-height: 30px;flex-shrink: 0">1</li>
+        <li style="width: 50px;height: 30px;background: pink;text-align: center;line-height: 30px;flex-shrink: 0">2</li>
+        <li style="width: 50px;height: 30px;background: orange;;text-align: center;line-height: 30px;flex-shrink: 0">3</li>
+    </ul>
 
-- `center`：弹性项目居中紧挨着填充。（如果剩余的自由空间是负的，则弹性项目将在两个方向上同时溢出）。
+    - 如果剩余的自由空间是负的，则弹性项目将在两个方向上同时溢出。
+
+      <ul style="margin:0;padding:0;width: 100px;border: #777777 1px solid;list-style: none;display: flex;flex-direction: row;justify-content: center">
+         <li style="width: 50px;height: 30px;background: #bbffcc;text-align: center;line-height: 30px;flex-shrink: 0">1</li>
+         <li style="width: 50px;height: 30px;background: pink;text-align: center;line-height: 30px;flex-shrink: 0">2</li>
+         <li style="width: 50px;height: 30px;background: orange;;text-align: center;line-height: 30px;flex-shrink: 0">3</li>
+      </ul>
 
 - `space-between`
   ：弹性项目平均分布在该行上。如果剩余空间为负或者只有一个弹性项，则该值等同于flex-start。否则，第1个弹性项的外边距和行的main-start边线对齐，而最后1个弹性项的外边距和行的main-end边线对齐，然后剩余的弹性项分布在该行上，相邻项目的间隔相等。
-
+    <ul style="margin:0;padding:0;width: 300px;border: #777777 1px solid;list-style: none;display: flex;flex-direction: row;justify-content: space-between">
+        <li style="width: 50px;height: 30px;background: #bbffcc;text-align: center;line-height: 30px;flex-shrink: 0">1</li>
+        <li style="width: 50px;height: 30px;background: pink;text-align: center;line-height: 30px;flex-shrink: 0">2</li>
+        <li style="width: 50px;height: 30px;background: orange;;text-align: center;line-height: 30px;flex-shrink: 0">3</li>
+    </ul>
 - `space-around`
   ：弹性项目平均分布在该行上，两边留有一半的间隔空间。如果剩余空间为负或者只有一个弹性项，则该值等同于center。否则，弹性项目沿该行分布，且彼此间隔相等（比如是20px），同时首尾两边和弹性容器之间留有一半的间隔（1/2*
   20px=10px）。
+    <ul style="margin:0;padding:0;width: 300px;border: #777777 1px solid;list-style: none;display: flex;flex-direction: row;justify-content: space-around">
+        <li style="width: 50px;height: 30px;background: #bbffcc;text-align: center;line-height: 30px;flex-shrink: 0">1</li>
+        <li style="width: 50px;height: 30px;background: pink;text-align: center;line-height: 30px;flex-shrink: 0">2</li>
+        <li style="width: 50px;height: 30px;background: orange;;text-align: center;line-height: 30px;flex-shrink: 0">3</li>
+    </ul>
 
-效果图展示：
-![img.png](../.vuepress/public/images/css/img.png)
-
-#### 侧轴对齐方式
+#### 侧轴上元素的对齐方式
 
 `align-items: flex-start | flex-end | center | baseline | stretch;`
 
-- `flex-start`：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
-- `flex-end`：弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
-- `center`：弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
-- `baseline`：如弹性盒子元素的行内轴与侧轴为同一条，则该值与'`flex-start`'等效。其它情况下，该值将参与基线对齐。
-- `stretch`：如果指定侧轴大小的属性值为`auto`，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照`min/max-width/height`属性的限制。
+`align-self`，用来覆盖当前弹性元素上的 `align-items`
+
+- `stretch`：默认值，将元素的长度设置为相同的值。如果指定侧轴大小的属性值为`auto`，则其值会使项目的边距盒的尺寸尽可能接近所在行的尺寸，但同时会遵照`min/max-width/height`属性的限制。
+    <ul style="margin:0;padding:0;width: 150px;height: 200px; border: #777777 1px solid;list-style: none;display: flex;flex-flow: row wrap; align-items: stretch">
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+        <li style="width: 50px;background: orange;;text-align: center;">3<div>3</div><div>3</div></li>
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+    </ul>
+
+- `flex-start`：沿侧轴起边对齐。弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴起始边界。
+    <ul style="margin:0;padding:0;width: 150px;height: 200px; border: #777777 1px solid;list-style: none;display: flex;flex-flow: row wrap; align-items: flex-start">
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+        <li style="width: 50px;background: orange;;text-align: center;">3<div>3</div><div>3</div></li>
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+    </ul>
+
+- `flex-end`：沿侧轴终边对齐。弹性盒子元素的侧轴（纵轴）起始位置的边界紧靠住该行的侧轴结束边界。
+    <ul style="margin:0;padding:0;width: 150px;height: 200px; border: #777777 1px solid;list-style: none;display: flex;flex-flow: row wrap; align-items: flex-end">
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+        <li style="width: 50px;background: orange;;text-align: center;">3<div>3</div><div>3</div></li>
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+    </ul>
+- `center`：居中对齐。弹性盒子元素在该行的侧轴（纵轴）上居中放置。（如果该行的尺寸小于弹性盒子元素的尺寸，则会向两个方向溢出相同的长度）。
+    <ul style="margin:0;padding:0;width: 150px;height: 200px; border: #777777 1px solid;list-style: none;display: flex;flex-flow: row wrap; align-items: center">
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+        <li style="width: 50px;background: orange;;text-align: center;">3<div>3</div><div>3</div></li>
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+    </ul>
+- `baseline`：基线对齐。如弹性盒子元素的行内轴与侧轴为同一条，则该值与'`flex-start`'等效。其它情况下，该值将参与基线对齐。
+    <ul style="margin:0;padding:0;width: 150px;height: 200px; border: #777777 1px solid;list-style: none;display: flex;flex-flow: row wrap; align-items: baseline">
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+        <li style="width: 50px;background: orange;;text-align: center;">3<div>3</div><div>3</div></li>
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+    </ul>
 
 #### 侧轴元素额外空间的分配
 
@@ -522,13 +631,71 @@ CSS [position](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position) 属性
 `align-content: flex-start | flex-end | center | space-between | space-around | stretch;`
 
 - `stretch` - 默认。各行将会伸展以占用剩余的空间。
+    <ul style="margin:0;padding:0;width: 150px;height: 200px; border: #777777 1px solid;list-style: none;display: flex;flex-flow: row wrap; align-items: flex-start;align-content: stretch">
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+        <li style="width: 50px;background: orange;;text-align: center;">3<div>3</div><div>3</div></li>
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+    </ul>
+  
 - `flex-start` - 各行向弹性盒容器的起始位置堆叠。
+    <ul style="margin:0;padding:0;width: 150px;height: 200px; border: #777777 1px solid;list-style: none;display: flex;flex-flow: row wrap; align-items: flex-start;align-content: flex-start">
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+        <li style="width: 50px;background: orange;;text-align: center;">3<div>3</div><div>3</div></li>
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+    </ul>
 - `flex-end` - 各行向弹性盒容器的结束位置堆叠。
+    <ul style="margin:0;padding:0;width: 150px;height: 200px; border: #777777 1px solid;list-style: none;display: flex;flex-flow: row wrap; align-items: flex-start;align-content: flex-end">
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+        <li style="width: 50px;background: orange;;text-align: center;">3<div>3</div><div>3</div></li>
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+    </ul>
 - `center` -各行向弹性盒容器的中间位置堆叠。
+    <ul style="margin:0;padding:0;width: 150px;height: 200px; border: #777777 1px solid;list-style: none;display: flex;flex-flow: row wrap; align-items: flex-start;align-content: center">
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+        <li style="width: 50px;background: orange;;text-align: center;">3<div>3</div><div>3</div></li>
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+    </ul>
 - `space-between` -各行在弹性盒容器中平均分布。
+    <ul style="margin:0;padding:0;width: 150px;height: 200px; border: #777777 1px solid;list-style: none;display: flex;flex-flow: row wrap; align-items: flex-start;align-content: space-between">
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+        <li style="width: 50px;background: orange;;text-align: center;">3<div>3</div><div>3</div></li>
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+    </ul>
 - `space-around` - 各行在弹性盒容器中平均分布，两端保留子元素与子元素之间间距大小的一半。
+    <ul style="margin:0;padding:0;width: 150px;height: 200px; border: #777777 1px solid;list-style: none;display: flex;flex-flow: row wrap; align-items: flex-start;align-content: space-around">
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+        <li style="width: 50px;background: orange;;text-align: center;">3<div>3</div><div>3</div></li>
+        <li style="width: 50px;background: #bbffcc;text-align: center;">1</li>
+        <li style="width: 50px;background: pink;text-align: center;">2<div>2</div></li>
+    </ul>
 
-### flex 元素
+### flex 元素相关属性
+
+#### 指定弹性元素的伸展的系数 `flex-grow`
+
+当父元素有剩余空间时，子元素如何伸展，父元素的剩余空间会按照比例进行分配。
+
+- `flex-grow: 0;` 默认值0，不伸展。
+- 值越大，伸展越多。
+
+#### 指定元素的收缩系数 `flex-shrink`
+
+当父元素中的空间不足以容纳所有的子元素时，如何对子元素进行收缩。
+
+- `flex-shrink: 1;` 默认值1，等比例收缩。
+- `flex-shrink: 0;` 不收缩。
+- 值越大，收缩越多。
 
 #### 指定弹性元素的排列顺序
 
