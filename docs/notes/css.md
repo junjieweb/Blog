@@ -697,6 +697,13 @@ CSS [position](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position) 属性
 - `flex-shrink: 0;` 不收缩。
 - 值越大，收缩越多。
 
+#### 指定弹性元素的弹性基准
+
+`flex-basis` 指定的是元素在主轴上的基础长度。
+- 默认值`auto`，表示参考元素自身的高度和宽度。
+- 如果主轴是横向的，则该值指定的就是元素的宽度。
+- 如果主轴是纵向的，则该值指定的就是元素的高度。
+
 #### 指定弹性元素的排列顺序
 
 `order: 0;`
@@ -710,6 +717,8 @@ CSS [position](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position) 属性
 使用弹性盒子，居中变的很简单，只需要设置弹性元素 `margin: auto;` 可以使得弹性元素在两上轴方向上完全居中
 
 #### 弹性元素自身在侧轴方向上的对齐方式。
+
+用来覆盖当前弹性元素上的 `align-items`
 
 `align-self: auto | flex-start | flex-end | center | baseline | stretch`
 
@@ -725,6 +734,8 @@ CSS [position](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position) 属性
 flex 属性用于指定弹性子元素如何分配空间。
 
 `flex: auto | initial | none | inherit |  [ flex-grow ] || [ flex-shrink ] || [ flex-basis ]`
+
+`flex: 增长 缩减 基准`
 
 - `auto`: 计算值为 1 1 auto
 - `initial`: 计算值为 0 1 auto
