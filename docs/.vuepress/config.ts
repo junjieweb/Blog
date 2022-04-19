@@ -79,6 +79,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                         '/interview/vue',
                         '/interview/nodejs',
                         '/interview/computer-network',
+                        '/interview/browser',
                     ],
                 },
             ]

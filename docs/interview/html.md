@@ -1,3 +1,5 @@
+# HTML 面试题
+
 ### **src和href的区别**
 
 - src 用于替换当前元素，href 用于在当前文档和引用资源之间确立联系。
@@ -31,7 +33,8 @@
 
 ### **script标签中defer和async的区别**
 
--
+![deferAndAsync](../.vuepress/public/images/html/deferAndAsync.png)
+
 如果没有defer或async属性，浏览器会立即加载并执行相应的脚本。它不会等待后续加载的文档元素，读取到就会开始加载和执行，这样就阻塞了后续文档的加载。使用defer和async都会使得解析HTML的同时进行js脚本的异步下载，不会阻碍文档的解析，区别是，async在下载完js脚本之后立即执行js，有可能会阻碍文档的解析，且多个标记async的js脚本可能不会按照顺序执行；使用defer会在html解析完成之后再执行js脚本文件，而且多个defer的脚本会按照顺序执行。
 
 其中蓝色代表js脚本网络加载时间，红色代表js脚本执行时间，绿色代表html解析。
@@ -42,25 +45,25 @@
 
   常用的meta标签：
 
-  （1）charset，用来描述HTML文档的编码类型：<meta charset="UTF-8" >
+  （1）`charset`，用来描述HTML文档的编码类型：`<meta charset="UTF-8" >`
 
-  （2） keywords，页面关键词：
+  （2） `keywords`，页面关键词：
 
-   <meta name="keywords" content="关键词" />
+   `<meta name="keywords" content="关键词" />`
 
-  （3）description，页面描述：
+  （3）`description`，页面描述：
 
-   <meta name="description" content="页面描述内容" />
+   `<meta name="description" content="页面描述内容" />`
 
-  （4）refresh，页面重定向和刷新：
+  （4）`refresh`，页面重定向和刷新：
 
-   <meta http-equiv="refresh" content="0;url=" />
+   `<meta http-equiv="refresh" content="0;url=" />`
 
-  （5）viewport，适配移动端，可以控制视口的大小和比例：
+  （5）`viewport`，适配移动端，可以控制视口的大小和比例：
 
-   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+   `<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">`
 
-其中，content 参数有以下几种：
+其中，`content` 参数有以下几种：
 
 ● width viewport ：宽度(数值/device-width)
 
@@ -159,9 +162,9 @@
 
 - 其他
 
-    - 拖放：<img draggable="true" />
-    - 画布（canvas ）：canvas 元素使用 JavaScript 在网页上绘制图像。画布是一个矩形区域，可以控制其每一像素。canvas
-      拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。          <canvas id="myCanvas" width="200" height="100"></canvas>
+    - 拖放：`<img draggable="true" />`
+    - 画布（canvas ）：`canvas` 元素使用 `JavaScript` 在网页上绘制图像。画布是一个矩形区域，可以控制其每一像素。canvas
+      拥有多种绘制路径、矩形、圆形、字符以及添加图像的方法。          `<canvas id="myCanvas" width="200" height="100"></canvas>`
     - SVG：SVG 指可伸缩矢量图形，用于定义用于网络的基于矢量的图形，使用 XML 格式定义图形，图像在放大或改变尺寸的情况下其图形质量不会有损失，它是万维网联盟的标准
     - 地理定位：Geolocation（地理定位）用于定位用户的位置。
 
@@ -173,11 +176,7 @@
 
   按照上面的实现，不同的屏幕密度都要设置图片地址，目前的屏幕密度有1x,2x,3x,4x四种，如果每一个图片都设置4张图片，加载就会很慢。所以就有了新的srcset标准。代码如下：
 
-  <img src="image-128.png"
-
-        srcset="image-128.png 128w, image-256.png 256w, image-512.png 512w"
-       
-        sizes="(max-width: 360px) 340px, 128px" />
+  `<img src="image-128.png" srcset="image-128.png 128w, image-256.png 256w, image-512.png 512w" izes="(max-width: 360px) 340px, 128px" />`
 
   其中srcset指定图片的地址和对应的图片质量。sizes用来设置图片的尺寸零界点。对于 srcset 中的 w 单位，可以理解成图片质量。如果可视区域小于这个质量的值，就可以使用。浏览器会自动选择一个最小的可用图片。
 
@@ -189,13 +188,13 @@
 
 ### **行内元素有哪些？块级元素有哪些？ 空(void)元素有那些？**
 
-- 行内元素：span、a、img、input、strong、em、del、ins
+- 行内元素：`span、a、img、input、strong、em、del、ins`
 
-- 块级元素：div、h1~h6、p、ul、li、ol、dl、dt、dd、header、nav、artical、section、aside、footer
+- 块级元素：`div、h1~h6、p、ul、li、ol、dl、dt、dd、header、nav、artical、section、aside、footer`
 
-- 空元素（没有闭合）：img、input、br、hr、link、meta
+- 空元素（没有闭合）：`img、input、br、hr、link、meta`
 
-  鲜见的有：<area>、<base>、<col>、<colgroup>、<command>、<embed>、<keygen>、<param>、<source>、<track>、<wbr>。
+  鲜见的有：`<area>、<base>、<col>、<colgroup>、<command>、<embed>、<keygen>、<param>、<source>、<track>、<wbr>`。
 
 ### **对 web worker 的理解**
 
@@ -229,7 +228,7 @@ Worker 线程一旦新建成功，就会始终运行，不会被主线程上的�
   `<html lang="en" manifest="index.manifest">`
 
   （2）在 cache.manifest 文件中编写需要离线存储的资源：
-
+```
   CACHE MANIFEST
 
        #v0.11
@@ -247,7 +246,7 @@ Worker 线程一旦新建成功，就会始终运行，不会被主线程上的�
        FALLBACK:
        
        / /offline.html
-
+```
   ● CACHE: 表示需要离线存储的资源列表，由于包含 manifest 文件的页面将被自动离线存储，所以不需要把页面自身也列出来。
 
   ● NETWORK: 表示在它下面列出来的资源只有在在线的情况下才能访问，他们不会被离线存储，所以在离线情况下无法使用这些资源。不过，如果在 CACHE 和 NETWORK 中有一个相同的资源，那么这个资源还是会被离线存储，也就是说
@@ -306,8 +305,8 @@ Worker 线程一旦新建成功，就会始终运行，不会被主线程上的�
 ### **label 的作用是什么？如何使用？**
 
 - 作用：label标签来定义表单控件的关系：当用户选择label标签时，浏览器会自动将焦点转到和label标签相关的表单控件上。
-- 使用方法：<label for="mobile">Number:</label>
-  <input type="text" id="mobile"/>
+- 使用方法：`<label for="mobile">Number:</label>`
+  `<input type="text" id="mobile"/>`
 
 ### **Canvas和SVG的区别**
 
@@ -336,9 +335,9 @@ Worker 线程一旦新建成功，就会始终运行，不会被主线程上的�
 
 ### **head 标签有什么作用，其中什么标签必不可少？**
 
-- 作用：<head> 标签用于定义文档的头部，它是所有头部元素的容器。<head> 中的元素可以引用脚本、指示浏览器在哪里找到样式表、提供元信息等。文档的头部描述了文档的各种属性和信息，包括文档的标题、在 Web
+- 作用：`<head>` 标签用于定义文档的头部，它是所有头部元素的容器。`<head>` 中的元素可以引用脚本、指示浏览器在哪里找到样式表、提供元信息等。文档的头部描述了文档的各种属性和信息，包括文档的标题、在 Web
   中的位置以及和其他文档的关系等。绝大多数文档头部包含的数据都不会真正作为内容显示给读者。
-- 可包含的标签：下面这些标签可用在 head 部分：<base>, <link>, <meta>, <script>, <style>, <title>。 其中只有title是必须的
+- 可包含的标签：下面这些标签可用在 head 部分：`<base>, <link>, <meta>, <script>, <style>, <title>`。 其中只有title是必须的
 
 ### **文档声明（Doctype）和<!Doctype html>有何作用? 严格模式与混杂模式如何区分？它们有何意义?**
 

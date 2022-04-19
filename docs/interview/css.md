@@ -51,19 +51,19 @@
     - display：元素的显示模式（块级、行内元素、行内块）
     - 文本属性
 
-        - vertical-align：垂直对齐方式
-        - text-decoration：规定添加到文本的装饰（underline-line、line-through、overline）
-        - text-shadow：文本阴影效果
-        - white-space：空白符的处理
-        - unicode-bidi：设置文本的方向
+        - `vertical-align`：垂直对齐方式
+        - `text-decoration`：规定添加到文本的装饰（underline-line、line-through、overline）
+        - `text-shadow`：文本阴影效果
+        - `white-space`：空白符的处理
+        - `unicode-bidi`：设置文本的方向
 
     - 盒子模型的属性
 
-        - border
-        - margin
-        - padding
-        - width
-        - height
+        - `border`
+        - `margin`
+        - `padding`
+        - `width`
+        - `height`
 
     - 背景属性
 
@@ -232,12 +232,12 @@
 
 ### **li 与 li 之间有看不见的空白间隔是什么原因引起的？如何解决？**
 
-- 原因：浏览器会把inline内联元素间的空白字符（空格、换行、Tab等）渲染成一个空格。为了美观，通常是一个<li>放在一行，这导致<li>换行后产生换行字符，它变成一个空格，占用了一个字符的宽度。
+- 原因：浏览器会把inline内联元素间的空白字符（空格、换行、Tab等）渲染成一个空格。为了美观，通常是一个`<li>`放在一行，这导致`<li>`换行后产生换行字符，它变成一个空格，占用了一个字符的宽度。
 - 解决办法：
-  （1）为<li>设置float:left。不足：有些容器是不能设置浮动，如左右切换的焦点图等。
-  （2）将所有<li>写在同一行。不足：代码不美观。
-  （3）将<ul>内的字符尺寸直接设为0，即font-size:0。不足：<ul>中的其他字符尺寸也被设为0，需要额外重新设定其他字符尺寸，且在Safari浏览器依然会出现空白间隔。
-  （4）消除<ul>的字符间隔letter-spacing:-8px，不足：这也设置了<li>内的字符间隔，因此需要将<li>内的字符间隔设为默认letter-spacing:normal。
+  （1）为`<li>`设置float:left。不足：有些容器是不能设置浮动，如左右切换的焦点图等。
+  （2）将所有`<li>`写在同一行。不足：代码不美观。
+  （3）将`<ul>`内的字符尺寸直接设为0，即font-size:0。不足：`<ul>`中的其他字符尺寸也被设为0，需要额外重新设定其他字符尺寸，且在Safari浏览器依然会出现空白间隔。
+  （4）消除`<ul>`的字符间隔letter-spacing:-8px，不足：这也设置了`<li>`内的字符间隔，因此需要将`<li>`内的字符间隔设为默认letter-spacing:normal。
 
 ### **CSS3中有哪些新特性**
 
