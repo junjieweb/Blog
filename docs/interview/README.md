@@ -43,4 +43,6 @@
 
 <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Visual_Studio_Code_1.35_icon.svg.png" height="64" alt="VScode">
 
+<img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/ps_appicon.svg" height="64" alt="PhotoShop">
+
     
