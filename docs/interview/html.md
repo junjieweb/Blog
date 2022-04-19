@@ -76,7 +76,7 @@
 
 （6）搜索引擎索引方式：
 
-   <meta name="robots" content="index,follow" />
+   `<meta name="robots" content="index,follow" />`
 
 其中，content 参数有以下几种：
 
@@ -96,17 +96,17 @@
 
 - 语义化标签
 
-    - header、nav、artical、section、aside、footer
+    - `header、nav、artical、section、aside、footer`
 
 - 媒体标签
 
-    - audio
+    - `audio`
 
-        - <audio src='' controls autoplay loop='true'></audio>
+        - `<audio src='' controls autoplay loop='true'></audio>`
 
-    - video
+    - `video`
 
-        - <video src='' poster='imgs/aa.jpg' controls></video>
+        - `<video src='' poster='imgs/aa.jpg' controls></video>`
 
         - source标签
           因为浏览器对视频格式支持程度不一样，为了能够兼容不同的浏览器，可以通过source来指定视频源。
@@ -121,16 +121,16 @@
 
     - 表单类型
 
-        - tel、search、number、email、url、date、time、month、week、color、
+        - `tel、search、number、email、url、date、time、month、week、color、`
 
     - 表单属性
 
-        - required、autofocus、autocomplate、multiple、pattern、form
+        - `required、autofocus、autocomplate、multiple、pattern、form`
 
     - 表单事件
 
-        - oninput：每当input里的输入框内容发生变化都会触发此事件。
-        - oninvalid：当验证不通过时触发此事件。
+        - `oninput`：每当input里的输入框内容发生变化都会触发此事件。
+        - `oninvalid`：当验证不通过时触发此事件。
 
 - 进度条、度量器
 
@@ -142,13 +142,13 @@
 
 - DOM查询操作
 
-    - document.querySelector(‘’“)
-    - document.querySelectorAll(‘’”)
+    - `document.querySelector(‘’“)`
+    - `document.querySelectorAll(‘’”)`
 
 - Web存储
 
-    - sessionStorage：针对一个 session 的数据存储（会话存储：关闭页面会消失）
-    - localStorage：没有时间限制的数据存储（本地存储：关闭页面不会消失）
+    - `sessionStorage`：针对一个 session 的数据存储（会话存储：关闭页面会消失）
+    - `localStorage`：没有时间限制的数据存储（本地存储：关闭页面不会消失）
 
 - history API
 
