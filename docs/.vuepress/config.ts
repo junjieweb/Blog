@@ -70,8 +70,33 @@ export default defineUserConfig<DefaultThemeOptions>({
             ],
             '/interview/': [
                 {
-                    text: '面试题',
-                    // collapsible: true,
+                    text: 'HTML',
+                    collapsible: true,
+                    children: [
+                        '/interview/html/001',
+                        '/interview/html/002',
+                        '/interview/html/003',
+                        '/interview/html/004',
+                        '/interview/html/005',
+                        '/interview/html/006',
+                    ],
+                },
+                {
+                    text: 'CSS',
+                    collapsible: true,
+                    children: [
+                        '/interview/html',
+                        '/interview/css',
+                        '/interview/js',
+                        '/interview/vue',
+                        '/interview/nodejs',
+                        '/interview/computer-network',
+                        '/interview/browser',
+                    ],
+                },
+                {
+                    text: 'JavaScript',
+                    collapsible: true,
                     children: [
                         '/interview/html',
                         '/interview/css',
