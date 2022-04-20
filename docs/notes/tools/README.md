@@ -43,29 +43,21 @@
 
 <img style="margin: 1rem 1rem" src="../../.vuepress/public/images/logo/ps_appicon.svg" height="64" alt="PhotoShop">
 
+<img style="margin: 1rem 1rem" src="../../.vuepress/public/images/logo/chrome-logo.svg" height="64" alt="chrome">
+
 ## IDE
 
 [WebStorm](https://www.jetbrains.com/zh-cn/webstorm/)
 
-![webstorm](../../.vuepress/public/images/tools/webstorm.png)
-
 [Visual Studio Code](https://code.visualstudio.com/)
 
-![vscode](../../.vuepress/public/images/tools/vscode.png)
-
 [Sublime Text](https://www.sublimetext.com/)
-
-![sublime text](../../.vuepress/public/images/tools/sublime-text.png)
 
 ## 图形编辑器
 
 [**Adobe Photoshop**](https://www.adobe.com/cn/products/photoshop.html)
 
-![ps](../../.vuepress/public/images/tools/ps.png)
-
 [**Adobe Illustrator**](https://www.adobe.com/cn/products/illustrator.html)
-
-![AI](../../.vuepress/public/images/tools/ai.png)
 
 ## 版本控制工具
 

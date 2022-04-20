@@ -7,7 +7,7 @@ export default defineUserConfig<DefaultThemeOptions>({
     lang: 'zh-CN',
     title: 'Junjie',
     description: 'Front-end web developer',
-    head: [['link', { rel: 'icon', href: '/favicon.ico' }]],
+    head: [['link', { rel: 'icon', href: '/images/logo.svg' }]],
     // 主题和它的配置
     theme: '@vuepress/theme-default',
     themeConfig: {
@@ -43,18 +43,18 @@ export default defineUserConfig<DefaultThemeOptions>({
                     text: 'MDN',
                     collapsible: true,
                     children: [
-                        '/notes/README.md',
+                        '/notes/MDN.md',
                         '/notes/line.md',
                     ],
                 },
-                {
-                    text: 'Tools',
-                    collapsible: true,
-                    children: [
-                        '/notes/tools/README.md',
-                        '/notes/tools/websites.md',
-                    ],
-                },
+                // {
+                //     text: 'Tools',
+                //     collapsible: true,
+                //     children: [
+                //         '/notes/tools/README.md',
+                //         '/notes/tools/websites.md',
+                //     ],
+                // },
                 {
                     text: '笔记',
                     collapsible: true,

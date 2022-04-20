@@ -13,7 +13,10 @@ actions:
    - text: 个人简历
      link: /resume/
      type: secondary
+---
 
+
+<!--
 features:
       - title: 简洁至上
         details: 以 Markdown 为中心的项目结构，以最少的配置帮助你专注于写作。
@@ -29,4 +32,4 @@ features:
         details: 默认的打包工具是 Vite ，也同样支持 Webpack 。选一个你喜欢的来使用吧！
 
 footer: MIT Licensed | Copyright © 2018-present Evan You
----
+-->

@@ -1,6 +1,4 @@
-# 面试题
-
-## 面试资料来自 **B站 [我是桐哥哥](https://space.bilibili.com/368713992)** 提供
+# Languages and Tools 💻
 
 <br>
 <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/HTML5_logo_and_wordmark.svg.png" height="64" alt="HTML5">
@@ -45,4 +43,16 @@
 
 <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/ps_appicon.svg" height="64" alt="PhotoShop">
 
-    
+| IDE                                                   | Languages                                                             | Framework                             |                                             |
+|-------------------------------------------------------|-----------------------------------------------------------------------|---------------------------------------|---------------------------------------------|
+| [JetBrains](https://www.jetbrains.com/zh-cn/)         | [HTML](https://developer.mozilla.org/zh-CN/docs/Web/HTML)             | [Vue2](https://cn.vuejs.org/)         | [GitHub](https://github.com/)               |
+| [WebStorm](https://www.jetbrains.com/zh-cn/webstorm/) | [CSS](https://developer.mozilla.org/zh-CN/docs/Web/CSS)               | [Vue3](https://v3.cn.vuejs.org/)      | [MDN](https://developer.mozilla.org/zh-CN/) |
+| [Visual Studio Code](https://code.visualstudio.com/)  | [JavaScript](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript) | [React](https://zh-hans.reactjs.org/) | [Markdown](https://markdown.com.cn/)        |
+|                                                       | [TypeScript](https://www.typescriptlang.org/zh/)                      | [Angular](https://angular.cn/)        |                                             |
+
+## [开源开发许可证 - 社区支持](https://www.jetbrains.com/zh-cn/community/opensource/#support)
+
+#### JetBrains 通过为核心项目贡献者免费提供一套一流的开发者工具来支持非商业开源项目。
+
+![JetBrains Logo (Main) logo](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg)
+![WebStorm logo](https://resources.jetbrains.com/storage/products/company/brand/logos/WebStorm.svg)
