@@ -11,8 +11,8 @@ export default defineUserConfig<DefaultThemeOptions>({
         ['link',
             {
                 rel: 'icon',
-                type: 'image/svg',
-                href: '/images/logo.svg'
+                // type: 'image/svg',
+                href: '/icon/favicon.ico'
             }
         ]
     ],
@@ -67,20 +67,20 @@ export default defineUserConfig<DefaultThemeOptions>({
                         '/notes/vue/vue3.md'
                     ],
                 },
-                // {
-                //     text: 'HTML',
-                //     collapsible: true,
-                //     children: [
-                //         '/notes/html/',
-                //     ],
-                // },
-                // {
-                //     text: 'CSS',
-                //     collapsible: true,
-                //     children: [
-                //         '/notes/css/',
-                //     ],
-                // },
+                {
+                    text: 'HTML',
+                    collapsible: true,
+                    children: [
+                        '/notes/html/',
+                    ],
+                },
+                {
+                    text: 'CSS',
+                    collapsible: true,
+                    children: [
+                        '/notes/css/',
+                    ],
+                },
             ],
             '/interview/': [
                 {
@@ -99,6 +99,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                         '/interview/html/010',
                         '/interview/html/011',
                         '/interview/html/012',
+                        '/interview/html/013',
                     ],
                 },
                 {
