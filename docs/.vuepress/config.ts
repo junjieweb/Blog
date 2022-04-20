@@ -11,8 +11,7 @@ export default defineUserConfig<DefaultThemeOptions>({
         ['link',
             {
                 rel: 'icon',
-                // type: 'image/svg',
-                href: '/icon/favicon.ico'
+                href: '/images/favicon.ico'
             }
         ]
     ],
