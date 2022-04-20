@@ -7,7 +7,15 @@ export default defineUserConfig<DefaultThemeOptions>({
     lang: 'zh-CN',
     title: 'Junjie',
     description: 'Front-end web developer',
-    head: [['link', { rel: 'icon', href: '/images/logo.svg' }]],
+    head: [
+        ['link',
+            {
+                rel: 'icon',
+                type: 'image/svg',
+                href: '/images/logo.svg'
+            }
+        ]
+    ],
     // 主题和它的配置
     theme: '@vuepress/theme-default',
     themeConfig: {
@@ -43,18 +51,10 @@ export default defineUserConfig<DefaultThemeOptions>({
                     text: 'MDN',
                     collapsible: true,
                     children: [
-                        '/notes/MDN.md',
-                        '/notes/line.md',
+                        '/notes/MDN/MDN.md',
+                        '/notes/MDN/line.md',
                     ],
                 },
-                // {
-                //     text: 'Tools',
-                //     collapsible: true,
-                //     children: [
-                //         '/notes/tools/README.md',
-                //         '/notes/tools/websites.md',
-                //     ],
-                // },
                 {
                     text: '笔记',
                     collapsible: true,
@@ -67,6 +67,20 @@ export default defineUserConfig<DefaultThemeOptions>({
                         '/notes/vue/vue3.md'
                     ],
                 },
+                // {
+                //     text: 'HTML',
+                //     collapsible: true,
+                //     children: [
+                //         '/notes/html/',
+                //     ],
+                // },
+                // {
+                //     text: 'CSS',
+                //     collapsible: true,
+                //     children: [
+                //         '/notes/css/',
+                //     ],
+                // },
             ],
             '/interview/': [
                 {
@@ -81,32 +95,27 @@ export default defineUserConfig<DefaultThemeOptions>({
                         '/interview/html/006',
                         '/interview/html/007',
                         '/interview/html/008',
+                        '/interview/html/009',
+                        '/interview/html/010',
+                        '/interview/html/011',
+                        '/interview/html/012',
                     ],
                 },
                 {
                     text: 'CSS',
                     collapsible: true,
                     children: [
-                        // '/interview/html',
-                        // '/interview/css',
-                        // '/interview/js',
-                        // '/interview/vue',
-                        // '/interview/nodejs',
-                        // '/interview/computer-network',
-                        // '/interview/browser',
+                        '/interview/css/basis',
+                        '/interview/css/position_float',
+                        '/interview/css/layout',
+                        '/interview/css/application',
                     ],
                 },
                 {
                     text: 'JavaScript',
                     collapsible: true,
                     children: [
-                        // '/interview/html',
-                        // '/interview/css',
-                        // '/interview/js',
-                        // '/interview/vue',
-                        // '/interview/nodejs',
-                        // '/interview/computer-network',
-                        // '/interview/browser',
+                        // '/interview/js/js',
                     ],
                 },
             ]
