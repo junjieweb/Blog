@@ -27,7 +27,7 @@
 
 <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Npm-logo.svg.png" height="64" alt="Npm">
 
-<img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/webpack.svg" height="64" alt="webpack">
+<img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/webpack_logo.svg" height="64" alt="webpack">
 
 <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/ESLint_logo.svg.png" height="64" alt="ESLint">
 
@@ -35,13 +35,13 @@
 
 <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/MDN_Web_Docs_logo.svg.png" height="64" alt="MDN">
 <br><hr>
-<img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/jb_beam.svg" height="64" alt="JetBrains Logo">
+<img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/jb_beam.svg" height="64" alt="JetBrains Logo" title="JetBrains">
 
-<img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/WebStorm_icon.svg" height="64" alt="WebStorm">
+<img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/WebStorm_icon.svg" height="64" alt="WebStorm" title="WebStorm">
 
-<img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Visual_Studio_Code_1.35_icon.svg.png" height="64" alt="VScode">
+<img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Visual_Studio_Code_1.35_icon.svg.png" height="64" alt="VScode" title="VScode">
 
-<img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/ps_appicon.svg" height="64" alt="PhotoShop">
+<img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/ps_appicon.svg" height="64" alt="PhotoShop" title="PhotoShop">
 
 | IDE                                                   | Languages                                                             | Framework                             |                                             |
 |-------------------------------------------------------|-----------------------------------------------------------------------|---------------------------------------|---------------------------------------------|

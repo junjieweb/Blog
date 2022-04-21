@@ -11,7 +11,7 @@ export default defineUserConfig<DefaultThemeOptions>({
         ['link',
             {
                 rel: 'icon',
-                href: '/images/favicon.ico'
+                href: '/Front-end-Developer/images/favicon.ico'
             }
         ]
     ],
@@ -115,7 +115,8 @@ export default defineUserConfig<DefaultThemeOptions>({
                     text: 'JavaScript',
                     collapsible: true,
                     children: [
-                        // '/interview/js/js',
+                        '/interview/JavaScript/js-data',
+                        '/interview/JavaScript/js',
                     ],
                 },
             ]

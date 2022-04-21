@@ -27,7 +27,7 @@
 
 <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Npm-logo.svg.png" height="64" alt="Npm">
 
-<img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/webpack.svg" height="64" alt="webpack">
+<img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/webpack_logo.svg" height="64" alt="webpack">
 
 <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/ESLint_logo.svg.png" height="64" alt="ESLint">
 
