@@ -119,6 +119,46 @@ export default defineUserConfig<DefaultThemeOptions>({
                         '/interview/JavaScript/js',
                     ],
                 },
+                {
+                    text: 'NodeJS',
+                    collapsible: true,
+                    children: [
+                        '/interview/nodejs.md',
+                    ],
+                },
+                {
+                    text: 'Vue',
+                    collapsible: true,
+                    children: [
+                        '/interview/vue/vue',
+                    ],
+                },
+                {
+                    text: '浏览器原理',
+                    collapsible: true,
+                    children: [
+                        '/interview/browser.md',
+                    ],
+                },
+                {
+                    text: '计算机网络',
+                    collapsible: true,
+                    children: [
+                        '/interview/computer-network.md',
+                    ],
+                }, {
+                    text: '前端工程化',
+                    collapsible: true,
+                    children: [
+                        '/interview/前端工程化.md',
+                    ],
+                }, {
+                    text: '性能优化',
+                    collapsible: true,
+                    children: [
+                        '/interview/性能优化.md',
+                    ],
+                },
             ]
         },
     },
