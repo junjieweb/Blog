@@ -1,6 +1,6 @@
 # node.js面试题
 
-## **对Node.js 的理解？优缺点？应用场景？**
+## 对Node.js 的理解？优缺点？应用场景？
 
 ### 概念
 
@@ -31,11 +31,11 @@
 - 第四大类：单页面浏览器应用程序
 - 第五大类：操作数据库、为前端和移动端提供基于json的API
 
-## **Node.js与javascript有什么不同**
+## Node.js与javascript有什么不同
 
 ### 
 
-## **为什么要用Node.js**
+## 为什么要用Node.js
 
 ### （1）简单， Node. js用 JavaScript、JSON进行编码，简单好学。
 
@@ -47,7 +47,7 @@
 
 ### （4）可扩展，可以轻松应对多实例、多服务器架构，同时有海量的第三方应用组件。
 
-## **Node. js 有哪些全局对象？**
+## Node. js 有哪些全局对象？
 
 ### 在浏览器 JavaScript 中，通常window 是全局对象， 而 Nodejs中的全局对象是 global，global全局对象则在全局作用域中，任何全局变量、函数、对象都是该对象的一个属性值
 
@@ -103,11 +103,11 @@
 
             - 用于引入模块、 JSON、或本地文件。 可以从 node_modules 引入模块。
 
-## **你知道哪些 Node.js核心模块？**
+## 你知道哪些 Node.js核心模块？
 
 ### EventEmitter 、Stream、FS、Net和全局对象等。
 
-## **对 Node.js 中的 process 的理解？有哪些常用方法？**
+## 对 Node.js 中的 process 的理解？有哪些常用方法？
 
 ### 概念
 
@@ -146,11 +146,11 @@
 
         - NodeJs是基于事件轮询，在这个过程中，同一时间只会处理一件事情，在这种处理模式下，process.nextTick()就是定义出一个动作，并且让这个动作在下一个事件轮询的时间点上执行
 
-## **Node. js中的异步和同步如何理解？**
+## Node. js中的异步和同步如何理解？
 
 ### Node.js是单线程的，异步是通过一次次的循环事件队列来实现的。同步则是阻塞式的IO，这在高并发环境中会是一个很大的性能问题，所以同步一般只在基础框架启动时使用，用来加载配置文件、初始化程序等。
 
-## **通过哪些方法可以进行异步流程的控制？**
+## 通过哪些方法可以进行异步流程的控制？
 
 ### （1）多层嵌套回调。
 
@@ -158,13 +158,13 @@
 
 ### （3）用第三方框架，如 async、 promise等。
 
-## **如何避免回调地狱？**
+## **如何避免回调地狱？
 
 ### 使用Promise
 
-### 使用aync/await
+### 使用async/await
 
-## **Node.js有哪些定时功能？**
+## Node.js有哪些定时功能？
 
 ### setTimeout/clearTimeout
 
@@ -174,11 +174,11 @@
 
 ### process. nextTick
 
-## **什么是错误优先的回调函数？**
+## 什么是错误优先的回调函数？
 
 ### 错误优先(Error-first)的回调函数（Error-First Callback）用于同时返回错误和数据。第一个参数返回错误，并且验证它是否出错；其他参数返回数据。
 
-## **对 Node 中的 fs模块的理解? 有哪些常用方法**
+## 对 Node 中的 fs模块的理解? 有哪些常用方法
 
 ### 概念
 
@@ -245,7 +245,7 @@
 
         - **异步创建，第二个参数为回调函数**
 
-## **对 Node 中的 Buffer 的理解？应用场景？**
+## 对 Node 中的 Buffer 的理解？应用场景？
 
 ### 概念
 
@@ -257,7 +257,7 @@
 - 加密解密
 - zlib.js
 
-## **对中间件概念的理解**
+## 对中间件概念的理解
 
 ### 概念
 
@@ -265,7 +265,7 @@
 
     -
 
-## **npm是什么，作用是？**
+## npm是什么，作用是？
 
 ### 概念
 
@@ -279,7 +279,7 @@
     - （2）允许用户从npm服务器下载并安装别人编写的命令行程序到本地。
     - （3）允许用户将自己编写的包或命令行程序上传到npm服务器供别人使用。
 
-## **什么是 EventEmitter？EventEmitter有哪些典型应用？**
+## 什么是 EventEmitter？EventEmitter有哪些典型应用？
 
 ### 什么是EventEmitter？
 
@@ -291,7 +291,7 @@
 - （2）在回调函数内外传递消息。
 - （3）处理流数据，因为流是在 EventEmitter的基础上实现的。
 
-## **Node. js中的流是什么？使用流有什么好处？流有哪些典型应用？**
+## Node. js中的流是什么？使用流有什么好处？流有哪些典型应用？
 
 ### 概念
 
@@ -305,15 +305,15 @@
 
 - 流在文件读写、网络请求、数据转换、音频、视频等方面有很广泛的应用。
 
-## **有哪些常用 Stream流？分别什么时候使用？**
+## 有哪些常用 Stream流？分别什么时候使用？
 
 ### Readable流为可读流，在作为输入数据源时使用；Writable流为可写流，在作为输岀源时使用；Duplex流为可读写流，它作为输岀源被写入，同时又作为输入源被后面的流读出。Transform流和 Duplex流一样，都是双向流，区别是 Transfrom流只需要实现一个函数 _transfrom( chunk, encoding, callback)；而 Duplex流需要分别实现_read(size )函数和_write( chunk, encoding, callback ）函数。
 
-## **readFile 和 createReadStream 函数有什么区别？**
+## readFile 和 createReadStream 函数有什么区别？
 
 ### readFile 函数异步读取文件的全部内容，并存储在内存中，然后再传递给用户。createReadStream 使用一个可读的流，逐块读取文件，而不是全部存储在内存中。与 readFile 相比，createReadStream 使用更少的内存和更快的速度来优化文件读取操作。
 
-## **对Nodejs中的事件循环机制理解?**
+## 对Nodejs中的事件循环机制理解?
 
 ### 事件循环其实就是一个事件队列，先加入先执行，执行完一次队列，再次循环遍历看有没有新事件加入队列。执行中的事件叫IO事件，Node 规定，process.nextTick和Promise的回调函数，追加在本轮循环，即同步任务一旦执行完成，就开始执行它们，且process.nextTick是所有异步任务里面最快执行的。而setTimeout、setInterval、setImmediate的回调函数，追加在次轮循环。 由于setTimeout在 timers 阶段执行，而setImmediate在 check 阶段执行。所以，setTimeout会早于setImmediate完成。
 
