@@ -123,7 +123,7 @@ export default defineUserConfig<DefaultThemeOptions>({
                     text: 'NodeJS',
                     collapsible: true,
                     children: [
-                        '/interview/nodejs.md',
+                        '/interview/nodejs/nodejs.md',
                     ],
                 },
                 {
