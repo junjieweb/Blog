@@ -231,7 +231,7 @@ Promise是异步编程的一种解决方案，它是一个对象，可以获取�
 
 - Promise.race（）
 
-    - Promse.race就是赛跑的意思，意思就是说，Promise.race([p1, p2, p3])
+    - Promise.race就是赛跑的意思，意思就是说，Promise.race([p1, p2, p3])
       里面哪个结果获得的快，就返回那个结果，不管结果本身是成功状态还是失败状态。当要做一件事，超过多长时间就不做了，可以用这个方法来解决
 
         -
@@ -264,14 +264,14 @@ Promise是异步编程的一种解决方案，它是一个对象，可以获取�
 
         -
 
-## 009 - await 到底在等啥？
+## 009 - `await` 到底在等啥？
 
-- await后面必须是异步函数， await是在等待一个异步函数完成，而这个异步函数返回值可能时promise对象，也可能是其他值，而await 等待的就是就是异步函数的返回值
+await后面必须是异步函数， await是在等待一个异步函数完成，而这个异步函数返回值可能时promise对象，也可能是其他值，而await 等待的就是就是异步函数的返回值
 
-    - 如果它等到的不是一个 Promise 对象，那 await 表达式的运算结果就是它等到的东西
-    - 如果它等到的是一个 Promise 对象，await 就忙起来了，它会阻塞在async函数之中且await后面的代码，等着 Promise 对象 resolve，然后得到 resolve 的值，作为 await 表达式的运算结果
+- 如果它等到的不是一个 Promise 对象，那 await 表达式的运算结果就是它等到的东西
+- 如果它等到的是一个 Promise 对象，await 就忙起来了，它会阻塞在async函数之中且await后面的代码，等着 Promise 对象 resolve，然后得到 resolve 的值，作为 await 表达式的运算结果
 
-## 010 - async/await的优势
+## 010 - `async/await`的优势
 
 - Promise 通过 then 链来解决多层回调的问题，而 async/await 来进一步优化promise的then（）方法的多层调用
 - async/await对比Promise/then（）的优势
@@ -282,7 +282,7 @@ Promise是异步编程的一种解决方案，它是一个对象，可以获取�
     - 调试友好，Promise的调试很差，由于没有代码块，你不能在⼀个返回表达式的箭头函数中设置断点，如果你在⼀个.then代码块中使⽤调试器的步进(step-over)
       功能，调试器并不会进⼊后续的.then代码块，因为调试器只能跟踪同步代码的每⼀步
 
-## 011 - async/await 如何捕获异常
+## 011 - `async/await` 如何捕获异常
 
 `try...catch`
 
@@ -300,7 +300,7 @@ async function fn() {
 - a为await等待的结果，await下面的代码捕获a resolve的信息
 - catch捕获a reject的信息
 
-## 012 - setTimeout、Promise、Async/Await 的区别
+## 012 - `setTimeout`、`Promise`、`Async/Await` 的区别
 
 **`setTimeout`**
 
@@ -327,7 +327,7 @@ async function fn() {
 
 - 并行是微观概念，指在同一时刻，有多条指令在多个处理器上同时执行。同时完成多个任务的情况就可以称之为并行
 
-## 014 - setTimeout、setInterval、requestAnimationFrame 各有什么特点？
+## 014 - `setTimeout`、`setInterval`、`requestAnimationFrame` 各有什么特点？
 
 异步编程当然少不了定时器了，常见的定时器函数有 `setTimeout`、`setInterval`、`requestAnimationFrame`。
 
