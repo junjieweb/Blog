@@ -64,6 +64,8 @@ export default {
                 '/interview/JavaScript/async.md',
                 '/interview/JavaScript/scope.md',
                 '/interview/JavaScript/this.md',
+                '/interview/JavaScript/object.md',
+                '/interview/JavaScript/gc.md',
             ],
         },
         {
