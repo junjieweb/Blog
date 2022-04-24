@@ -60,6 +60,7 @@ export default {
                 '/interview/JavaScript/数据类型.md',
                 '/interview/JavaScript/ES6.md',
                 '/interview/JavaScript/basis.md',
+                '/interview/JavaScript/prototype.md',
             ],
         },
         {
