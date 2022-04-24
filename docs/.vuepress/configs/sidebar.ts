@@ -61,6 +61,7 @@ export default {
                 '/interview/JavaScript/ES6.md',
                 '/interview/JavaScript/basis.md',
                 '/interview/JavaScript/prototype.md',
+                '/interview/JavaScript/async.md',
             ],
         },
         {
