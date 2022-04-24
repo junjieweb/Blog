@@ -57,8 +57,9 @@ export default {
             text: 'JavaScript',
             collapsible: true,
             children: [
-                '/interview/JavaScript/js-data',
-                '/interview/JavaScript/js',
+                '/interview/JavaScript/数据类型.md',
+                '/interview/JavaScript/ES6.md',
+                '/interview/JavaScript/basis.md',
             ],
         },
         {
