@@ -72,7 +72,7 @@ export default {
             text: 'NodeJS',
             collapsible: true,
             children: [
-                '/interview/node.js.md',
+                '/interview/node/README.md',
             ],
         },
         {
