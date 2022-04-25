@@ -31,12 +31,12 @@
 - 10：类选择器、属性选择器、结构伪类选择器
 - 100：id选择器
 - 1000：内联样式
-- 无穷大：！important
+- 无穷大：`!important`
 - 需计算累加权重：复合选择器
 
 #### 注意
 
-- !important声明的样式的优先级最高；
+- `!important`声明的样式的优先级最高；
 - 如果优先级相同，则最后出现的样式生效；
 - 继承得到的样式的优先级最低；
 - 通用选择器（*）、子选择器（>）和相邻同胞选择器（+）并不在这四个等级中，所以它们的权值都为 0 ；
@@ -46,45 +46,47 @@
 
 #### 不可继承属性
 
-- display：元素的显示模式（块级、行内元素、行内块）
-- 文本属性
+**`display`**：元素的显示模式（块级、行内元素、行内块）
 
-    - `vertical-align`：垂直对齐方式
-    - `text-decoration`：规定添加到文本的装饰（underline-line、line-through、overline）
-    - `text-shadow`：文本阴影效果
-    - `white-space`：空白符的处理
-    - `unicode-bidi`：设置文本的方向
+**文本属性**
 
-- 盒子模型的属性
+- `vertical-align`：垂直对齐方式
+- `text-decoration`：规定添加到文本的装饰（underline-line、line-through、overline）
+- `text-shadow`：文本阴影效果
+- `white-space`：空白符的处理
+- `unicode-bidi`：设置文本的方向
 
-    - `border`
-    - `margin`
-    - `padding`
-    - `width`
-    - `height`
+**盒子模型的属性**
 
-- 背景属性
+- `border`
+- `margin`
+- `padding`
+- `width`
+- `height`
 
-    - background、background-color、background-image、background-repeat、background-position、background-attachment
-    - 定位属性
+**背景属性**
 
-        - float、clear、position、top、right、bottom、left、min-width、min-height、max-width、max-height、overflow、clip、z-index
+- background、background-color、background-image、background-repeat、background-position、background-attachment
 
-    - 生成内容属性
+**定位属性**
 
-        - content、counter-reset、counter-increment
+- float、clear、position、top、right、bottom、left、min-width、min-height、max-width、max-height、overflow、clip、z-index
 
-    - 轮廓样式属性
+**生成内容属性**
 
-        - outline-style、outline-width、outline-color、outline
+- content、counter-reset、counter-increment
 
-    - 页面样式属性
+**轮廓样式属性**
 
-        - size、page-break-before、page-break-after
+- outline-style、outline-width、outline-color、outline
 
-    - 声音样式属性
+**页面样式属性**
 
-        - pause-before、pause-after、pause、cue-before、cue-after、cue、play-during
+- size、page-break-before、page-break-after
+
+**声音样式属性**
+
+- pause-before、pause-after、pause、cue-before、cue-after、cue、play-during
 
 #### 可继承属性
 
