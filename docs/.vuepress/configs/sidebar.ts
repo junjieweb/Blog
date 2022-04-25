@@ -79,7 +79,7 @@ export default {
             text: 'Vue',
             collapsible: true,
             children: [
-                '/interview/vue/vue',
+                '/interview/vue/basis.md',
             ],
         },
         {
