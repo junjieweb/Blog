@@ -21,34 +21,36 @@
 
 ## 002 - vue的基本原理
 
-- 当一个Vue实例创建时，Vue会遍历data中的属性，用 Object.defineProperty（vue3.0使用proxy ）将每一个属性身上绑定一个
+当一个Vue实例创建时，Vue会遍历data中的属性，用 Object.defineProperty（vue3.0使用proxy ）将每一个属性身上绑定一个
   getter和setter，并且在内部追踪相关依赖，在属性被访问和修改时通知变化。 每个组件实例都有相应的 watcher
   程序实例，它会在组件渲染的过程中把属性记录为依赖，之后当依赖项的setter被调用时，会通知watcher重新计算，从而致使它关联的组件得以更新。
 
-    -
+<img src="https://cn.vuejs.org/images/data.png">
 
 ## 003 - 双向数据绑定的原理
 
-- Vue.js 是采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。主要分为以下几个步骤
+Vue.js 是采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。主要分为以下几个步骤
 
-    - M（model--data）
+<img src="/images/image.png">
 
-        - 需要observe的数据对象进行递归遍历，包括子属性对象的属性，都加上setter和getter这样的话，给这个对象的某个值赋值，就会触发setter，那么就能监听到了数据变化
+- M（model--data）
 
-    - V（view）
+    - 需要observe的数据对象进行递归遍历，包括子属性对象的属性，都加上setter和getter这样的话，给这个对象的某个值赋值，就会触发setter，那么就能监听到了数据变化
 
-        - compile解析模板指令，将模板中的变量替换成数据，然后初始化渲染页面视图，并将每个指令对应的节点绑定更新函数，添加监听数据的订阅者，一旦数据有变动，收到通知，更新视图
+- V（view）
 
-    - VM（vue）
+    - compile解析模板指令，将模板中的变量替换成数据，然后初始化渲染页面视图，并将每个指令对应的节点绑定更新函数，添加监听数据的订阅者，一旦数据有变动，收到通知，更新视图
 
-        - Watcher订阅者是Observer和Compile之间通信的桥梁，主要做的事情是: ①在自身实例化时往属性订阅器(dep)里面添加自己 ②自身必须有一个update()方法
-          ③待属性变动dep.notice()通知时，能调用自身的update()方法，并触发Compile中绑定的回调，则功成身退
+- VM（vue）
 
-    - MVVM
+    - Watcher订阅者是Observer和Compile之间通信的桥梁，主要做的事情是: ①在自身实例化时往属性订阅器(dep)里面添加自己 ②自身必须有一个update()方法
+      ③待属性变动dep.notice()通知时，能调用自身的update()方法，并触发Compile中绑定的回调，则功成身退
 
-        - MVVM作为数据绑定的入口，整合Observer、Compile和Watcher三者，通过Observer来监听自己的model数据变化，通过Compile来解析编译模板指令，
-          最终利用Watcher搭起Observer和Compile之间的通信桥梁，达到数据变化
-          -> 视图更新；视图交互变化(input) -> 数据model变更的双向绑定效果
+- MVVM
+
+    - MVVM作为数据绑定的入口，整合Observer、Compile和Watcher三者，通过Observer来监听自己的model数据变化，通过Compile来解析编译模板指令，
+      最终利用Watcher搭起Observer和Compile之间的通信桥梁，达到数据变化
+      -> 视图更新；视图交互变化(input) -> 数据model变更的双向绑定效果
 
 ## 004 - 使用 `Object.defineProperty()` 来进行数据劫持有什么缺点？
 
@@ -424,7 +426,7 @@ Vue组件可能存在多个实例，如果使用对象形式定义data，则会�
             - ● 如果目标是对象，会先判读属性是否存在、对象是否是响应式，最终如果要对属性进行响应式处理，则是通过调用 defineReactive 方法进行响应式处理（ defineReactive 方法就是 Vue
               在初始化对象时，给对象属性采用 Object.defineProperty 动态添加 getter 和 setter 的功能所调用的方法）
 
-### **Vue 单页应用与多页应用的区别**
+## 026 - Vue 单页应用与多页应用的区别
 
 - 概念
 
@@ -436,7 +438,7 @@ Vue组件可能存在多个实例，如果使用对象形式定义data，则会�
 
     -
 
-### **对 SPA 单页面的理解，它的优缺点分别是什么？**
+## 对 SPA 单页面的理解，它的优缺点分别是什么？
 
 - 概念
 
@@ -455,25 +457,23 @@ Vue组件可能存在多个实例，如果使用对象形式定义data，则会�
     - ● 前进后退路由管理：由于单页应用在一个页面中显示所有的内容，所以不能使用浏览器的前进后退功能，所有的页面切换需要自己建立堆栈管理；
     - ● SEO 难度较大：由于所有的内容都在一个页面中动态替换显示，所以在 SEO 上其有着天然的弱势。
 
-### **Vue模版编译原理**
-
--
+### Vue模版编译原理
 
 vue中的模板template无法被浏览器解析并渲染，因为这不属于浏览器的标准，不是正确的HTML语法，所以需要将template转化成一个JavaScript函数，这样浏览器就可以执行这一个函数并渲染出对应的HTML元素，就可以让视图跑起来了，这一个转化的过程，就成为模板编译。模板编译又分三个阶段，解析parse，优化optimize，生成generate，最终生成可执行函数render。
 
-    - 解析阶段
+- 解析阶段
 
-        - 使用大量的正则表达式对template字符串进行解析，将标签、指令、属性等转化为抽象语法树AST
+    - 使用大量的正则表达式对template字符串进行解析，将标签、指令、属性等转化为抽象语法树AST
 
-    - 优化阶段
+- 优化阶段
 
-        - 遍历AST，找到其中的一些静态节点并进行标记，方便在页面重新渲染的时候进行diff比较时，直接跳过这一些静态节点，优化runtime的性能
+    - 遍历AST，找到其中的一些静态节点并进行标记，方便在页面重新渲染的时候进行diff比较时，直接跳过这一些静态节点，优化runtime的性能
 
-    - 生成阶段
+- 生成阶段
 
-        - 将最终的AST转化为render函数字符串，生成render函数，浏览器执行render函数，在页面中渲染出对应的HTML元素
+    - 将最终的AST转化为render函数字符串，生成render函数，浏览器执行render函数，在页面中渲染出对应的HTML元素
 
-### **Vue template 到 render 的过程                             **
+### Vue template 到 render 的过程 
 
 - vue 在模版编译版本的码中会执行 compileToFunctions 将template转化为render函数
 
