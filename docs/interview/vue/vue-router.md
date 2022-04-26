@@ -28,6 +28,8 @@
 
 - $router 是“路由实例”对象包括了路由的跳转方法，钩子函数等，可以使用$router.push()、$router.replace()、$router.go()等
 - $route 是“路由信息对象”，包括 name，path，params，query，meta，fullPath，hash、matched等路由信息参数
+- `$route`：获取路由信息（路径，query，params）
+- `$router`：一般进行编程式导航进行路由跳转（push/replace）
 
 ### **params和query的区别**
 
@@ -223,3 +225,121 @@
     - ● 触发 DOM 更新。
     - ● 用创建好的实例调用 beforeRouteEnter守卫中传给 next 的回调函数。
     - ● 导航完成
+
+## 2.路由组件和非路由组件的区别？
+
+1. 路由组件一般放在`pages/views`文件夹，非路由组件放在`components`文件夹
+2. 路由组件一般需要在`router`文件夹中进行注册，非路由组件一般都是以标签的形式使用
+3. 注册完路由，不管是路由组件还是非路由组件，身上都有`$route`和`$router`属性
+
+## 4.路由跳转
+
+### 路由跳转的方式？
+
+声明式导航`router-link`：可以进行路由的跳转，务必要有`to`属性
+
+编程式导航`push/replace`，可以进行路由跳转。`this.$router.push('/search')`
+
+声明式导航能做的，编程式导航都能做，但是编程式导航除了可以进行路由跳转，还可以做一些其他的业务逻辑
+
+### push和replace有什么区别？
+
+push可以回退，replace替换（不可以回退）
+
+### 编程式路由跳转到当前路由（参数不变），多次执行会抛出NavigationDuplicated的警告错误，如何解决
+
+声明式导航没有这类问题，因为`vue-router`底层已经处理好了
+
+为什么编程式导航会有这种错误警告？
+
+`"vue-router": "^3.5.3"`，最新的`vue-router`引入了`Promise`。
+
+方法一：传入成功的回调函数参数
+
+`this.$router.push(location, () => {})`
+
+方法二：catch处理错误的promise
+
+`this.$router.push(location).catch(() => {})`
+
+> 但是上面种方法治标不治本，在别的组件中`push/replace`，编程式导航还是有类似错误。
+
+方法三：重写push/replace方法
+
+```javascript
+// 先把VueRouter原型对象的push/replace方法保存一份
+const originPush = VueRouter.prototype.push
+const originReplace = VueRouter.prototype.replace
+// 重写push/replace
+// 第一个参数：告诉原来的push方法，你往哪里跳转（传递哪些参数）
+VueRouter.prototype.push = function (location, resolve, reject) {
+    if (resolve || reject) { // 如果指定了成功或失败的回调
+        originPush.call(this, location, resolve, reject) // 直接调用原来的push方法
+    } else {
+        originPush.call(this, location, () => {
+        }, () => {
+        })
+    }
+}
+VueRouter.prototype.replace = function (location, resolve, reject) {
+    if (resolve || reject) { // 如果指定了成功或失败的回调
+        originReplace.call(this, location, resolve, reject) // 直接调用原来的replace方法
+    } else {
+        originReplace.call(this, location, () => {
+        }, () => {
+        })
+    }
+}
+```
+
+## 5.路由传参
+
+### 路由传参的方式？
+
+第一种：字符串拼接
+
+```javascript
+this.$router.push('/search/' + this.keyword + '?k=' + this.keyword)
+```
+
+第二种：模板字符串
+
+```javascript
+this.$router.push(`/search/${this.keyword}?k=${this.keyword}`)
+```
+
+**第三种：对象写法**
+
+```javascript
+this.$router.push({
+    name: 'search',
+    params: {keyword: this.keyword || undefined},
+    query: {k: this.keyword.toUpperCase()}
+})
+```
+
+### 路由传参（对象写法）path是否可以结合params参数一起使用？
+
+路由跳转传参的时候，对象的写法，可以是`name/path`，`name`和`path`一起写可以正常使用，但是只有`path`不能与`params`参数一起使用，
+
+### 如何指定params参数可传可不传？
+
+如果路由要求传递`params`参数，但是没有传递，url会有问题。
+
+占位符后面加`?`：`path: '/search/:keyword?'`。代表`params`参数可传可不传
+
+### params参数可传可不传，但是如果传递的是空串，如何解决？
+
+使用`undefined`解决：`params: {keyword: this.keyword || undefined},`
+
+### 路由组件能不能传递props数据？
+
+可以的，有三种写法，在路由配置里写
+
+- 如果 `props` 被设置为 `true`，`route.params` 将会被设置为组件属性。只能传递`params`参数
+
+- 如果 `props` 是一个对象，它会被按原样设置为组件属性。当 `props` 是静态的时候有用。额外给路由组件传递一些props。
+
+- 函数写法：可以将`params`参数，`query`参数，通过`props`传递给路由组件。
+
+  `props: route => ({keyword: route.params.keyword, k: route.query.k})`
