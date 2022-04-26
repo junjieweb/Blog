@@ -85,6 +85,7 @@ export default {
                 '/interview/vue/vuex.md',
                 '/interview/vue/vue-router.md',
                 '/interview/vue/vue3.md',
+                '/interview/vue/虚拟DOM.md',
             ],
         },
         {
