@@ -80,6 +80,7 @@ export default {
             collapsible: true,
             children: [
                 '/interview/vue/basis.md',
+                '/interview/vue/生命周期.md',
             ],
         },
         {
