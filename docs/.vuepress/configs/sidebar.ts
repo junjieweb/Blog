@@ -83,6 +83,7 @@ export default {
                 '/interview/vue/生命周期.md',
                 '/interview/vue/组件间通信.md',
                 '/interview/vue/vuex.md',
+                '/interview/vue/vue-router.md',
             ],
         },
         {
