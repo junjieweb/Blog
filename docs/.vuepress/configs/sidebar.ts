@@ -84,6 +84,7 @@ export default {
                 '/interview/vue/组件间通信.md',
                 '/interview/vue/vuex.md',
                 '/interview/vue/vue-router.md',
+                '/interview/vue/vue3.md',
             ],
         },
         {
