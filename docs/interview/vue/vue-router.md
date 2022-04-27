@@ -1,6 +1,6 @@
 # 五、router
 
-### **对前端路由的理解**
+## 001 - 对前端路由的理解
 
 - 路由
 
@@ -18,20 +18,20 @@
         - 前端路由可以帮助我们在仅有一个页面的情况下，“记住”用户当前走到了哪一步——为 SPA 中的各个视图匹配一个唯一标识。这意味着用户前进、后退触发的新内容，都会映射到不同的 URL 上去。此时即便他刷新页面，因为当前的
           URL 可以标识出他所处的位置，因此内容也不会丢失。
 
-### **Vue-router跳转和location.href有什么区别**
+## 002 - Vue-router跳转和location.href有什么区别
 
 - 使用 location.href= ‘/url’ 来跳转，简单方便，但是刷新了页面；
 - 引进 router ，然后使用 router.push( ‘/url’ ) 来跳转，无刷新页面，静态跳转。使用了 diff 算法，实现了按需加载，减少了 dom 的消耗。使用 router
   跳转底层是用history.pushState()
 
-### **$route 和$router 的区别**
+## 003 - $route 和$router 的区别
 
 - $router 是“路由实例”对象包括了路由的跳转方法，钩子函数等，可以使用$router.push()、$router.replace()、$router.go()等
 - $route 是“路由信息对象”，包括 name，path，params，query，meta，fullPath，hash、matched等路由信息参数
 - `$route`：获取路由信息（路径，query，params）
 - `$router`：一般进行编程式导航进行路由跳转（push/replace）
 
-### **params和query的区别**
+## 004 - params和query的区别
 
 - 用法
 
@@ -48,7 +48,7 @@
     - query刷新不会丢失query里面的数据
     - params刷新会丢失 params里面的数据（可考虑采取本地存储解决此问题）
 
-### ** 路由的hash和history模式的区别**
+## 005 - 路由的hash和history模式的区别
 
 - hash模式
 
@@ -104,7 +104,7 @@
     - pushState() 可额外设置 title 属性供后续使用。
     - hash模式下，仅hash符号之前的url会被包含在请求中，后端如果没有做到对路由的全覆盖，也不会返回404错误；history模式下，前端的url必须和实际向后端发起请求的url一致，如果没有对用的路由处理，将返回404错误。
 
-### **如何获取页面的hash变化**
+## 006 - 如何获取页面的hash变化
 
 - 监听$route的变化
 
@@ -114,7 +114,7 @@
 
     - window.location.hash 的值可读可写，读取来判断状态是否改变，写入时可以在不重载网页的前提下，添加一条历史访问记录。
 
-### **如何定义动态路由？如何获取传过来的动态参数？**
+## 007 - 如何定义动态路由？如何获取传过来的动态参数？
 
 - params传参
 
@@ -148,7 +148,7 @@
 
         - 通过$route.query.userid获取传递的值
 
-### **Vue-Router 的懒加载如何实现**
+## 008 - Vue-Router 的懒加载如何实现
 
 - 非懒加载
 
@@ -170,61 +170,61 @@
 
         -
 
-### **Vue-router 导航守卫有哪些**
+## 009 - Vue-router 导航守卫有哪些
 
 - 全局守卫（前置/后置）：beforeEach、beforeResolve、afterEach
 - 路由独享的守卫：beforeEnter
 - 组件内的守卫：beforeRouteEnter、beforeRouteUpdate、beforeRouteLeave
 
-### **Vue-router 路由守卫在生命周期的体现**
+## 010 - Vue-router 路由守卫在生命周期的体现
 
 - 完整的路由导航解析流程
 
-    - ● 触发进入其他路由。
-    - ● 调用要离开路由的组件守卫beforeRouteLeave
-    - ● 调用全局前置守卫∶ beforeEach
-    - ● 在重用的组件里调用 beforeRouteUpdate
-    - ● 调用路由独享守卫 beforeEnter。
-    - ● 解析异步路由组件。
-    - ● 在将要进入的路由组件中调用 beforeRouteEnter
-    - ● 调用全局解析守卫 beforeResolve
-    - ● 导航被确认。
-    - ● 调用全局后置钩子的 afterEach 钩子。
-    - ● 触发DOM更新（mounted）。
-    - ● 执行beforeRouteEnter 守卫中传给 next 的回调函数
+    -  触发进入其他路由。
+    -  调用要离开路由的组件守卫beforeRouteLeave
+    -  调用全局前置守卫∶ beforeEach
+    -  在重用的组件里调用 beforeRouteUpdate
+    -  调用路由独享守卫 beforeEnter。
+    -  解析异步路由组件。
+    -  在将要进入的路由组件中调用 beforeRouteEnter
+    -  调用全局解析守卫 beforeResolve
+    -  导航被确认。
+    -  调用全局后置钩子的 afterEach 钩子。
+    -  触发DOM更新（mounted）。
+    -  执行beforeRouteEnter 守卫中传给 next 的回调函数
 
 - 触发钩子的完整顺序
 
-    - ● beforeRouteLeave：路由组件的组件离开路由前钩子，可取消路由离开。
-    - ● beforeEach：路由全局前置守卫，可用于登录验证、全局路由loading等。
-    - ● beforeEnter：路由独享守卫
-    - ● beforeRouteEnter：路由组件的组件进入路由前钩子。
-    - ● beforeResolve：路由全局解析守卫
-    - ● afterEach：路由全局后置钩子
-    - ● beforeCreate：组件生命周期，不能访问this。
-    - ● created;组件生命周期，可以访问this，不能访问dom。
-    - ● beforeMount：组件生命周期
-    - ● deactivated：离开缓存组件a，或者触发a的beforeDestroy和destroyed组件销毁钩子。
-    - ● mounted：访问/操作dom。
-    - ● activated：进入缓存组件，进入a的嵌套子组件（如果有的话）。
-    - ● 执行beforeRouteEnter回调函数next。
+    - beforeRouteLeave：路由组件的组件离开路由前钩子，可取消路由离开。
+    - beforeEach：路由全局前置守卫，可用于登录验证、全局路由loading等。
+    - beforeEnter：路由独享守卫
+    - beforeRouteEnter：路由组件的组件进入路由前钩子。
+    - beforeResolve：路由全局解析守卫
+    - afterEach：路由全局后置钩子
+    - beforeCreate：组件生命周期，不能访问this。
+    - created;组件生命周期，可以访问this，不能访问dom。
+    - beforeMount：组件生命周期
+    - deactivated：离开缓存组件a，或者触发a的beforeDestroy和destroyed组件销毁钩子。
+    - mounted：访问/操作dom。
+    - activated：进入缓存组件，进入a的嵌套子组件（如果有的话）。
+    - 执行beforeRouteEnter回调函数next。
 
 - 导航行为被触发到导航完成的整个过程
 
-    - ● 导航行为被触发，此时导航未被确认。
-    - ● 在失活的组件里调用离开守卫 beforeRouteLeave。
-    - ● 调用全局的 beforeEach守卫。
-    - ● 在重用的组件里调用 beforeRouteUpdate 守卫(2.2+)。
-    - ● 在路由配置里调用 beforeEnteY。
-    - ● 解析异步路由组件（如果有）。
-    - ● 在被激活的组件里调用 beforeRouteEnter。
-    - ● 调用全局的 beforeResolve 守卫（2.5+），标示解析阶段完成。
-    - ● 导航被确认。
-    - ● 调用全局的 afterEach 钩子。
-    - ● 非重用组件，开始组件实例的生命周期：beforeCreate&created、beforeMount&mounted
-    - ● 触发 DOM 更新。
-    - ● 用创建好的实例调用 beforeRouteEnter守卫中传给 next 的回调函数。
-    - ● 导航完成
+    -  导航行为被触发，此时导航未被确认。
+    -  在失活的组件里调用离开守卫 beforeRouteLeave。
+    -  调用全局的 beforeEach守卫。
+    -  在重用的组件里调用 beforeRouteUpdate 守卫(2.2+)。
+    -  在路由配置里调用 beforeEnteY。
+    -  解析异步路由组件（如果有）。
+    -  在被激活的组件里调用 beforeRouteEnter。
+    -  调用全局的 beforeResolve 守卫（2.5+），标示解析阶段完成。
+    -  导航被确认。
+    -  调用全局的 afterEach 钩子。
+    -  非重用组件，开始组件实例的生命周期：beforeCreate&created、beforeMount&mounted
+    -  触发 DOM 更新。
+    -  用创建好的实例调用 beforeRouteEnter守卫中传给 next 的回调函数。
+    -  导航完成
 
 ## 2.路由组件和非路由组件的区别？
 
