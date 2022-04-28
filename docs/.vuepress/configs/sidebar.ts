@@ -127,7 +127,7 @@ export default {
             text: 'CSS',
             collapsible: true,
             children: [
-                '/notes/html.md',
+                '/yuque/前端面试题之CSS篇.md',
             ],
         },
         {
