@@ -28,8 +28,6 @@
 - id 选择器：100；
 - 内联样式：1000；
 
-
-
 **注意事项：**
 
 - !important声明的样式的优先级最高；
@@ -58,8 +56,6 @@
 5. **轮廓样式属性**：outline-style、outline-width、outline-color、outline
 6. **页面样式属性**：size、page-break-before、page-break-after
 7. **声音样式属性**：pause-before、pause-after、pause、cue-before、cue-after、cue、play-during
-
-
 
 **二、有继承性的属性**
 
@@ -106,13 +102,11 @@
 
 ### 4. display的block、inline和inline-block的区别
 
-　（1）**block：**会独占一行，多个元素会另起一行，可以设置width、height、margin和padding属性；
+（1）**block：**会独占一行，多个元素会另起一行，可以设置width、height、margin和padding属性；
 
-　（2）**inline：**元素不会独占一行，设置width、height属性无效。但可以设置水平方向的margin和padding属性，不能设置垂直方向的padding和margin；
+（2）**inline：**元素不会独占一行，设置width、height属性无效。但可以设置水平方向的margin和padding属性，不能设置垂直方向的padding和margin；
 
-　（3）**inline-block：**将对象设置为inline对象，但对象的内容作为block对象呈现，之后的内联对象会被排列在同一行内。
-
-
+（3）**inline-block：**将对象设置为inline对象，但对象的内容作为block对象呈现，之后的内联对象会被排列在同一行内。
 
 对于行内元素和块级元素，其特点如下：
 
@@ -176,48 +170,58 @@
 - 伪元素：在内容元素的前后插入额外的元素或样式，但是这些元素实际上并不在文档中生成。它们只在外部显示可见，但不会在文档的源代码中找到它们，因此，称为“伪”元素。例如：
 
 ```css
-p::before {content:"第一章：";}
-p::after {content:"Hot!";}
-p::first-line {background:red;}
-p::first-letter {font-size:30px;}
+p::before {
+    content: "第一章：";
+}
+
+p::after {
+    content: "Hot!";
+}
+
+p::first-line {
+    background: red;
+}
+
+p::first-letter {
+    font-size: 30px;
+}
 ```
 
 - 伪类：将特殊的效果添加到特定选择器上。它是已有元素上添加类别的，不会产生新的元素。例如：
 
 ```css
-a:hover {color: #FF00FF}
-p:first-child {color: red}
+a:hover {
+    color: #FF00FF
+}
+
+p:first-child {
+    color: red
+}
 ```
 
-**总结：**伪类是通过在元素选择器上加⼊伪类改变元素状态，⽽伪元素通过对元素的操作进⾏对元素的改变。 
+**总结：**伪类是通过在元素选择器上加⼊伪类改变元素状态，⽽伪元素通过对元素的操作进⾏对元素的改变。
 
 ### 10. 对requestAnimationframe的理解
 
-实现动画效果的方法比较多，Javascript 中可以通过定时器 setTimeout 来实现，CSS3 中可以使用 transition 和 animation 来实现，HTML5 中的 canvas 也可以实现。除此之外，HTML5 提供一个专门用于请求动画的API，那就是 requestAnimationFrame，顾名思义就是**请求动画帧**。
-
-
+实现动画效果的方法比较多，Javascript 中可以通过定时器 setTimeout 来实现，CSS3 中可以使用 transition 和 animation 来实现，HTML5 中的 canvas 也可以实现。除此之外，HTML5
+提供一个专门用于请求动画的API，那就是 requestAnimationFrame，顾名思义就是**请求动画帧**。
 
 MDN对该方法的描述：
 
 window.requestAnimationFrame() 告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行。
 
-
-
-**语法：** `window.requestAnimationFrame(callback);`  其中，callback是**下一次重绘之前更新动画帧所调用的函数**(即上面所说的回调函数)。该回调函数会被传入DOMHighResTimeStamp参数，它表示requestAnimationFrame() 开始去执行回调函数的时刻。该方法属于**宏任务**，所以会在执行完微任务之后再去执行。
-
-
+**语法：** `window.requestAnimationFrame(callback);`  其中，callback是**下一次重绘之前更新动画帧所调用的函数**(即上面所说的回调函数)
+。该回调函数会被传入DOMHighResTimeStamp参数，它表示requestAnimationFrame() 开始去执行回调函数的时刻。该方法属于**宏任务**，所以会在执行完微任务之后再去执行。
 
 **取消动画：**使用cancelAnimationFrame()来取消执行动画，该方法接收一个参数——requestAnimationFrame默认返回的id，只需要传入这个id就可以取消动画了。
 
-
-
 **优势：**
 
-- **CPU节能**：使用SetTinterval 实现的动画，当页面被隐藏或最小化时，SetTinterval 仍然在后台执行动画任务，由于此时页面处于不可见或不可用状态，刷新动画是没有意义的，完全是浪费CPU资源。而RequestAnimationFrame则完全不同，当页面处理未激活的状态下，该页面的屏幕刷新任务也会被系统暂停，因此跟着系统走的RequestAnimationFrame也会停止渲染，当页面被激活时，动画就从上次停留的地方继续执行，有效节省了CPU开销。
-- **函数节流**：在高频率事件( resize, scroll 等)中，为了防止在一个刷新间隔内发生多次函数执行，RequestAnimationFrame可保证每个刷新间隔内，函数只被执行一次，这样既能保证流畅性，也能更好的节省函数执行的开销，一个刷新间隔内函数执行多次时没有意义的，因为多数显示器每16.7ms刷新一次，多次绘制并不会在屏幕上体现出来。
+- **CPU节能**：使用SetTinterval 实现的动画，当页面被隐藏或最小化时，SetTinterval
+  仍然在后台执行动画任务，由于此时页面处于不可见或不可用状态，刷新动画是没有意义的，完全是浪费CPU资源。而RequestAnimationFrame则完全不同，当页面处理未激活的状态下，该页面的屏幕刷新任务也会被系统暂停，因此跟着系统走的RequestAnimationFrame也会停止渲染，当页面被激活时，动画就从上次停留的地方继续执行，有效节省了CPU开销。
+- **函数节流**：在高频率事件( resize, scroll 等)
+  中，为了防止在一个刷新间隔内发生多次函数执行，RequestAnimationFrame可保证每个刷新间隔内，函数只被执行一次，这样既能保证流畅性，也能更好的节省函数执行的开销，一个刷新间隔内函数执行多次时没有意义的，因为多数显示器每16.7ms刷新一次，多次绘制并不会在屏幕上体现出来。
 - **减少DOM操作**：requestAnimationFrame 会把每一帧中的所有DOM操作集中起来，在一次重绘或回流中就完成，并且重绘或回流的时间间隔紧紧跟随浏览器的刷新频率，一般来说，这个频率为每秒60帧。
-
-
 
 **setTimeout执行动画的缺点**：它通过设定间隔时间来不断改变图像位置，达到动画效果。但是容易出现卡顿、抖动的现象；原因是：
 
@@ -234,29 +238,25 @@ CSS3中的盒模型有以下两种：标准盒子模型、IE盒子模型
 
 盒模型都是由四个部分组成的，分别是margin、border、padding和content。
 
-
-
 标准盒模型和IE盒模型的区别在于设置width和height时，所对应的范围不同：
 
 - 标准盒模型的width和height属性的范围只包含了content，
 - IE盒模型的width和height属性的范围包含了border、padding和content。
-
-
 
 可以通过修改元素的box-sizing属性来改变元素的盒模型：
 
 - `box-sizing: content-box`表示标准盒模型（默认值）
 - `box-sizing: border-box`表示IE盒模型（怪异盒模型）
 
-### 12. 为什么有时候⽤**translate**来改变位置⽽不是定位？ 
+### 12. 为什么有时候⽤**translate**来改变位置⽽不是定位？
 
-translate 是 transform 属性的⼀个值。改变transform或opacity不会触发浏览器重新布局（reflow）或重绘（repaint），只会触发复合（compositions）。⽽改变绝对定位会触发重新布局，进⽽触发重绘和复合。transform使浏览器为元素创建⼀个 GPU 图层，但改变绝对定位会使⽤到 CPU。 因此translate()更⾼效，可以缩短平滑动画的绘制时间。 ⽽translate改变位置时，元素依然会占据其原始空间，绝对定位就不会发⽣这种情况。
+translate 是 transform
+属性的⼀个值。改变transform或opacity不会触发浏览器重新布局（reflow）或重绘（repaint），只会触发复合（compositions）。⽽改变绝对定位会触发重新布局，进⽽触发重绘和复合。transform使浏览器为元素创建⼀个
+GPU 图层，但改变绝对定位会使⽤到 CPU。 因此translate()更⾼效，可以缩短平滑动画的绘制时间。 ⽽translate改变位置时，元素依然会占据其原始空间，绝对定位就不会发⽣这种情况。
 
 ### 13. li 与 li 之间有看不见的空白间隔是什么原因引起的？如何解决？
 
 浏览器会把inline内联元素间的空白字符（空格、换行、Tab等）渲染成一个空格。为了美观，通常是一个`<li>`放在一行，这导致`<li>`换行后产生换行字符，它变成一个空格，占用了一个字符的宽度。
-
-
 
 **解决办法：**
 
@@ -284,24 +284,19 @@ translate 是 transform 属性的⼀个值。改变transform或opacity不会触�
 
 通过修改某个属性值呈现的内容就可以被替换的元素就称为“替换元素”。
 
-
-
 替换元素除了内容可替换这一特性以外，还有以下特性：
 
 - **内容的外观不受页面上的CSS的影响**：用专业的话讲就是在样式表现在CSS作用域之外。如何更改替换元素本身的外观需要类似appearance属性，或者浏览器自身暴露的一些样式接口。
 - **有自己的尺寸**：在Web中，很多替换元素在没有明确尺寸设定的情况下，其默认的尺寸（不包括边框）是300像素×150像素，如
-- **在很多CSS属性上有自己的一套表现规则**：比较具有代表性的就是vertical-align属性，对于替换元素和非替换元素，vertical-align属性值的解释是不一样的。比方说vertical-align的默认值的baseline，很简单的属性值，基线之意，被定义为字符x的下边缘，而替换元素的基线却被硬生生定义成了元素的下边缘。
+- **在很多CSS属性上有自己的一套表现规则**
+  ：比较具有代表性的就是vertical-align属性，对于替换元素和非替换元素，vertical-align属性值的解释是不一样的。比方说vertical-align的默认值的baseline，很简单的属性值，基线之意，被定义为字符x的下边缘，而替换元素的基线却被硬生生定义成了元素的下边缘。
 - **所有的替换元素都是内联水平元素**：也就是替换元素和替换元素、替换元素和文字都是可以在一行显示的。但是，替换元素默认的display值却是不一样的，有的是inline，有的是inline-block。
-
-
 
 替换元素的尺寸从内而外分为三类：
 
 - **固有尺寸：** 指的是替换内容原本的尺寸。例如，图片、视频作为一个独立文件存在的时候，都是有着自己的宽度和高度的。
 - **HTML尺寸：** 只能通过HTML原生属性改变，这些HTML原生属性包括的width和height属性、的size属性。
 - **CSS尺寸：** 特指可以通过CSS的width和height或者max-width/min-width和max-height/min-height设置的尺寸，对应盒尺寸中的content box。
-
-
 
 这三层结构的计算规则具体如下：
 
@@ -321,29 +316,21 @@ translate 是 transform 属性的⼀个值。改变transform或opacity不会触�
 
 （1）**BMP**，是无损的、既支持索引色也支持直接色的点阵图。这种图片格式几乎没有对数据进行压缩，所以BMP格式的图片通常是较大的文件。
 
+（2）**GIF**
+是无损的、采用索引色的点阵图。采用LZW压缩算法进行编码。文件小，是GIF格式的优点，同时，GIF格式还具有支持动画以及透明的优点。但是GIF格式仅支持8bit的索引色，所以GIF格式适用于对色彩要求不高同时需要文件体积较小的场景。
 
+（3）**JPEG**
+是有损的、采用直接色的点阵图。JPEG的图片的优点是采用了直接色，得益于更丰富的色彩，JPEG非常适合用来存储照片，与GIF相比，JPEG不适合用来存储企业Logo、线框类的图。因为有损压缩会导致图片模糊，而直接色的选用，又会导致图片文件较GIF更大。
 
-（2）**GIF**是无损的、采用索引色的点阵图。采用LZW压缩算法进行编码。文件小，是GIF格式的优点，同时，GIF格式还具有支持动画以及透明的优点。但是GIF格式仅支持8bit的索引色，所以GIF格式适用于对色彩要求不高同时需要文件体积较小的场景。
-
-
-
-（3）**JPEG**是有损的、采用直接色的点阵图。JPEG的图片的优点是采用了直接色，得益于更丰富的色彩，JPEG非常适合用来存储照片，与GIF相比，JPEG不适合用来存储企业Logo、线框类的图。因为有损压缩会导致图片模糊，而直接色的选用，又会导致图片文件较GIF更大。
-
-
-
-（4）**PNG-8**是无损的、使用索引色的点阵图。PNG是一种比较新的图片格式，PNG-8是非常好的GIF格式替代者，在可能的情况下，应该尽可能的使用PNG-8而不是GIF，因为在相同的图片效果下，PNG-8具有更小的文件体积。除此之外，PNG-8还支持透明度的调节，而GIF并不支持。除非需要动画的支持，否则没有理由使用GIF而不是PNG-8。
-
-
+（4）**PNG-8**
+是无损的、使用索引色的点阵图。PNG是一种比较新的图片格式，PNG-8是非常好的GIF格式替代者，在可能的情况下，应该尽可能的使用PNG-8而不是GIF，因为在相同的图片效果下，PNG-8具有更小的文件体积。除此之外，PNG-8还支持透明度的调节，而GIF并不支持。除非需要动画的支持，否则没有理由使用GIF而不是PNG-8。
 
 （5）**PNG-24**是无损的、使用直接色的点阵图。PNG-24的优点在于它压缩了图片的数据，使得同样效果的图片，PNG-24格式的文件大小要比BMP小得多。当然，PNG24的图片还是要比JPEG、GIF、PNG-8大得多。
 
-
-
 （6）**SVG**是无损的矢量图。SVG是矢量图意味着SVG图片由直线和曲线以及绘制它们的方法组成。当放大SVG图片时，看到的还是线和曲线，而不会出现像素点。SVG图片在放大时，不会失真，所以它适合用来绘制Logo、Icon等。
 
-
-
-（7）**WebP**是谷歌开发的一种新图片格式，WebP是同时支持有损和无损压缩的、使用直接色的点阵图。从名字就可以看出来它是为Web而生的，什么叫为Web而生呢？就是说相同质量的图片，WebP具有更小的文件体积。现在网站上充满了大量的图片，如果能够降低每一个图片的文件大小，那么将大大减少浏览器和服务器之间的数据传输量，进而降低访问延迟，提升访问体验。目前只有Chrome浏览器和Opera浏览器支持WebP格式，兼容性不太好。
+（7）**WebP**
+是谷歌开发的一种新图片格式，WebP是同时支持有损和无损压缩的、使用直接色的点阵图。从名字就可以看出来它是为Web而生的，什么叫为Web而生呢？就是说相同质量的图片，WebP具有更小的文件体积。现在网站上充满了大量的图片，如果能够降低每一个图片的文件大小，那么将大大减少浏览器和服务器之间的数据传输量，进而降低访问延迟，提升访问体验。目前只有Chrome浏览器和Opera浏览器支持WebP格式，兼容性不太好。
 
 - 在无损压缩的情况下，相同质量的WebP图片，文件大小要比PNG小26%；
 - 在有损压缩的情况下，具有相同图片精度的WebP图片，文件大小要比JPEG小25%~34%；
@@ -353,30 +340,23 @@ translate 是 transform 属性的⼀个值。改变transform或opacity不会触�
 
 CSSSprites（精灵图），将一个页面涉及到的所有图片都包含到一张大图中去，然后利用CSS的 background-image，background-repeat，background-position属性的组合进行背景定位。
 
-
-
 **优点：**
 
 - 利用`CSS Sprites`能很好地减少网页的http请求，从而大大提高了页面的性能，这是`CSS Sprites`最大的优点；
 - `CSS Sprites`能减少图片的字节，把3张图片合并成1张图片的字节总是小于这3张图片的字节总和。
 
-
-
 **缺点：**
 
 - 在图片合并时，要把多张图片有序的、合理的合并成一张图片，还要留好足够的空间，防止板块内出现不必要的背景。在宽屏及高分辨率下的自适应页面，如果背景不够宽，很容易出现背景断裂；
 - `CSSSprites`在开发的时候相对来说有点麻烦，需要借助`photoshop`或其他工具来对每个背景单元测量其准确的位置。
-- 维护方面：`CSS Sprites`在维护的时候比较麻烦，页面背景有少许改动时，就要改这张合并的图片，无需改的地方尽量不要动，这样避免改动更多的`CSS`，如果在原来的地方放不下，又只能（最好）往下加图片，这样图片的字节就增加了，还要改动`CSS`。
+- 维护方面：`CSS Sprites`在维护的时候比较麻烦，页面背景有少许改动时，就要改这张合并的图片，无需改的地方尽量不要动，这样避免改动更多的`CSS`
+  ，如果在原来的地方放不下，又只能（最好）往下加图片，这样图片的字节就增加了，还要改动`CSS`。
 
 ### 18. 什么是物理像素，逻辑像素和像素密度，为什么在移动端开发时需要用到@3x, @2x这种图片？
 
 以 iPhone XS 为例，当写 CSS 代码时，针对于单位 px，其宽度为 414px & 896px，也就是说当赋予一个 DIV元素宽度为 414px，这个 DIV 就会填满手机的宽度；
 
-
-
 而如果有一把尺子来实际测量这部手机的物理像素，实际为 1242*2688 物理像素；经过计算可知，1242/414=3，也就是说，在单边上，一个逻辑像素=3个物理像素，就说这个屏幕的像素密度为 3，也就是常说的 3 倍屏。
-
-
 
 对于图片来说，为了保证其不失真，1 个图片像素至少要对应一个物理像素，假如原始图片是 500300 像素，那么在 3 倍屏上就要放一个 1500900 像素的图片才能保证 1 个物理像素至少对应一个图片像素，才能不失真。
 
@@ -384,16 +364,7 @@ CSSSprites（精灵图），将一个页面涉及到的所有图片都包含到�
 
 当然，也可以针对所有屏幕，都只提供最高清图片。虽然低密度屏幕用不到那么多图片像素，而且会因为下载多余的像素造成带宽浪费和下载延迟，但从结果上说能保证图片在所有屏幕上都不会失真。
 
-
-
 还可以使用 CSS 媒体查询来判断不同的像素密度，从而选择不同的图片:
-
-```javascript
-my-image { background: (low.png); }
-@media only screen and (min-device-pixel-ratio: 1.5) {
-  #my-image { background: (high.png); }
-}
-```
 
 ### 19. **margin 和 padding 的使用场景**
 
@@ -416,101 +387,57 @@ my-image { background: (low.png); }
 - 纯数字：会把比例传递给后代。例如，父级行高为 1.5，子元素字体为 18px，则子元素行高为 1.5 * 18 = 27px
 - 百分比：将计算后的值传递给后代
 
-
-
 ### 21. CSS 优化和提高性能的方法有哪些？
 
 **加载性能：**
 
 （1）css压缩：将写好的css进行打包压缩，可以减小文件体积。
 
-
-
 （2）css单一样式：当需要下边距和左边距的时候，很多时候会选择使用 margin:top 0 bottom 0；但margin-bottom:bottom;margin-left:left;执行效率会更高。
 
-
-
 （3）减少使用@import，建议使用link，因为后者在页面加载时一起加载，前者是等待页面加载完成之后再进行加载。
-
-
 
 **选择器性能：**
 
 （1）关键选择器（key selector）。选择器的最后面的部分为关键选择器（即用来匹配目标元素的部分）。CSS选择符是从右到左进行匹配的。当使用后代选择器的时候，浏览器会遍历所有子元素来确定是否是指定的元素等等；
 
-
-
 （2）如果规则拥有ID选择器作为其关键选择器，则不要为规则增加标签。过滤掉无关的规则（这样样式系统就不会浪费时间去匹配它们了）。
-
-
 
 （3）避免使用通配规则，如*{}计算次数惊人，只对需要用到的元素进行选择。
 
-
-
 （4）尽量少的去对标签进行选择，而是用class。
-
-
 
 （5）尽量少的去使用后代选择器，降低选择器的权重值。后代选择器的开销是最高的，尽量将选择器的深度降到最低，最高不要超过三层，更多的使用类来关联每一个标签元素。
 
-
-
 （6）了解哪些属性是可以通过继承而来的，然后避免对这些属性重复指定规则。
-
-
 
 **渲染性能：**
 
 （1）慎重使用高性能属性：浮动、定位。
 
-
-
 （2）尽量减少页面重排、重绘。
-
-
 
 （3）去除空规则：｛｝。空规则的产生原因一般来说是为了预留样式。去除这些空规则无疑能减少css文档体积。
 
-
-
 （4）属性值为0时，不加单位。
-
-
 
 （5）属性值为浮动小数0.**，可以省略小数点之前的0。
 
-
-
 （6）标准化各种浏览器前缀：带浏览器前缀的在前。标准属性在后。
-
-
 
 （7）不使用@import前缀，它会影响css的加载速度。
 
-
-
 （8）选择器优化嵌套，尽量避免层级过深。
-
-
 
 （9）css雪碧图，同一页面相近部分的小图标，方便使用，减少页面的请求次数，但是同时图片本身会变大，使用时，优劣考虑清楚，再使用。
 
-
-
 （10）正确使用display的属性，由于display的作用，某些样式组合会无效，徒增样式体积的同时也影响解析性能。
 
-
-
 （11）不滥用web字体。对于中文网站来说WebFonts可能很陌生，国外却很流行。web fonts通常体积庞大，而且一些浏览器在下载web fonts时会阻塞页面渲染损伤性能。
-
-
 
 **可维护性、健壮性：**
 
 （1）将具有相同属性的样式抽离出来，整合并通过class在页面中进行使用，提高css的可维护性。
-
-
 
 （2）样式与内容分离：将css代码定义到外部css中。
 
@@ -518,19 +445,11 @@ my-image { background: (low.png); }
 
 **预处理器，**如：`less`，`sass`，`stylus`，用来预编译`sass`或者`less`，增加了`css`代码的复用性。层级，`mixin`， 变量，循环， 函数等对编写以及开发UI组件都极为方便。
 
-
-
 **后处理器，** 如： `postCss`，通常是在完成的样式表中根据`css`规范处理`css`，让其更加有效。目前最常做的是给`css`属性添加浏览器私有前缀，实现跨浏览器兼容性的问题。
-
-
 
 `css`预处理器为`css`增加一些编程特性，无需考虑浏览器的兼容问题，可以在`CSS`中使用变量，简单的逻辑程序，函数等在编程语言中的一些基本的性能，可以让`css`更加的简洁，增加适应性以及可读性，可维护性等。
 
-
-
 其它`css`预处理器语言：`Sass（Scss）`, `Less`, `Stylus`, `Turbine`, `Swithch css`, `CSS Cacheer`, `DT Css`。
-
-
 
 使用原因：
 
@@ -545,9 +464,8 @@ my-image { background: (low.png); }
 
 （2）`::before`就是以一个子元素的存在，定义在元素主体内容之前的一个伪元素。并不存在于`dom`之中，只存在在页面之中。
 
-
-
-**注意：** `:before `和 `:after` 这两个伪元素，是在`CSS2.1`里新出现的。起初，伪元素的前缀使用的是单冒号语法，但随着`Web`的进化，在`CSS3`的规范里，伪元素的语法被修改成使用双冒号，成为`::before`、`::after`。
+**注意：** `:before `和 `:after` 这两个伪元素，是在`CSS2.1`里新出现的。起初，伪元素的前缀使用的是单冒号语法，但随着`Web`的进化，在`CSS3`
+的规范里，伪元素的语法被修改成使用双冒号，成为`::before`、`::after`。
 
 ### 24. display:inline-block 什么时候会显示间隙？
 
@@ -560,56 +478,59 @@ my-image { background: (low.png); }
 - 单行文本溢出
 
 ```css
-overflow: hidden;            // 溢出隐藏
-text-overflow: ellipsis;      // 溢出用省略号显示
-white-space: nowrap;         // 规定段落中的文本不进行换行
+div {
+    overflow: hidden; /*溢出隐藏*/
+    text-overflow: ellipsis; /*溢出用省略号显示*/
+    white-space: nowrap; /*规定段落中的文本不进行换行*/
+}
+
 ```
 
 - 多行文本溢出
 
 ```css
-overflow: hidden;            // 溢出隐藏
-text-overflow: ellipsis;     // 溢出用省略号显示
-display:-webkit-box;         // 作为弹性伸缩盒子模型显示。
--webkit-box-orient:vertical; // 设置伸缩盒子的子元素排列方式：从上到下垂直排列
--webkit-line-clamp:3;        // 显示的行数
+div {
+    overflow: hidden; /*溢出隐藏*/
+    text-overflow: ellipsis; /*溢出用省略号显示*/
+    display: -webkit-box; /*作为弹性伸缩盒子模型显示。*/
+    -webkit-box-orient: vertical; /*设置伸缩盒子的子元素排列方式：从上到下垂直排列*/
+    -webkit-line-clamp: 3; /*显示的行数*/
+}
 ```
 
 注意：由于上面的三个属性都是 CSS3 的属性，没有浏览器可以兼容，所以要在前面加一个`-webkit-` 来兼容一部分浏览器。
 
-### 26. Sass、Less 是什么？为什么要使用他们？ 
+### 26. Sass、Less 是什么？为什么要使用他们？
 
-他们都是 CSS 预处理器，是 CSS 上的一种抽象层。他们是一种特殊的语法/语言编译成 CSS。 例如 Less 是一种动态样式语言，将 CSS 赋予了动态语言的特性，如变量，继承，运算， 函数，LESS 既可以在客户端上运行 (支持 IE 6+, Webkit, Firefox)，也可以在服务端运行 (借助 Node.js)。 
+他们都是 CSS 预处理器，是 CSS 上的一种抽象层。他们是一种特殊的语法/语言编译成 CSS。 例如 Less 是一种动态样式语言，将 CSS 赋予了动态语言的特性，如变量，继承，运算， 函数，LESS 既可以在客户端上运行 (支持
+IE 6+, Webkit, Firefox)，也可以在服务端运行 (借助 Node.js)。
 
+**为什么要使用它们？**
 
-
-**为什么要使用它们？** 
-
-- 结构清晰，便于扩展。 可以方便地屏蔽浏览器私有语法差异。封装对浏览器语法差异的重复处理， 减少无意义的机械劳动。 
+- 结构清晰，便于扩展。 可以方便地屏蔽浏览器私有语法差异。封装对浏览器语法差异的重复处理， 减少无意义的机械劳动。
 - 可以轻松实现多重继承。 完全兼容 CSS 代码，可以方便地应用到老项目中。LESS 只是在 CSS 语法上做了扩展，所以老的 CSS 代码也可以与 LESS 代码一同编译。
 
 ### 27. 对媒体查询的理解？
 
-媒体查询由⼀个可选的媒体类型和零个或多个使⽤媒体功能的限制了样式表范围的表达式组成，例如宽度、⾼度和颜⾊。媒体查询，添加⾃CSS3，允许内容的呈现针对⼀个特定范围的输出设备⽽进⾏裁剪，⽽不必改变内容本身，适合web⽹⻚应对不同型号的设备⽽做出对应的响应适配。 
+媒体查询由⼀个可选的媒体类型和零个或多个使⽤媒体功能的限制了样式表范围的表达式组成，例如宽度、⾼度和颜⾊。媒体查询，添加⾃CSS3，允许内容的呈现针对⼀个特定范围的输出设备⽽进⾏裁剪，⽽不必改变内容本身，适合web⽹⻚应对不同型号的设备⽽做出对应的响应适配。
 
+媒体查询包含⼀个可选的媒体类型和满⾜CSS3规范的条件下，包含零个或多个表达式，这些表达式描述了媒体特征，最终会被解析为true或false。如果媒体查询中指定的媒体类型匹配展示⽂档所使⽤的设备类型，并且所有的表达式的值都是true，那么该媒体查询的结果为true。那么媒体查询内的样式将会⽣效。
 
-
-媒体查询包含⼀个可选的媒体类型和满⾜CSS3规范的条件下，包含零个或多个表达式，这些表达式描述了媒体特征，最终会被解析为true或false。如果媒体查询中指定的媒体类型匹配展示⽂档所使⽤的设备类型，并且所有的表达式的值都是true，那么该媒体查询的结果为true。那么媒体查询内的样式将会⽣效。 
-
-```javascript
-<!-- link元素中的CSS媒体查询 --> 
-<link rel="stylesheet" media="(max-width: 800px)" href="example.css" /> 
-<!-- 样式表中的CSS媒体查询 --> 
-<style> 
-@media (max-width: 600px) { 
-  .facet_sidebar { 
-    display: none; 
-  } 
-}
+```html
+<!-- link元素中的CSS媒体查询 -->
+<link rel="stylesheet" media="(max-width: 800px)" href="main.css"/>
+<!-- 样式表中的CSS媒体查询 -->
+<style>
+    @media (max-width: 600px) {
+        .facet_sidebar {
+            display: none;
+        }
+    }
 </style>
 ```
 
-简单来说，使用 @media 查询，可以针对不同的媒体类型定义不同的样式。@media 可以针对不同的屏幕尺寸设置不同的样式，特别是需要设置设计响应式的页面，@media 是非常有用的。当重置浏览器大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面。
+简单来说，使用 @media 查询，可以针对不同的媒体类型定义不同的样式。@media 可以针对不同的屏幕尺寸设置不同的样式，特别是需要设置设计响应式的页面，@media
+是非常有用的。当重置浏览器大小的过程中，页面也会根据浏览器的宽度和高度重新渲染页面。
 
 ### 28. 对 CSS 工程化的理解
 
@@ -620,15 +541,11 @@ CSS 工程化是为了解决以下问题：
 3. **构建**：如何处理我的 CSS，才能让它的打包结果最优？
 4. **可维护性**：代码写完了，如何最小化它后续的变更成本？如何确保任何一个同事都能轻松接手？
 
-
-
 以下三个方向都是时下比较流行的、普适性非常好的 CSS 工程化实践：
 
 - 预处理器：Less、 Sass 等；
 - 重要的工程化插件： PostCss；
 - Webpack loader 等 。
-
-
 
 基于这三个方向，可以衍生出一些具有典型意义的子问题，这里我们逐个来看：
 
@@ -638,13 +555,12 @@ CSS 工程化是为了解决以下问题：
 
 ![img](https://cdn.nlark.com/yuque/0/2021/jpeg/1500604/1615998492170-c294084b-84d5-4537-87bb-b32da4bf0cd6.jpeg)
 
-那为什么写 CSS 代码写得好好的，偏偏要转去写“类 CSS”呢？这就和本来用 JS 也可以实现所有功能，但最后却写 React 的 jsx 或者 Vue 的模板语法一样——为了爽！要想知道有了预处理器有多爽，首先要知道的是传统 CSS 有多不爽。随着前端业务复杂度的提高，前端工程中对 CSS 提出了以下的诉求：
+那为什么写 CSS 代码写得好好的，偏偏要转去写“类 CSS”呢？这就和本来用 JS 也可以实现所有功能，但最后却写 React 的 jsx 或者 Vue 的模板语法一样——为了爽！要想知道有了预处理器有多爽，首先要知道的是传统 CSS
+有多不爽。随着前端业务复杂度的提高，前端工程中对 CSS 提出了以下的诉求：
 
 1. 宏观设计上：我们希望能优化 CSS 文件的目录结构，对现有的 CSS 文件实现复用；
 2. 编码优化上：我们希望能写出结构清晰、简明易懂的 CSS，需要它具有一目了然的嵌套层级关系，而不是无差别的一铺到底写法；我们希望它具有变量特征、计算能力、循环能力等等更强的可编程性，这样我们可以少写一些无用的代码；
 3. 可维护性上：更强的可编程性意味着更优质的代码结构，实现复用意味着更简单的目录结构和更强的拓展能力，这两点如果能做到，自然会带来更强的可维护性。
-
-
 
 这三点是传统 CSS 所做不到的，也正是预处理器所解决掉的问题。预处理器普遍会具备这样的特性：
 
@@ -661,9 +577,8 @@ PostCss 仍然是一个对 CSS 进行解析和处理的工具，它会对 CSS �
 
 ![img](https://cdn.nlark.com/yuque/0/2021/jpeg/1500604/1615998491947-34e3237c-e54f-4b1a-8aeb-3c38655e1cb0.jpeg)
 
-它和预处理器的不同就在于，预处理器处理的是 类CSS，而 PostCss 处理的就是 CSS 本身。Babel 可以将高版本的 JS 代码转换为低版本的 JS 代码。PostCss 做的是类似的事情：它可以编译尚未被浏览器广泛支持的先进的 CSS 语法，还可以自动为一些需要额外兼容的语法增加前缀。更强的是，由于 PostCss 有着强大的插件机制，支持各种各样的扩展，极大地强化了 CSS 的能力。
-
-
+它和预处理器的不同就在于，预处理器处理的是 类CSS，而 PostCss 处理的就是 CSS 本身。Babel 可以将高版本的 JS 代码转换为低版本的 JS 代码。PostCss 做的是类似的事情：它可以编译尚未被浏览器广泛支持的先进的
+CSS 语法，还可以自动为一些需要额外兼容的语法增加前缀。更强的是，由于 PostCss 有着强大的插件机制，支持各种各样的扩展，极大地强化了 CSS 的能力。
 
 PostCss 在业务中的使用场景非常多：
 
@@ -678,21 +593,19 @@ Webpack 能处理 CSS 吗：
 - **Webpack 在裸奔的状态下，是不能处理 CSS 的**，Webpack 本身是一个面向 JavaScript 且只能处理 JavaScript 代码的模块化打包工具；
 - Webpack 在 loader 的辅助下，是可以处理 CSS 的。
 
-
-
 如何用 Webpack 实现对 CSS 的处理：
 
 - Webpack 中操作 CSS 需要使用的两个关键的 loader：css-loader 和 style-loader
 - 注意，答出“用什么”有时候可能还不够，面试官会怀疑你是不是在背答案，所以你还需要了解每个 loader 都做了什么事情：
 
-- - css-loader：导入 CSS 模块，对 CSS 代码进行编译处理；
-   - style-loader：创建style标签，把 CSS 内容写入标签。
+-
+    - css-loader：导入 CSS 模块，对 CSS 代码进行编译处理；
+    - style-loader：创建style标签，把 CSS 内容写入标签。
 
+在实际使用中，**css-loader 的执行顺序一定要安排在 style-loader 的前面**。因为只有完成了编译过程，才可以对 css 代码进行插入；若提前插入了未编译的代码，那么 webpack
+是无法理解这坨东西的，它会无情报错。
 
-
-在实际使用中，**css-loader 的执行顺序一定要安排在 style-loader 的前面**。因为只有完成了编译过程，才可以对 css 代码进行插入；若提前插入了未编译的代码，那么 webpack 是无法理解这坨东西的，它会无情报错。
-
-### 29. 如何判断元素是否到达可视区域 
+### 29. 如何判断元素是否到达可视区域
 
 以图片显示为例：
 
@@ -707,8 +620,6 @@ Webpack 能处理 CSS 吗：
 
 通常 z-index 的使用是在有两个重叠的标签，在一定的情况下控制其中一个在另一个的上方或者下方出现。z-index值越大就越是在上层。z-index元素的position属性需要是relative，absolute或是fixed。
 
-
-
 z-index属性在下列情况下会失效：
 
 - 父元素position为relative时，子元素的z-index失效。解决：父元素position改为absolute或static；
@@ -721,25 +632,18 @@ z-index属性在下列情况下会失效：
 
 常用的布局单位包括像素（`px`），百分比（`%`），`em`，`rem`，`vw/vh`。
 
-
-
 **（1）像素**（`px`）是页面布局的基础，一个像素表示终端（电脑、手机、平板等）屏幕所能显示的最小的区域，像素分为两种类型：CSS像素和物理像素：
 
 - **CSS像素**：为web开发者提供，在CSS中使用的一个抽象单位；
 - **物理像素**：只与设备的硬件密度有关，任何设备的物理像素都是固定的。
 
-
-
 **（2）百分比**（`%`），当浏览器的宽度或者高度发生变化时，通过百分比单位可以使得浏览器中的组件的宽和高随着浏览器的变化而变化，从而实现响应式的效果。一般认为子元素的百分比相对于直接父元素。
-
-
 
 **（3）em和rem**相对于px更具灵活性，它们都是相对长度单位，它们之间的区别：**em相对于父元素，rem相对于根元素。**
 
 - **em：** 文本相对长度单位。相对于当前对象内文本的字体尺寸。如果当前行内文本的字体尺寸未被人为设置，则相对于浏览器的默认字体尺寸(默认16px)。(相对父元素的字体大小倍数)。
-- **rem：** rem是CSS3新增的一个相对单位，相对于根元素（html元素）的font-size的倍数。**作用**：利用rem可以实现简单的响应式布局，可以利用html元素中字体的大小与屏幕间的比值来设置font-size的值，以此实现当屏幕分辨率变化时让元素也随之变化。
-
-
+- **rem：** rem是CSS3新增的一个相对单位，相对于根元素（html元素）的font-size的倍数。**作用**
+  ：利用rem可以实现简单的响应式布局，可以利用html元素中字体的大小与屏幕间的比值来设置font-size的值，以此实现当屏幕分辨率变化时让元素也随之变化。
 
 **（4）vw/vh**是与视图窗口有关的单位，vw表示相对于视图窗口的宽度，vh表示相对于视图窗口高度，除了vw和vh外，还有vmin和vmax两个相关的单位。
 
@@ -747,8 +651,6 @@ z-index属性在下列情况下会失效：
 - vh：相对于视窗的高度，视窗高度是100vh；
 - vmin：vw和vh中的较小值；
 - vmax：vw和vh中的较大值；
-
-
 
 **vw/vh** 和百分比很类似，两者的区别：
 
@@ -763,8 +665,6 @@ z-index属性在下列情况下会失效：
 - em和rem相对于px更具有灵活性，他们是相对长度单位，其长度不是固定的，更适用于响应式布局。
 - em是相对于其父元素来设置字体大小，这样就会存在一个问题，进行任何元素设置，都有可能需要知道他父元素的大小。而rem是相对于根元素，这样就意味着，只需要在根元素确定一个参考值。
 
-
-
 **使用场景：**
 
 - 对于只需要适配少部分移动设备，且分辨率对页面影响不大的，使用px即可 。
@@ -778,50 +678,55 @@ z-index属性在下列情况下会失效：
 
 ```css
 .outer {
-  height: 100px;
+    height: 100px;
 }
+
 .left {
-  float: left;
-  width: 200px;
-  background: tomato;
+    float: left;
+    width: 200px;
+    background: tomato;
 }
+
 .right {
-  margin-left: 200px;
-  width: auto;
-  background: gold;
+    margin-left: 200px;
+    width: auto;
+    background: gold;
 }
 ```
 
 - 利用浮动，左侧元素设置固定大小，并左浮动，右侧元素设置overflow: hidden; 这样右边就触发了BFC，BFC的区域不会与浮动元素发生重叠，所以两侧就不会发生重叠。
 
 ```css
-.left{
-     width: 100px;
-     height: 200px;
-     background: red;
-     float: left;
- }
- .right{
-     height: 300px;
-     background: blue;
-     overflow: hidden;
- }
+.left {
+    width: 100px;
+    height: 200px;
+    background: red;
+    float: left;
+}
+
+.right {
+    height: 300px;
+    background: blue;
+    overflow: hidden;
+}
 ```
 
 - 利用flex布局，将左边元素设置为固定宽度200px，将右边的元素设置为flex:1。
 
 ```css
 .outer {
-  display: flex;
-  height: 100px;
+    display: flex;
+    height: 100px;
 }
+
 .left {
-  width: 200px;
-  background: tomato;
+    width: 200px;
+    background: tomato;
 }
+
 .right {
-  flex: 1;
-  background: gold;
+    flex: 1;
+    background: gold;
 }
 ```
 
@@ -829,18 +734,20 @@ z-index属性在下列情况下会失效：
 
 ```css
 .outer {
-  position: relative;
-  height: 100px;
+    position: relative;
+    height: 100px;
 }
+
 .left {
-  position: absolute;
-  width: 200px;
-  height: 100px;
-  background: tomato;
+    position: absolute;
+    width: 200px;
+    height: 100px;
+    background: tomato;
 }
+
 .right {
-  margin-left: 200px;
-  background: gold;
+    margin-left: 200px;
+    background: gold;
 }
 ```
 
@@ -848,20 +755,22 @@ z-index属性在下列情况下会失效：
 
 ```css
 .outer {
-  position: relative;
-  height: 100px;
+    position: relative;
+    height: 100px;
 }
+
 .left {
-  width: 200px;
-  background: tomato;
+    width: 200px;
+    background: tomato;
 }
+
 .right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 200px;
-  background: gold;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 200px;
+    background: gold;
 }
 ```
 
@@ -873,31 +782,31 @@ z-index属性在下列情况下会失效：
 
 ```css
 .outer {
-  position: relative;
-  height: 100px;
+    position: relative;
+    height: 100px;
 }
 
 .left {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background: tomato;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background: tomato;
 }
 
 .right {
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: 200px;
-  height: 100px;
-  background: gold;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 100px;
+    background: gold;
 }
 
 .center {
-  margin-left: 100px;
-  margin-right: 200px;
-  height: 100px;
-  background: lightgreen;
+    margin-left: 100px;
+    margin-right: 200px;
+    height: 100px;
+    background: lightgreen;
 }
 ```
 
@@ -905,23 +814,23 @@ z-index属性在下列情况下会失效：
 
 ```css
 .outer {
-  display: flex;
-  height: 100px;
+    display: flex;
+    height: 100px;
 }
 
 .left {
-  width: 100px;
-  background: tomato;
+    width: 100px;
+    background: tomato;
 }
 
 .right {
-  width: 100px;
-  background: gold;
+    width: 100px;
+    background: gold;
 }
 
 .center {
-  flex: 1;
-  background: lightgreen;
+    flex: 1;
+    background: lightgreen;
 }
 ```
 
@@ -929,70 +838,71 @@ z-index属性在下列情况下会失效：
 
 ```css
 .outer {
-  height: 100px;
+    height: 100px;
 }
 
 .left {
-  float: left;
-  width: 100px;
-  height: 100px;
-  background: tomato;
+    float: left;
+    width: 100px;
+    height: 100px;
+    background: tomato;
 }
 
 .right {
-  float: right;
-  width: 200px;
-  height: 100px;
-  background: gold;
+    float: right;
+    width: 200px;
+    height: 100px;
+    background: gold;
 }
 
 .center {
-  height: 100px;
-  margin-left: 100px;
-  margin-right: 200px;
-  background: lightgreen;
+    height: 100px;
+    margin-left: 100px;
+    margin-right: 200px;
+    background: lightgreen;
 }
 ```
 
-- 圣杯布局，利用浮动和负边距来实现。父级元素设置左右的 padding，三列均设置向左浮动，中间一列放在最前面，宽度设置为父级元素的宽度，因此后面两列都被挤到了下一行，通过设置 margin 负值将其移动到上一行，再利用相对定位，定位到两边。
+- 圣杯布局，利用浮动和负边距来实现。父级元素设置左右的 padding，三列均设置向左浮动，中间一列放在最前面，宽度设置为父级元素的宽度，因此后面两列都被挤到了下一行，通过设置 margin
+  负值将其移动到上一行，再利用相对定位，定位到两边。
 
 ```css
 .outer {
-  height: 100px;
-  padding-left: 100px;
-  padding-right: 200px;
+    height: 100px;
+    padding-left: 100px;
+    padding-right: 200px;
 }
 
 .left {
-  position: relative;
-  left: -100px;
+    position: relative;
+    left: -100px;
 
-  float: left;
-  margin-left: -100%;
+    float: left;
+    margin-left: -100%;
 
-  width: 100px;
-  height: 100px;
-  background: tomato;
+    width: 100px;
+    height: 100px;
+    background: tomato;
 }
 
 .right {
-  position: relative;
-  left: 200px;
+    position: relative;
+    left: 200px;
 
-  float: right;
-  margin-left: -200px;
+    float: right;
+    margin-left: -200px;
 
-  width: 200px;
-  height: 100px;
-  background: gold;
+    width: 200px;
+    height: 100px;
+    background: gold;
 }
 
 .center {
-  float: left;
+    float: left;
 
-  width: 100%;
-  height: 100px;
-  background: lightgreen;
+    width: 100%;
+    height: 100px;
+    background: lightgreen;
 }
 ```
 
@@ -1000,39 +910,39 @@ z-index属性在下列情况下会失效：
 
 ```css
 .outer {
-  height: 100px;
+    height: 100px;
 }
 
 .left {
-  float: left;
-  margin-left: -100%;
+    float: left;
+    margin-left: -100%;
 
-  width: 100px;
-  height: 100px;
-  background: tomato;
+    width: 100px;
+    height: 100px;
+    background: tomato;
 }
 
 .right {
-  float: left;
-  margin-left: -200px;
+    float: left;
+    margin-left: -200px;
 
-  width: 200px;
-  height: 100px;
-  background: gold;
+    width: 200px;
+    height: 100px;
+    background: gold;
 }
 
 .wrapper {
-  float: left;
+    float: left;
 
-  width: 100%;
-  height: 100px;
-  background: lightgreen;
+    width: 100%;
+    height: 100px;
+    background: lightgreen;
 }
 
 .center {
-  margin-left: 100px;
-  margin-right: 200px;
-  height: 100px;
+    margin-left: 100px;
+    margin-right: 200px;
+    height: 100px;
 }
 ```
 
@@ -1044,12 +954,12 @@ z-index属性在下列情况下会失效：
 .parent {
     position: relative;
 }
- 
+
 .child {
     position: absolute;
     left: 50%;
     top: 50%;
-    transform: translate(-50%,-50%);
+    transform: translate(-50%, -50%);
 }
 ```
 
@@ -1059,7 +969,7 @@ z-index属性在下列情况下会失效：
 .parent {
     position: relative;
 }
- 
+
 .child {
     position: absolute;
     top: 0;
@@ -1076,23 +986,24 @@ z-index属性在下列情况下会失效：
 .parent {
     position: relative;
 }
- 
+
 .child {
     position: absolute;
     top: 50%;
     left: 50%;
-    margin-top: -50px;     /* 自身 height 的一半 */
-    margin-left: -50px;    /* 自身 width 的一半 */
+    margin-top: -50px; /* 自身 height 的一半 */
+    margin-left: -50px; /* 自身 width 的一半 */
 }
 ```
 
-- 使用flex布局，通过align-items:center和justify-content:center设置容器的垂直和水平方向上为居中对齐，然后它的子元素也可以实现垂直和水平的居中。该方法要**考虑兼容的问题**，该方法在移动端用的较多：
+- 使用flex布局，通过align-items:center和justify-content:center设置容器的垂直和水平方向上为居中对齐，然后它的子元素也可以实现垂直和水平的居中。该方法要**考虑兼容的问题**
+  ，该方法在移动端用的较多：
 
 ```css
 .parent {
     display: flex;
-    justify-content:center;
-    align-items:center;
+    justify-content: center;
+    align-items: center;
 }
 ```
 
@@ -1103,15 +1014,13 @@ z-index属性在下列情况下会失效：
 - **适配不同像素密度，**针对不同的像素密度，使用 CSS 媒体查询，选择不同精度的图片，以保证图片不会失真；
 - **适配不同屏幕大小，**由于不同的屏幕有着不同的逻辑像素大小，所以如果直接使用 px 作为开发单位，会使得开发的页面在某一款手机上可以准确显示，但是在另一款手机上就会失真。为了适配不同屏幕的大小，应按照比例来还原设计稿的内容。
 
-
-
 为了能让页面的尺寸自适应，可以使用 rem，em，vw，vh 等相对单位。
 
 ### 7. 对Flex布局的理解及其使用场景
 
-Flex是FlexibleBox的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为Flex布局。行内元素也可以使用Flex布局。注意，设为Flex布局以后，**子元素的float、clear和vertical-align属性将失效**。采用Flex布局的元素，称为Flex容器（flex container），简称"容器"。它的所有子元素自动成为容器成员，称为Flex项目（flex item），简称"项目"。容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis），项目默认沿水平主轴排列。
-
-
+Flex是FlexibleBox的缩写，意为"弹性布局"，用来为盒状模型提供最大的灵活性。任何一个容器都可以指定为Flex布局。行内元素也可以使用Flex布局。注意，设为Flex布局以后，**
+子元素的float、clear和vertical-align属性将失效**。采用Flex布局的元素，称为Flex容器（flex container），简称"容器"。它的所有子元素自动成为容器成员，称为Flex项目（flex
+item），简称"项目"。容器默认存在两根轴：水平的主轴（main axis）和垂直的交叉轴（cross axis），项目默认沿水平主轴排列。
 
 以下6个属性设置在**容器上**：
 
@@ -1122,8 +1031,6 @@ Flex是FlexibleBox的缩写，意为"弹性布局"，用来为盒状模型提供
 - align-items属性定义项目在交叉轴上如何对齐。
 - align-content属性定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。
 
-
-
 以下6个属性设置在**项目上**：
 
 - order属性定义项目的排列顺序。数值越小，排列越靠前，默认为0。
@@ -1133,15 +1040,14 @@ Flex是FlexibleBox的缩写，意为"弹性布局"，用来为盒状模型提供
 - flex属性是flex-grow，flex-shrink和flex-basis的简写，默认值为0 1 auto。
 - align-self属性允许单个项目有与其他项目不一样的对齐方式，可覆盖align-items属性。默认值为auto，表示继承父元素的align-items属性，如果没有父元素，则等同于stretch。
 
-
-
 **简单来说：**
 
 flex布局是CSS3新增的一种布局方式，可以通过将一个元素的display属性值设置为flex从而使它成为一个flex容器，它的所有子元素都会成为它的项目。一个容器默认有两条轴：一个是水平的主轴，一个是与主轴垂直的交叉轴。可以使用flex-direction来指定主轴的方向。可以使用justify-content来指定元素在主轴上的排列方式，使用align-items来指定元素在交叉轴上的排列方式。还可以使用flex-wrap来规定当一行排列不下时的换行方式。对于容器中的项目，可以使用order属性来指定项目的排列顺序，还可以使用flex-grow来指定当排列空间有剩余的时候，项目的放大比例，还可以使用flex-shrink来指定当排列空间不足时，项目的缩小比例。
 
 ### 8. flex:1 表示什么
 
-flex属性是flex-grow，flex-shrink和flex-basis的简写，默认值为0 1 auto。**flex:1 表示 flex: 1 1 auto**，它还有另外两种完整写法, 分别是 **initial (0 1 auto)** 和 **none (0 0 auto)：**
+flex属性是flex-grow，flex-shrink和flex-basis的简写，默认值为0 1 auto。**flex:1 表示 flex: 1 1 auto**，它还有另外两种完整写法, 分别是 **initial (0 1
+auto)** 和 **none (0 0 auto)：**
 
 - 第一个参数表示: **flex-grow 定义项目的放大比例，默认为0，即如果存在剩余空间，也不放大；**
 - 第二个参数表示: **flex-shrink 定义了项目的缩小比例，默认为1，即如果空间不足，该项目将缩小；**
@@ -1151,13 +1057,12 @@ flex属性是flex-grow，flex-shrink和flex-basis的简写，默认值为0 1 aut
 
 响应式网站设计`（Responsive Web design`）是一个网站能够兼容多个终端，而不是为每一个终端做一个特定的版本。
 
-
-
 关于原理： 基本原理是通过媒体查询`（@media）`查询检测不同的设备屏幕尺寸做处理。
 
 关于兼容： 页面头部必须有mate声明的`viewport`。
 
 ```html
+
 <meta name="’viewport’" content="”width=device-width," initial-scale="1." maximum-scale="1,user-scalable=no”"/>
 ```
 
@@ -1172,6 +1077,7 @@ flex属性是flex-grow，flex-shrink和flex-basis的简写，默认值为0 1 aut
 我们可以使用定位实现，对于上面的1，使用magin属性让他水平居中；下面的两个使用浮动即可实现，其HTML结构如下：
 
 ```html
+
 <div class="div1">1</div>
 <div class="div2">2</div>
 <div class="div3">3</div>
@@ -1180,30 +1086,30 @@ flex属性是flex-grow，flex-shrink和flex-basis的简写，默认值为0 1 aut
 CSS代码如下：
 
 ```css
-div{ 
-  width:100px; 
-  height:100px; 
-  font-size:40px; 
-  line-height:100px; 
-  color:#fff; 
-  text-align:center;
+div {
+    width: 100px;
+    height: 100px;
+    font-size: 40px;
+    line-height: 100px;
+    color: #fff;
+    text-align: center;
 }
 
-.div1{ 
-  background:red; 
-  margin:0 auto;
+.div1 {
+    background: red;
+    margin: 0 auto;
 }
 
-.div2{ 
-  background: green; 
-  float:left; 
-  margin-left: 50%;
+.div2 {
+    background: green;
+    float: left;
+    margin-left: 50%;
 }
 
-.div3{ 
-  background: blue; 
-  float:left; 
-  margin-left: -200px;
+.div3 {
+    background: blue;
+    float: left;
+    margin-left: -200px;
 }
 ```
 
@@ -1213,7 +1119,8 @@ div{
 
 HTML结构如下：
 
-```css
+```html
+
 <div class="div1">1</div>
 <div class="div2">2</div>
 <div class="div3">3</div>
@@ -1222,30 +1129,30 @@ HTML结构如下：
 这里将div设置为了inline-block，实际上和上面的float的作用是一眼的，就是让下面的两个块不换行。使用CSS样式如下：
 
 ```css
-div{ 
-  width:100px; 
-  height:100px; 
-  font-size:40px; 
-  line-height:100px; 
-  color:#fff; 
-  text-align:center;
+div {
+    width: 100px;
+    height: 100px;
+    font-size: 40px;
+    line-height: 100px;
+    color: #fff;
+    text-align: center;
 }
 
-.div1{ 
-  background:red; 
-  margin:0 auto;
+.div1 {
+    background: red;
+    margin: 0 auto;
 }
 
-.div2{ 
-  background: green; 
-  display: inline-block;
-  margin-left: 50%;
+.div2 {
+    background: green;
+    display: inline-block;
+    margin-left: 50%;
 }
 
-.div3{ 
-  background: blue; 
-  display: inline-block;
-  margin-left: -200px;
+.div3 {
+    background: blue;
+    display: inline-block;
+    margin-left: -200px;
 }
 ```
 
@@ -1258,18 +1165,19 @@ div{
 首先，定义好通用的HTML结构：
 
 ```html
+
 <div class="box">
-  <ul>
-    <li>1</li>
-    <li>2</li>
-    <li>3</li>
-    <li>4</li>
-    <li>5</li>
-    <li>6</li>
-    <li>7</li>
-    <li>8</li>
-    <li>9</li>
-  </ul>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+    </ul>
 </div>
 ```
 
@@ -1277,14 +1185,14 @@ div{
 
 ```html
 ul {
-	padding: 0;
+padding: 0;
 }
 
-li { 
-	list-style: none;
-  text-align: center;
-	border-radius: 5px;
-	background: skyblue;
+li {
+list-style: none;
+text-align: center;
+border-radius: 5px;
+background: skyblue;
 }
 ```
 
@@ -1292,31 +1200,29 @@ li {
 
 对于九宫格布局，我首先想到的就是flex布局，flex布局实现九宫格很简单，需要设置一个flex-wrap: wrap;使得盒子在该换行的时候进行换行。
 
-
-
 由于我们给每个元素设置了下边距和右边距，所以最后同一列（3、6、9）的右边距和最后一行（7、8、9）的下边距撑大了ul，所以这里使用类型选择器来消除他们的影响。最终的实现代码如下：
 
 ```css
 ul {
-  display: flex;
-  flex-wrap: wrap;
-  width: 100%;
-  height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
 }
 
 li {
-  width: 30%;
-  height: 30%;
-  margin-right: 5%;
-  margin-bottom: 5%;
+    width: 30%;
+    height: 30%;
+    margin-right: 5%;
+    margin-bottom: 5%;
 }
 
-li:nth-of-type(3n){ 
-  margin-right: 0;
+li:nth-of-type(3n) {
+    margin-right: 0;
 }
 
-li:nth-of-type(n+7){ 
-  margin-bottom: 0;
+li:nth-of-type(n+7) {
+    margin-bottom: 0;
 }
 ```
 
@@ -1326,46 +1232,45 @@ grid布局相对于flex布局来说，实现九宫格就更加容易了，只需
 
 ```css
 ul {
-  width: 100%;
-  height: 100%;
-  display: grid;
-  grid-template-columns: 30% 30% 30%; 
-  grid-template-rows: 30% 30% 30%; 
-  grid-gap: 5%; 
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    grid-template-rows: 30% 30% 30%;
+    grid-gap: 5%;
 }
 ```
 
 其中grid-template-columns属性用来设置每一行中单个元素的宽度，grid-template-rows属性用来设置每一列中单个元素的高度，grid-gap属性用来设置盒子之间的间距。
 
-
-
 其实Grid布局还是很有用，很方便的，近期会有一篇详解grid布局的文章，有想了解的小伙伴可以关注一波嗷~
 
 #### （3）float实现
 
-这里首先需要给父元素的div设置一个宽度，宽度值为：**盒子宽 \* 3 + 间距 \* 2；**然后给每个盒子设置固定的宽高，为了让他换行，可以使用float来实现，由于子元素的浮动，形成了BFC，所以父元素ul使用overflow:hidden；来消除浮动带来的影响。最终的实现代码如下：
+这里首先需要给父元素的div设置一个宽度，宽度值为：**盒子宽 \* 3 + 间距 \* 2；**然后给每个盒子设置固定的宽高，为了让他换行，可以使用float来实现，由于子元素的浮动，形成了BFC，所以父元素ul使用overflow:
+hidden；来消除浮动带来的影响。最终的实现代码如下：
 
 ```css
 ul {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
 }
 
 li {
-  float: left;
-  width: 30%;
-  height: 30%;
-  margin-right: 5%;
-  margin-bottom: 5%;
+    float: left;
+    width: 30%;
+    height: 30%;
+    margin-right: 5%;
+    margin-bottom: 5%;
 }
 
-li:nth-of-type(3n){ 
-  margin-right: 0;
+li:nth-of-type(3n) {
+    margin-right: 0;
 }
 
-li:nth-of-type(n+7){ 
-  margin-bottom: 0;
+li:nth-of-type(n+7) {
+    margin-bottom: 0;
 }
 ```
 
@@ -1375,25 +1280,25 @@ li:nth-of-type(n+7){
 
 ```css
 ul {
-  width: 100%;
-  height: 100%;
-  letter-spacing: -10px;
+    width: 100%;
+    height: 100%;
+    letter-spacing: -10px;
 }
 
 li {
-  width: 30%;
-  height: 30%;
-  display: inline-block;
-  margin-right: 5%;
-  margin-bottom: 5%;
+    width: 30%;
+    height: 30%;
+    display: inline-block;
+    margin-right: 5%;
+    margin-bottom: 5%;
 }
 
-li:nth-of-type(3n){ 
-  margin-right: 0;
+li:nth-of-type(3n) {
+    margin-right: 0;
 }
 
-li:nth-of-type(n+7){ 
-  margin-bottom: 0;
+li:nth-of-type(n+7) {
+    margin-bottom: 0;
 }
 ```
 
@@ -1405,7 +1310,7 @@ li:nth-of-type(n+7){
 
 ```css
 ul {
-  font-size: 0;
+    font-size: 0;
 }
 ```
 
@@ -1413,23 +1318,24 @@ ul {
 
 HTML结构：
 
-```css
+```html
+
 <ul class="table">
-  <li>
-    <div>1</div>
-    <div>2</div>
-    <div>3</div>
-  </li>
-  <li>
-    <div>4</div>
-    <div>5</div>
-    <div>6</div>
-  </li>
-  <li>
-    <div>7</div>
-    <div>8</div>
-    <div>9</div>
-  </li>
+    <li>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </li>
+    <li>
+        <div>4</div>
+        <div>5</div>
+        <div>6</div>
+    </li>
+    <li>
+        <div>7</div>
+        <div>8</div>
+        <div>9</div>
+    </li>
 </ul>
 ```
 
@@ -1437,23 +1343,23 @@ table布局也不算太难，首先给父元素设置为table布局，然后使�
 
 ```css
 .table {
-  width: 100%;
-  height: 100%;
-  display: table;
-  border-spacing: 10px;
+    width: 100%;
+    height: 100%;
+    display: table;
+    border-spacing: 10px;
 }
 
 li {
-  display: table-row; 
+    display: table-row;
 }
 
 div {
-  width: 30%;
-  height: 30%;
-  display: table-cell;
-  text-align: center;
-  border-radius: 5px;
-  background: skyblue;
+    width: 30%;
+    height: 30%;
+    display: table-cell;
+    text-align: center;
+    border-radius: 5px;
+    background: skyblue;
 }
 ```
 
@@ -1463,26 +1369,18 @@ div {
 
 **浮动的定义：** 非IE浏览器下，容器不设高度且子元素浮动时，容器高度不能被内容撑开。 此时，内容会溢出到容器外面而影响布局。这种现象被称为浮动（溢出）。
 
-
-
 **浮动的工作原理：**
 
 - 浮动元素脱离文档流，不占据空间（引起“高度塌陷”现象）
 - 浮动元素碰到包含它的边框或者其他浮动元素的边框停留
 
-
-
 浮动元素可以左右移动，直到遇到另一个浮动元素或者遇到它外边缘的包含框。浮动框不属于文档流中的普通流，当元素浮动之后，不会影响块级元素的布局，只会影响内联元素布局。此时文档流中的普通流就会表现得该浮动框不存在一样的布局模式。当包含框的高度小于浮动框的时候，此时就会出现“高度塌陷”。
-
-
 
 **浮动元素引起的问题？**
 
 - 父元素的高度无法被撑开，影响与父元素同级的元素
 - 与浮动元素同级的非浮动元素会跟随其后
 - 若浮动的元素不是第一个元素，则该元素之前的元素也要浮动，否则会影响页面的显示结构
-
-
 
 **清除浮动的方式如下：**
 
@@ -1492,44 +1390,40 @@ div {
 - 使用 :after 伪元素。由于IE6-7不支持 :after，使用 zoom:1 触发 hasLayout**
 
 ```css
-.clearfix:after{
+.clearfix:after {
     content: "\200B";
-    display: table; 
+    display: table;
     height: 0;
     clear: both;
-  }
-  .clearfix{
+}
+
+.clearfix {
     *zoom: 1;
-  }
+}
 ```
 
 ### 2. 使用 clear 属性清除浮动的原理？
 
 使用clear属性清除浮动，其语法如下：
 
-```css
-clear:none|left|right|both
-```
+`clear:none |left |right |both`
 
 如果单看字面意思，clear:left 是“清除左浮动”，clear:right 是“清除右浮动”，实际上，这种解释是有问题的，因为浮动一直还在，并没有清除。
 
-
-
 官方对clear属性解释：“**元素盒子的边不能和前面的浮动元素相邻**”，对元素设置clear属性是为了避免浮动元素对该元素的影响，而不是清除掉浮动。
 
-
-
-还需要注意 clear 属性指的是元素盒子的边不能和前面的浮动元素相邻，注意这里“**前面的**”3个字，也就是clear属性对“后面的”浮动元素是不闻不问的。考虑到float属性要么是left，要么是right，不可能同时存在，同时由于clear属性对“后面的”浮动元素不闻不问，因此，当clear:left有效的时候，clear:right必定无效，也就是此时clear:left等同于设置clear:both；同样地，clear:right如果有效也是等同于设置clear:both。由此可见，clear:left和clear:right这两个声明就没有任何使用的价值，至少在CSS世界中是如此，直接使用clear:both吧。
-
-
+还需要注意 clear 属性指的是元素盒子的边不能和前面的浮动元素相邻，注意这里“**前面的**
+”3个字，也就是clear属性对“后面的”浮动元素是不闻不问的。考虑到float属性要么是left，要么是right，不可能同时存在，同时由于clear属性对“后面的”浮动元素不闻不问，因此，当clear:left有效的时候，clear:
+right必定无效，也就是此时clear:left等同于设置clear:both；同样地，clear:right如果有效也是等同于设置clear:both。由此可见，clear:left和clear:
+right这两个声明就没有任何使用的价值，至少在CSS世界中是如此，直接使用clear:both吧。
 
 一般使用伪元素的方式清除浮动：
 
 ```css
-.clear::after{
-  content:'';
-  display: block; 
-  clear:both;
+.clear::after {
+    content: '';
+    display: block;
+    clear: both;
 }
 ```
 
@@ -1539,18 +1433,12 @@ clear属性只有块级元素才有效的，而::after等伪元素默认都是�
 
 先来看两个相关的概念：
 
-- Box: Box 是 CSS 布局的对象和基本单位，⼀个⻚⾯是由很多个 Box 组成的，这个Box就是我们所说的盒模型。 
-- Formatting context：块级上下⽂格式化，它是⻚⾯中的⼀块渲染区域，并且有⼀套渲染规则，它决定了其⼦元素将如何定位，以及和其他元素的关系和相互作⽤。 
-
-
+- Box: Box 是 CSS 布局的对象和基本单位，⼀个⻚⾯是由很多个 Box 组成的，这个Box就是我们所说的盒模型。
+- Formatting context：块级上下⽂格式化，它是⻚⾯中的⼀块渲染区域，并且有⼀套渲染规则，它决定了其⼦元素将如何定位，以及和其他元素的关系和相互作⽤。
 
 块格式化上下文（Block Formatting Context，BFC）是Web页面的可视化CSS渲染的一部分，是布局过程中生成块级盒子的区域，也是浮动元素与其他元素的交互限定区域。
 
-
-
 通俗来讲：BFC是一个独立的布局环境，可以理解为一个容器，在这个容器中按照一定规则进行物品摆放，并且不会影响其它环境中的物品。如果一个元素符合触发BFC的条件，则BFC中的元素布局不受外部影响。
-
-
 
 **创建BFC的条件：**
 
@@ -1559,8 +1447,6 @@ clear属性只有块级元素才有效的，而::after等伪元素默认都是�
 - 元素设置绝对定位：position (absolute、fixed)；
 - display 值为：inline-block、table-cell、table-caption、flex等；
 - overflow 值为：hidden、auto、scroll；
-
-
 
 **BFC的特点：**
 
@@ -1571,29 +1457,31 @@ clear属性只有块级元素才有效的，而::after等伪元素默认都是�
 - BFC是独立的容器，容器内部元素不会影响外部元素
 - 每个元素的左margin值和容器的左border相接触
 
-
-
 **BFC的作用：**
 
 - **解决margin的重叠问题**：由于BFC是一个独立的区域，内部的元素和外部的元素互不影响，将两个元素变为两个BFC，就解决了margin重叠的问题。
 - **解决高度塌陷的问题**：在对子元素设置浮动后，父元素会发生高度塌陷，也就是父元素的高度变为0。解决这个问题，只需要把父元素变成一个BFC。常用的办法是给父元素设置`overflow:hidden`。
 - **创建自适应两栏布局**：可以用来创建自适应两栏布局：左边的宽度固定，右边的宽度自适应。
 
-```css
-.left{
-     width: 100px;
-     height: 200px;
-     background: red;
-     float: left;
- }
- .right{
-     height: 300px;
-     background: blue;
-     overflow: hidden;
- }
- 
+```html
+
 <div class="left"></div>
 <div class="right"></div>
+```
+
+```css
+.left {
+    width: 100px;
+    height: 200px;
+    background: red;
+    float: left;
+}
+
+.right {
+    height: 300px;
+    background: blue;
+    overflow: hidden;
+}
 ```
 
 左侧设置`float:left`，右侧设置`overflow: hidden`。这样右边就触发了BFC，BFC的区域不会与浮动元素发生重叠，所以两侧就不会发生重叠，实现了自适应两栏布局。
@@ -1604,8 +1492,6 @@ clear属性只有块级元素才有效的，而::after等伪元素默认都是�
 
 两个块级元素的上外边距和下外边距可能会合并（折叠）为一个外边距，其大小会取其中外边距值大的那个，这种行为就是外边距折叠。需要注意的是，**浮动的元素和绝对定位**这种脱离文档流的元素的外边距不会折叠。重叠只会出现在**垂直方向**。
 
-
-
 **计算原则：**
 
 折叠合并后外边距的计算原则如下：
@@ -1613,8 +1499,6 @@ clear属性只有块级元素才有效的，而::after等伪元素默认都是�
 - 如果两者都是正数，那么就去最大者
 - 如果是一正一负，就会正值减去负值的绝对值
 - 两个都是负值时，用0减去两个中绝对值大的那个
-
-
 
 **解决办法：**
 
@@ -1655,8 +1539,6 @@ clear属性只有块级元素才有效的，而::after等伪元素默认都是�
 
 （7）正z-index：z-index属性值为正的定位元素。
 
-
-
 **注意:** 当定位元素z-index:auto，生成盒在当前层叠上下文中的层级为 0，不会建立新的层叠上下文，除非是根元素。
 
 ### 6. position的属性有哪些，区别是什么
@@ -1681,7 +1563,9 @@ position有以下属性值：
 
 ![img](https://cdn.nlark.com/yuque/0/2020/png/1500604/1603554694841-89472ba9-b236-4098-802f-c3c26ff49466.png#align=left&display=inline&height=117&margin=%5Bobject%20Object%5D&originHeight=135&originWidth=516&size=0&status=done&style=stroke&width=446)
 
-- **absolute：**元素的定位相对于前两者要复杂许多。如果为 absolute 设置了 top、left，浏览器会根据什么去确定它的纵向和横向的偏移量呢？答案是浏览器会递归查找该元素的所有父元素，如果找到一个设置了`position:relative/absolute/fixed`的元素，就以该元素为基准定位，如果没找到，就以浏览器边界定位。如下两个图所示：
+- **absolute：**元素的定位相对于前两者要复杂许多。如果为 absolute 设置了
+  top、left，浏览器会根据什么去确定它的纵向和横向的偏移量呢？答案是浏览器会递归查找该元素的所有父元素，如果找到一个设置了`position:relative/absolute/fixed`
+  的元素，就以该元素为基准定位，如果没找到，就以浏览器边界定位。如下两个图所示：
 
 ![img](https://cdn.nlark.com/yuque/0/2020/png/1500604/1603554694882-589670e0-cd52-41d4-a3ed-4ebbdfc88f32.png#align=left&display=inline&height=142&margin=%5Bobject%20Object%5D&originHeight=183&originWidth=576&size=0&status=done&style=stroke&width=446)
 
@@ -1691,31 +1575,22 @@ position有以下属性值：
 
 （1）首先判断display属性是否为none，如果为none，则position和float属性的值不影响元素最后的表现。
 
-
-
 （2）然后判断position的值是否为absolute或者fixed，如果是，则float属性失效，并且display的值应该被设置为table或者block，具体转换需要看初始转换值。
-
-
 
 （3）如果position的值不为absolute或者fixed，则判断float属性的值是否为none，如果不是，则display的值则按上面的规则转换。注意，如果position的值为relative并且float属性的值存在，则relative相对于浮动后的最终位置定位。
 
-
-
 （4）如果float的值为none，则判断元素是否为根元素，如果是根元素则display属性按照上面的规则转换，如果不是，则保持指定的display属性值不变。
 
-
-
-总的来说，可以把它看作是一个类似优先级的机制，"position:absolute"和"position:fixed"优先级最高，有它存在的时候，浮动不起作用，'display'的值也需要调整；其次，元素的'float'特性的值不是"none"的时候或者它是根元素的时候，调整'display'的值；最后，非根元素，并且非浮动元素，并且非绝对定位的元素，'display'特性值同设置值。
+总的来说，可以把它看作是一个类似优先级的机制，"position:absolute"和"position:fixed"优先级最高，有它存在的时候，浮动不起作用，'display'的值也需要调整；其次，元素的'float'特性的值不是"
+none"的时候或者它是根元素的时候，调整'display'的值；最后，非根元素，并且非浮动元素，并且非绝对定位的元素，'display'特性值同设置值。
 
 ### 8. absolute与fixed共同点与不同点
 
 **共同点：**
 
-- 改变行内元素的呈现方式，将display置为inline-block 
+- 改变行内元素的呈现方式，将display置为inline-block
 - 使元素脱离普通文档流，不再占据文档物理空间
 - 覆盖非定位文档元素
-
-
 
 **不同点：**
 
@@ -1726,17 +1601,15 @@ position有以下属性值：
 
 sticky 英文字面意思是粘贴，所以可以把它称之为粘性定位。语法：**position: sticky;** 基于用户的滚动位置来定位。
 
-
-
-粘性定位的元素是依赖于用户的滚动，在 **position:relative** 与 **position:fixed** 定位之间切换。它的行为就像 **position:relative;** 而当页面滚动超出目标区域时，它的表现就像 **position:fixed;**，它会固定在目标位置。元素定位表现为在跨越特定阈值前为相对定位，之后为固定定位。这个特定阈值指的是 top, right, bottom 或 left 之一，换言之，指定 top, right, bottom 或 left 四个阈值其中之一，才可使粘性定位生效。否则其行为与相对定位相同。
+粘性定位的元素是依赖于用户的滚动，在 **position:relative** 与 **position:fixed** 定位之间切换。它的行为就像 **position:relative;**
+而当页面滚动超出目标区域时，它的表现就像 **position:fixed;**，它会固定在目标位置。元素定位表现为在跨越特定阈值前为相对定位，之后为固定定位。这个特定阈值指的是 top, right, bottom 或 left
+之一，换言之，指定 top, right, bottom 或 left 四个阈值其中之一，才可使粘性定位生效。否则其行为与相对定位相同。
 
 ## 四、场景应用
 
 ### 1. 实现一个三角形
 
 CSS绘制三角形主要用到的是border属性，也就是边框。
-
-
 
 平时在给盒子设置边框时，往往都设置很窄，就可能误以为边框是由矩形组成的。实际上，border属性是右三角形组成的，下面看一个例子：
 
@@ -1831,7 +1704,7 @@ div {
 用CSS实现扇形的思路和三角形基本一致，就是多了一个圆角的样式，实现一个90°的扇形：
 
 ```css
-div{
+div {
     border: 100px solid transparent;
     width: 0;
     height: 0;
@@ -1848,47 +1721,55 @@ div{
 
 ```css
 div {
-  background-color: red;
-  height: 100px;
-  width: 100px;
-  border-radius: 50%;
+    background-color: red;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
 }
 ```
 
-**注意：**在使用border-radius时，使用50%和100%都可以得到一个圆，那这两个值到底有什么区别呢：border-radius的值是百分比的话，就相当于盒子的宽度和高度的百分比。如一个50px 150px的方形，如果border-radius设置为100%，则等价于：
+**注意：**在使用border-radius时，使用50%和100%都可以得到一个圆，那这两个值到底有什么区别呢：border-radius的值是百分比的话，就相当于盒子的宽度和高度的百分比。如一个50px
+150px的方形，如果border-radius设置为100%，则等价于：
 
 ```css
-border-radius: 50px/150px; 1
+div {
+    border-radius: 50px  /  150px;
+}
 ```
 
 而border-radius又是由border-top-left-radius、border-top-right-radius、border-bottom-left-radius、border-bottom-right-radius组成，所有上面border-radius：100%又等价于：
 
 ```css
-border-top-left-radius: 100%; 
-border-top-right-radius: 100%; 
-border-bottom-left-radius: 100%; 
-border-bottom-right-radius: 100%;
+div {
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+}
 ```
 
 或
 
 ```css
-border-top-left-radius: 50px 150px; 
-border-top-right-radius: 50px 150px; 
-border-bottom-left-radius: 50px 150px; 
-border-bottom-right-radius: 50px 150px; 
+div {
+    border-top-left-radius: 50px 150px;
+    border-top-right-radius: 50px 150px;
+    border-bottom-left-radius: 50px 150px;
+    border-bottom-right-radius: 50px 150px;
+}
 ```
 
-为什么border-radius设置成100%和50%都能画成圆呢？因为，在W3C中对重合曲线做了规定：如果两个相邻的半径和超过了对应的盒子的边的长度，那么浏览器要重新计算以保证它们不重合。也就是说，如果相邻圆角的半径都设置成大于50%，那么浏览器会根据图形的实际情况做一些计算。因此，为了避免不必要的计算，建议使用border-radius: 50%。
+为什么border-radius设置成100%和50%都能画成圆呢？因为，在W3C中对重合曲线做了规定：如果两个相邻的半径和超过了对应的盒子的边的长度，那么浏览器要重新计算以保证它们不重合。也就是说，如果相邻圆角的半径都设置成大于50%，那么浏览器会根据图形的实际情况做一些计算。因此，为了避免不必要的计算，建议使用border-radius:
+50%。
 
 **（2）实现半圆：**
 
 ```css
 div {
-  background-color: red;
-  width: 100px;
-  height: 50px;
-  border-radius: 0px 0px 100px 100px;
+    background-color: red;
+    width: 100px;
+    height: 50px;
+    border-radius: 0 0 100px 100px;
 }
 ```
 
@@ -1898,9 +1779,9 @@ div {
 
 ```css
 .square {
-  width: 10%;
-  height: 10vw;
-  background: tomato;
+    width: 10%;
+    height: 10vw;
+    background: tomato;
 }
 ```
 
@@ -1908,10 +1789,10 @@ div {
 
 ```css
 .square {
-  width: 20%;
-  height: 0;
-  padding-top: 20%;
-  background: orange;
+    width: 20%;
+    height: 0;
+    padding-top: 20%;
+    background: orange;
 }
 ```
 
@@ -1919,14 +1800,15 @@ div {
 
 ```css
 .square {
-  width: 30%;
-  overflow: hidden;
-  background: yellow;
+    width: 30%;
+    overflow: hidden;
+    background: yellow;
 }
+
 .square::after {
-  content: '';
-  display: block;
-  margin-top: 100%;
+    content: '';
+    display: block;
+    margin-top: 100%;
 }
 ```
 
@@ -1955,11 +1837,11 @@ div {
 
 ```css
 .trapezoid {
-  height:0;
-  width:100px;
-  border-width:0 40px 100px 40px;
-  border-style:none solid solid;
-  border-color:transparent transparent red;
+    height: 0;
+    width: 100px;
+    border-width: 0 40px 100px 40px;
+    border-style: none solid solid;
+    border-color: transparent transparent red;
 }
 ```
 
@@ -1972,12 +1854,15 @@ div {
 - **采用transform: scale()的方式**，该方法用来定义元素的2D 缩放转换：
 
 ```css
-transform: scale(0.5,0.5);
+div {
+    transform: scale(0.5, 0.5);
+}
 ```
 
 - **采用meta viewport的方式**
 
-```css
+```html
+
 <meta name="viewport" content="width=device-width, initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5"/>
 ```
 
@@ -1987,12 +1872,12 @@ transform: scale(0.5,0.5);
 
 在谷歌下css设置字体大小为12px及以下时，显示都是一样大小，都是默认12px。
 
-
-
 **解决办法：**
 
-- 使用Webkit的内核的-webkit-text-size-adjust的私有CSS属性来解决，只要加了-webkit-text-size-adjust:none;字体大小就不受限制了。但是chrome更新到27版本之后就不可以用了。所以高版本chrome谷歌浏览器已经不再支持-webkit-text-size-adjust样式，所以要使用时候慎用。
-- 使用css3的transform缩放属性-webkit-transform:scale(0.5); 注意-webkit-transform:scale(0.75);收缩的是整个元素的大小，这时候，如果是内联元素，必须要将内联元素转换成块元素，可以使用display：block/inline-block/...；
+- 使用Webkit的内核的-webkit-text-size-adjust的私有CSS属性来解决，只要加了-webkit-text-size-adjust:
+  none;字体大小就不受限制了。但是chrome更新到27版本之后就不可以用了。所以高版本chrome谷歌浏览器已经不再支持-webkit-text-size-adjust样式，所以要使用时候慎用。
+- 使用css3的transform缩放属性-webkit-transform:scale(0.5); 注意-webkit-transform:scale(0.75)
+  ;收缩的是整个元素的大小，这时候，如果是内联元素，必须要将内联元素转换成块元素，可以使用display：block/inline-block/...；
 - 使用图片：如果是内容固定不变情况下，使用将小于12px文字内容切出做图片，这样不影响兼容也不影响美观。
 
 ### 7. 如何解决 1px 问题？
@@ -2016,20 +1901,20 @@ window.devicePixelRatio = 设备的物理像素 / CSS像素。
 如果之前 1px 的样式这样写：
 
 ```css
-border:1px solid #333
+div {
+    border: 1px solid #333;
+}
 ```
 
 可以先在 JS 中拿到 window.devicePixelRatio 的值，然后把这个值通过 JSX 或者模板语法给到 CSS 的 data 里，达到这样的效果（这里用 JSX 语法做示范）：
 
-```javascript
-<div id="container" data-device={{window.devicePixelRatio}}></div>
-```
+`<div id="container" data-device={{window.devicePixelRatio}}></div>`
 
 然后就可以在 CSS 中用属性选择器来命中 devicePixelRatio 为某一值的情况，比如说这里尝试命中 devicePixelRatio 为2的情况：
 
 ```css
 #container[data-device="2"] {
-  border:0.5px solid #333
+    border: 0.5px solid #333
 }
 ```
 
@@ -2039,11 +1924,8 @@ border:1px solid #333
 
 这个方法的可行性会更高，兼容性也更好。唯一的缺点是代码会变多。
 
-
-
-思路是**先放大、后缩小：****在目标元素的后面追加一个 ::after 伪元素，让这个元素布局为 absolute 之后、整个伸展开铺在目标元素上，然后把它的****宽和高都设置为目标元素的两倍，border值设为 1px。****接着借助 CSS 动画特效中的放缩能力，把整个伪元素缩小为原来的 50%。此时，伪元素的宽高刚好可以和原有的目标元素对齐，而 border 也缩小为了 1px 的二分之一****，间接地实现了 0.5px 的效果。**
-
-
+思路是**先放大、后缩小：****在目标元素的后面追加一个 ::after 伪元素，让这个元素布局为 absolute 之后、整个伸展开铺在目标元素上，然后把它的****宽和高都设置为目标元素的两倍，border值设为 1px。****
+接着借助 CSS 动画特效中的放缩能力，把整个伪元素缩小为原来的 50%。此时，伪元素的宽高刚好可以和原有的目标元素对齐，而 border 也缩小为了 1px 的二分之一****，间接地实现了 0.5px 的效果。**
 
 代码如下：
 
@@ -2051,18 +1933,18 @@ border:1px solid #333
 #container[data-device="2"] {
     position: relative;
 }
-#container[data-device="2"]::after{
-      position:absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      content:"";
-      transform: scale(0.5);
-      transform-origin: left top;
-      box-sizing: border-box;
-      border: 1px solid #333;
-    }
+
+#container[data-device="2"]::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 200%;
+    content: "";
+    transform: scale(0.5);
+    transform-origin: left top;
+    box-sizing: border-box;
+    border: 1px solid #333;
 }
 ```
 
@@ -2071,6 +1953,7 @@ border:1px solid #333
 这个思路就是对 meta 标签里几个关键属性下手：
 
 ```html
+
 <meta name="viewport" content="initial-scale=0.5, maximum-scale=0.5, minimum-scale=0.5, user-scalable=no">
 ```
 
