@@ -138,10 +138,10 @@ export default {
             ],
         },
         {
-            text: 'CSS',
+            text: 'Vue',
             collapsible: true,
             children: [
-                '/notes/css/',
+                '/yuque/前端面试题之Vue篇.md',
             ],
         },
     ],
