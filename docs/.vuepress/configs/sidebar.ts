@@ -131,10 +131,10 @@ export default {
             ],
         },
         {
-            text: 'HTML',
+            text: 'JavaScript',
             collapsible: true,
             children: [
-                '/notes/html/',
+                '/yuque/前端面试题之JavaScript篇.md',
             ],
         },
         {
