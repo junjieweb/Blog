@@ -114,5 +114,35 @@ export default {
                 '/interview/性能优化.md',
             ],
         },
-    ]
+    ],
+    '/yuque/': [
+        {
+            text: 'HTML',
+            collapsible: true,
+            children: [
+                '/yuque/前端面试题之HTML篇.md',
+            ],
+        },
+        {
+            text: 'CSS',
+            collapsible: true,
+            children: [
+                '/notes/html.md',
+            ],
+        },
+        {
+            text: 'HTML',
+            collapsible: true,
+            children: [
+                '/notes/html/',
+            ],
+        },
+        {
+            text: 'CSS',
+            collapsible: true,
+            children: [
+                '/notes/css/',
+            ],
+        },
+    ],
 }

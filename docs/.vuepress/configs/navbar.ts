@@ -12,6 +12,10 @@ export default [
         link: '/interview/'
     },
     {
+        text: '雨雀面试题',
+        link: '/yuque/'
+    },
+    {
         text: '简历',
         link: '/resume/'
     },
