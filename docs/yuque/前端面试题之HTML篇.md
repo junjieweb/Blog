@@ -193,8 +193,8 @@ DOCTYPE是HTML5中一种标准通用标记语言的文档类型声明，它的�
 ```html
 
 <video>
-    <source src='aa.flv' type='video/flv'></source>
-    <source src='aa.mp4' type='video/mp4'></source>
+    <source src='aa.flv' type='video/flv'>
+    <source src='aa.mp4' type='video/mp4'>
 </video>
 ```
 
@@ -485,21 +485,19 @@ Canvas是画布，通过Javascript来绘制2D图形，是逐像素进行渲染�
 
 ### 16. head 标签有什么作用，其中什么标签必不可少？
 
-<head> 标签用于定义文档的头部，它是所有头部元素的容器。<head> 中的元素可以引用脚本、指示浏览器在哪里找到样式表、提供元信息等。
-
-
+`<head>` 标签用于定义文档的头部，它是所有头部元素的容器。`<head>` 中的元素可以引用脚本、指示浏览器在哪里找到样式表、提供元信息等。
 
 文档的头部描述了文档的各种属性和信息，包括文档的标题、在 Web 中的位置以及和其他文档的关系等。绝大多数文档头部包含的数据都不会真正作为内容显示给读者。
 
-下面这些标签可用在 head 部分：<base>, <link>, <meta>, <script>, <style>, <title>。
+下面这些标签可用在 head 部分：`<base>`, `<link>`, `<meta>`, `<script>`, `<style>`, `<title>`。
 
-其中 <title> 定义文档的标题，它是 head 部分中唯一必需的元素。
+其中 `<title>` 定义文档的标题，它是 head 部分中唯一必需的元素。
 
 ### 17. 文档声明（Doctype）和<!Doctype html>有何作用? 严格模式与混杂模式如何区分？它们有何意义?
 
 **文档声明的作用：**文档声明是为了告诉浏览器，当前`HTML`文档使用什么版本的`HTML`来写的，这样浏览器才能按照声明的版本来正确的解析。
 
-**<!Doctype html>的作用：**`<!doctype html>` 的作用就是让浏览器进入标准模式，使用最新的 `HTML5` 标准来解析渲染页面；如果不写，浏览器就会进入混杂模式，我们需要避免此类情况发生。
+**`<!Doctype html>`的作用：**`<!doctype html>` 的作用就是让浏览器进入标准模式，使用最新的 `HTML5` 标准来解析渲染页面；如果不写，浏览器就会进入混杂模式，我们需要避免此类情况发生。
 
 **严格模式与混杂模式的区分：**
 
