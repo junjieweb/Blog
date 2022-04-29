@@ -1,7 +1,5 @@
 # 前端面试题之HTML篇
 
-![img](https://cdn.nlark.com/yuque/0/2021/png/1500604/1621600195788-acab59b1-a654-4ec4-b9c2-0a491a660671.png)
-
 ### 1. src和href的区别
 
 **src 用于替换当前元素，href 用于在当前文档和引用资源之间确立联系。**
