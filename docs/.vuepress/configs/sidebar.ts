@@ -20,8 +20,15 @@ export default {
             // collapsible: true,
             children: [
                 '/notes/css/README.md',
-                '/notes/css/ECMAScript.md',
-                '/notes/css/js.md',
+            ],
+        },
+        {
+            text: 'JavaScript',
+            // collapsible: true,
+            children: [
+                '/notes/js/README.md',
+                '/notes/js/ECMAScript.md',
+                '/notes/js/js.md',
             ],
         },
         {
@@ -33,13 +40,6 @@ export default {
                 '/notes/vue/vuex.md',
                 '/notes/vue/vue-router.md',
                 '/notes/vue/vue3.md',
-            ],
-        },
-        {
-            text: 'JavaScript',
-            // collapsible: true,
-            children: [
-                '/notes/js/README.md',
             ],
         },
         {
