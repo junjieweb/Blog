@@ -29,6 +29,7 @@ export default {
                 '/notes/vue/vue2_base.md',
                 '/notes/vue/vue2_cli.md',
                 '/notes/vue/vuex.md',
+                '/notes/vue/vue-router.md',
                 '/notes/vue/vue3.md',
             ],
         },
