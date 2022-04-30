@@ -96,8 +96,6 @@ function fn(n){
 
 闭包可以做什么？无意间共享环境
 
-
-
 ## JS对象
 
 ### this指向
@@ -256,8 +254,6 @@ getName() // 1
 new Foo().getName() // 3
 ```
 
-
-
 ### 构造函数继承
 
 每次生成一个对象，对象本身的属性和方法不共享
@@ -316,7 +312,6 @@ console.log(obj1)
 console.log(obj2)
 console.log(obj1.run === obj2.run)
 ```
-
 
 ## ES6
 
