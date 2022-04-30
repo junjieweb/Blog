@@ -37,13 +37,11 @@
 
 2. 在```main.js```中创建vm时传入```store```配置项
 
-   ```js
-   ......
-   //引入store
+   ```javascript
+   // 引入store
    import store from './store'
-   ......
    
-   //创建vm
+   // 创建vm
    new Vue({
     el:'#app',
     render: h => h(App),
