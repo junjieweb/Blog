@@ -9,29 +9,37 @@ export default {
             ],
         },
         {
-            text: '笔记',
-            collapsible: true,
-            children: [
-                '/notes/html.md',
-                '/notes/css.md',
-                '/notes/js.md',
-                '/notes/vue/vue2_base.md',
-                '/notes/vue/vue2_cli.md',
-                '/notes/vue/vue3.md'
-            ],
-        },
-        {
             text: 'HTML',
             collapsible: true,
             children: [
-                '/notes/html/',
+                '/notes/html/README.md',
             ],
         },
         {
             text: 'CSS',
             collapsible: true,
             children: [
-                '/notes/css/',
+                '/notes/css/README.md',
+            ],
+        },
+        {
+            text: 'VUE',
+            collapsible: true,
+            children: [
+                '/notes/vue/vue2_base.md',
+                '/notes/vue/vue2_cli.md',
+                '/notes/vue/vuex.md',
+                '/notes/vue/vue3.md',
+            ],
+        },
+        {
+            text: '笔记',
+            collapsible: true,
+            children: [
+                '/notes/js.md',
+                '/notes/vue/vue2_base.md',
+                '/notes/vue/vue2_cli.md',
+                '/notes/vue/vue3.md'
             ],
         },
     ],
