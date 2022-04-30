@@ -2,7 +2,7 @@ export default {
     '/notes/': [
         {
             text: 'MDN',
-            collapsible: true,
+            // collapsible: true,
             children: [
                 '/notes/MDN/MDN.md',
                 '/notes/MDN/line.md',
@@ -10,27 +10,36 @@ export default {
         },
         {
             text: 'HTML',
-            collapsible: true,
+            // collapsible: true,
             children: [
                 '/notes/html/README.md',
             ],
         },
         {
             text: 'CSS',
-            collapsible: true,
+            // collapsible: true,
             children: [
                 '/notes/css/README.md',
+                '/notes/css/ECMAScript.md',
+                '/notes/css/js.md',
             ],
         },
         {
             text: 'VUE',
-            collapsible: true,
+            // collapsible: true,
             children: [
                 '/notes/vue/vue2_base.md',
                 '/notes/vue/vue2_cli.md',
                 '/notes/vue/vuex.md',
                 '/notes/vue/vue-router.md',
                 '/notes/vue/vue3.md',
+            ],
+        },
+        {
+            text: 'JavaScript',
+            // collapsible: true,
+            children: [
+                '/notes/js/README.md',
             ],
         },
         {
