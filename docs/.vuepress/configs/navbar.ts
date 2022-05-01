@@ -4,6 +4,10 @@ export default [
         link: '/',
     },
     {
+        text: '常用网站',
+        link: '/web/'
+    },
+    {
         text: '笔记',
         link: '/notes/'
     },
