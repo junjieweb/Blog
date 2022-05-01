@@ -133,4 +133,13 @@ export default {
             ],
         },
     ],
+    '/web/': [
+        {
+            text: '常用网站',
+            // collapsible: true,
+            children: [
+                '/web/README.md',
+            ],
+        },
+    ],
 }
