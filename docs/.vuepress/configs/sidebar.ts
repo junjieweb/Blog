@@ -28,6 +28,8 @@ export default {
             children: [
                 '/notes/js/README.md',
                 '/notes/js/ECMAScript.md',
+                '/notes/js/DOM.md',
+                '/notes/js/BOM.md',
                 '/notes/js/js.md',
             ],
         },
@@ -40,16 +42,6 @@ export default {
                 '/notes/vue/vuex.md',
                 '/notes/vue/vue-router.md',
                 '/notes/vue/vue3.md',
-            ],
-        },
-        {
-            text: '笔记',
-            collapsible: true,
-            children: [
-                '/notes/js.md',
-                '/notes/vue/vue2_base.md',
-                '/notes/vue/vue2_cli.md',
-                '/notes/vue/vue3.md'
             ],
         },
     ],
