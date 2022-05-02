@@ -125,4 +125,13 @@ export default {
             ],
         },
     ],
+    '/web/': [
+        {
+            text: '网站导航',
+            // collapsible: true,
+            children: [
+                '/web/README.md',
+            ],
+        },
+    ],
 }
