@@ -4,7 +4,7 @@ export default [
         link: '/',
     },
     {
-        text: '常用网站',
+        text: '网站导航',
         link: '/web/'
     },
     {
