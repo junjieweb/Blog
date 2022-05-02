@@ -3,15 +3,25 @@
 ## FrontEnd
 
 [GitHub](https://github.com/junjieweb)  
-[Gitee](https://gitee.com/)  
+[Gitee](https://gitee.com/)
+
 [MDN](https://developer.mozilla.org/zh-CN/)  
+[MDN Plus](https://developer.mozilla.org/en-US/plus)
+
+[现代 JavaScript 教程](https://zh.javascript.info/)  
+[ES6 入门教程](https://es6.ruanyifeng.com/)  
+[Markdown 官方教程](https://markdown.com.cn/)  
+
+[FreeCodeCamp](https://chinese.freecodecamp.org/learn)  
+[百度前端技术学园](http://ife.baidu.com/)  
+[Git教程](https://www.liaoxuefeng.com/wiki/896043488029600)
 
 ## JetBrains
 
 [软件开发者和团队的必备工具](https://www.jetbrains.com/zh-cn/)  
 [WebStorm](https://www.jetbrains.com/zh-cn/webstorm/)  
 [JetBrains Academy](https://hyperskill.org/tracks)  
-[JetBrains 品牌资产](https://www.jetbrains.com/zh-cn/company/brand/)  
+[JetBrains 品牌资产](https://www.jetbrains.com/zh-cn/company/brand/)
 
 ## Google
 
@@ -28,7 +38,6 @@
 [Visual Studio Subscriptions](https://my.visualstudio.com/Benefits?mkt=zh-cn)  
 [Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage)  
 [Windows Insider Blog](https://blogs.windows.com/windows-insider/)
-
 
 ## 编程语言排行榜
 
