@@ -4,6 +4,9 @@ title: 首页
 heroImage: /images/logo.svg
 tagline: Front-end web developer
 actions:
+   - text: 常用网站
+     link: /web/index.html
+     type: primary
    - text: 前端笔记
      link: /notes/index.html
      type: primary
