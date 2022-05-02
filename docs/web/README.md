@@ -10,11 +10,37 @@
 
 [现代 JavaScript 教程](https://zh.javascript.info/)  
 [ES6 入门教程](https://es6.ruanyifeng.com/)  
-[Markdown 官方教程](https://markdown.com.cn/)  
+[Markdown 官方教程](https://markdown.com.cn/)
 
 [FreeCodeCamp](https://chinese.freecodecamp.org/learn)  
 [百度前端技术学园](http://ife.baidu.com/)  
 [Git教程](https://www.liaoxuefeng.com/wiki/896043488029600)
+
+## Vue
+
+### vue2.x
+
+[Vue.js](https://cn.vuejs.org/)  
+[Vue CLI](https://cli.vuejs.org/zh/)  
+[Vuex 3.x](https://v3.vuex.vuejs.org/zh/)  
+[Vue Router 3.x](https://v3.router.vuejs.org/zh/)  
+[VuePress 1.x](https://vuepress.vuejs.org/zh/)
+
+[Element UI](https://element.eleme.cn/#/zh-CN)  
+[Ant Design Vue](https://antdv.com/docs/vue/introduce-cn/)  
+[Vant 2](https://vant-contrib.gitee.io/vant/v2/#/zh-CN/)
+
+### vue3.0
+
+[Vue.js](https://v3.cn.vuejs.org/)  
+[Vue CLI](https://cli.vuejs.org/zh/)  
+[Vuex 4.x](https://vuex.vuejs.org/zh/)  
+[Vue Router 4.x](https://router.vuejs.org/zh/)  
+[Vite](https://cn.vitejs.dev/)  
+[VuePress 2.0](https://v2.vuepress.vuejs.org/zh/)
+
+[Element Plus](https://element-plus.gitee.io/zh-CN/)  
+[Vant 3](https://vant-contrib.gitee.io/vant/#/zh-CN)
 
 ## JetBrains
 
