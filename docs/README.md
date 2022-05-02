@@ -9,11 +9,8 @@ actions:
      type: primary
    - text: 前端笔记
      link: /notes/index.html
-     type: primary
+     type: secondary
    - text: 面试题
      link: /interview/
-     type: secondary
-   - text: 个人简历
-     link: /resume/
      type: secondary
 ---
