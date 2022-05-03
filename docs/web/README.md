@@ -1,17 +1,5 @@
 # 网站导航
 
-| Vue 2.x                                                    | Vue 3.0                                                    | 学习网站                                                      |
-|------------------------------------------------------------|------------------------------------------------------------|-----------------------------------------------------------|
-| [Vue.js](https://cn.vuejs.org/)                            | [Vue.js](https://v3.cn.vuejs.org/)                         | [FreeCodeCamp](https://chinese.freecodecamp.org/learn)    |
-| [Vue CLI](https://cli.vuejs.org/zh/)                       | [Vue CLI](https://cli.vuejs.org/zh/)                       | [百度前端技术学园](http://ife.baidu.com/)                         |
-| [Vuex 3.x](https://v3.vuex.vuejs.org/zh/)                  | [Vuex 4.x](https://vuex.vuejs.org/zh/)                     | [Git教程](https://www.liaoxuefeng.com/wiki/896043488029600) |
-| [Vue Router 3.x](https://v3.router.vuejs.org/zh/)          | [Vue Router 4.x](https://router.vuejs.org/zh/)             | [现代 JavaScript 教程](https://zh.javascript.info/)           |
-| [VuePress 1.x](https://vuepress.vuejs.org/zh/)             | [VuePress 2.0](https://v2.vuepress.vuejs.org/zh/)          | [ES6 入门教程](https://es6.ruanyifeng.com/)                   | 
-| [Element UI](https://element.eleme.cn/#/zh-CN)             | [Element Plus](https://element-plus.gitee.io/zh-CN/)       | [Markdown 官方教程](https://markdown.com.cn/)                 |
-| [Ant Design Vue](https://antdv.com/docs/vue/introduce-cn/) | [Ant Design Vue](https://antdv.com/docs/vue/introduce-cn/) |                                                           |
-| [Vant 2](https://vant-contrib.gitee.io/vant/v2/#/zh-CN/)   | [Vant 3](https://vant-contrib.gitee.io/vant/#/zh-CN)       |                                                           |
-|                                                            | [Vite](https://cn.vitejs.dev/)                             |                                                           |
-
 ## 常用
 
 <a href="https://github.com/junjieweb" title="GitHub" target="_blank">
@@ -24,6 +12,10 @@
 
 <a href="https://gitee.com/" title="Gitee" target="_blank">
     <img style="margin: 1rem 1rem" src="https://gitee.com/static/images/logo-black.svg?t=158106664" height="64" alt="Gitee">
+</a>
+
+<a href="https://www.bilibili.com/" title="bilibili" target="_blank">
+    <img style="margin: 1rem 1rem" src="https://upload.wikimedia.org/wikipedia/en/b/b7/Bilibili_logo.svg" height="64" alt="bilibili">
 </a>
 <hr>
 <a href="https://cn.vuejs.org/" title="Vue" target="_blank">
@@ -46,6 +38,23 @@
     <img style="margin: 1rem 1rem" src="https://img01.yzcdn.cn/vant/logo.png" height="64" alt="Vant">
 </a>
 
+## 学习
+
+<a href="https://zh.javascript.info/" title="现代 JavaScript 教程" target="_blank">
+    <img style="margin: 1rem 1rem" src="https://zh.javascript.info/img/sitetoolbar__logo_en.svg" height="64" alt="现代 JavaScript 教程">
+</a>
+
+<a href="https://markdown.com.cn/" title="Markdown 官方教程" target="_blank">
+    <img style="margin: 1rem 1rem" src="https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg" height="64" alt="Markdown 官方教程">
+</a>
+
+<a href="https://sourceacademy.org/sicpjs/index" title="Source Academy" target="_blank">
+    <img style="margin: 1rem 1rem" src="https://about.sourceacademy.org/assets/sourcepower.ico" height="64" alt="Source Academy">
+</a>
+
+<a href="https://chinese.freecodecamp.org/learn" title="free-code-camp" target="_blank">
+    <img style="margin: 1rem 1rem" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/FreeCodeCamp_logo.svg" height="64" alt="free-code-camp">
+</a>
 
 ## JetBrains
 
@@ -67,11 +76,25 @@
 
 ## Google
 
-[Google 翻译](https://translate.google.com/)
-[Google 新闻](https://news.google.com/topstories?hl=zh-CN&gl=CN&ceid=CN:zh-Hans)
-[Google 地图](https://www.google.com/maps)
-[YouTube](https://www.youtube.com/)
-[Gmail](https://mail.google.com/mail/u/0/#inbox)
+<a href="https://translate.google.com/" target="_blank" title="Google 翻译">
+    <img style="margin: 1rem 1rem" alt="Google 翻译" src="https://ssl.gstatic.com/translate/favicon.ico" height="64">
+</a>
+
+<a href="https://news.google.com/topstories?hl=zh-CN&gl=CN&ceid=CN:zh-Hans" target="_blank" title="Google 新闻">
+    <img style="margin: 1rem 1rem" alt="Google 新闻" src="https://lh3.googleusercontent.com/-DR60l-K8vnyi99NZovm9HlXyZwQ85GMDxiwJWzoasZYCUrPuUM_P_4Rb7ei03j-0nRs0c4F=w48" height="64">
+</a>
+
+<a href="https://www.google.com/maps" target="_blank" title="Google 地图">
+    <img style="margin: 1rem 1rem" alt="Google 地图" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e4/Google_Earth_icon.svg/640px-Google_Earth_icon.svg.png" height="64">
+</a>
+
+<a href="https://www.youtube.com/" target="_blank" title="YouTube">
+    <img style="margin: 1rem 1rem" alt="YouTube" src="https://upload.wikimedia.org/wikipedia/commons/b/b8/YouTube_Logo_2017.svg" height="64">
+</a>
+
+<a href="https://mail.google.com/mail/u/0/#inbox" target="_blank" title="Gmail">
+    <img style="margin: 1rem 1rem" alt="Gmail" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/640px-Gmail_icon_%282020%29.svg.png" height="64">
+</a>
 
 ## Microsoft
 
