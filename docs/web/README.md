@@ -52,6 +52,14 @@
     <img style="margin: 1rem 1rem" src="https://about.sourceacademy.org/assets/sourcepower.ico" height="64" alt="Source Academy">
 </a>
 
+<a href="https://es6.ruanyifeng.com/" title="ES6 入门教程" target="_blank">
+    <img style="margin: 1rem 1rem" src="https://live.staticflickr.com/7306/16407404782_8b9c57eab3_w.jpg" height="64" alt="ES6 入门教程">
+</a>
+
+<a href="http://ife.baidu.com/" title="百度前端技术学园" target="_blank">
+    <img style="margin: 1rem 1rem" src="http://ife.baidu.com/assets/img/ife-logo.png" height="64" alt="百度前端技术学园">
+</a>
+
 <a href="https://chinese.freecodecamp.org/learn" title="free-code-camp" target="_blank">
     <img style="margin: 1rem 1rem" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/FreeCodeCamp_logo.svg" height="64" alt="free-code-camp">
 </a>
