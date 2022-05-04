@@ -27,9 +27,8 @@ export default {
             // collapsible: true,
             children: [
                 '/notes/js/README.md',
-                '/notes/js/ECMAScript.md',
+                '/notes/js/js基础.md',
                 '/notes/js/DOM.md',
-                '/notes/js/BOM.md',
                 '/notes/js/js.md',
             ],
         },
