@@ -27,7 +27,7 @@
 </a>
 
 <a href="https://element.eleme.cn/#/zh-CN" title="Element UI" target="_blank">
-    <img style="margin: 1rem 1rem" src="/images/logo/Element UI logo.svg" height="64" alt="Element UI">
+    <img style="margin: 1rem 1rem" src="/images/logo/Element-UI_logo.svg" height="64" alt="Element UI">
 </a>
 
 <a href="https://antdv.com/docs/vue/introduce-cn/" title="Ant Design Vue" target="_blank">
