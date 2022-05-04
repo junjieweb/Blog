@@ -16,3 +16,28 @@
 
 虽然这些数据类型相对来说比较少，但是通过他们你可以在程序中开发有用的功能。对象（`Object`)
 ）和函数（`function`）是这门语言的另外两个基本元素。你可以把对象当作存放值的一个命名容器，然后将函数当作你的程序能够执行的步骤。
+
+## 类型转换
+
+#### 转换为 `string` 类型
+
+1. 调用`String()`函数：`value = String(value);`
+2. 为任意值加上一个空串：`value = value + '';`
+
+#### 转换为 `number` 类型
+
+1. 调用`Number()`函数：`value = Number(value);`
+2. 使用一元运算符的`+`：`value = +value;`
+3. 用来转换字符串的两个函数：`parseInt()` `parseFloat()`
+4. 在算术函数和表达式中，会自动进行 `number` 类型转换。
+   - 字符串是一个合法数字，直接转为对应的数字。
+   - 不合法转换为`NaN`，空串或空格串转换为 0。
+   - `true`和`false`，转换为`1`和`0`
+   - `null`转为`0`，`undefined`转为`NaN`
+
+#### 转换为 `boolean` 类型
+
+1. 调用`Boolean()`函数：`value = Boolean(value);`
+2. 为任意值取两次反：`value = !!value;`
+
+会转换为`false`的情况：`0` `NaN` `null` `undefined` `false` `''`
