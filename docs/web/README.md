@@ -74,7 +74,7 @@
     <img style="margin: 1rem 1rem" src="/images/logo/WebStorm_icon.svg" height="64" alt="WebStorm">
 </a>
 
-<a href="https://hyperskill.org/tracks" target="_blank" title="JetBrains Academy">
+<a href="https://hyperskill.org/study-plan" target="_blank" title="JetBrains Academy">
     <img style="margin: 1rem 1rem" alt="JetBrains Academy logo" src="https://resources.jetbrains.com/storage/products/company/brand/logos/Academy.svg" height="64">
 </a>
 
