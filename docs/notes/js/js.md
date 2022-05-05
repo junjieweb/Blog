@@ -39,49 +39,6 @@ JS会提升var声明的变量和函数，移动到当前作用域的开头
 2. 禁止`this`关键字指向全局对象
 3. 函数不能有重名的形参
 
-### 递归
-
-自己调用自己
-
-注意：必须有结束条件，没有结束条件就变成死循环
-
-```javascript
-function sun(n){
-    if(n === 1){ // 结束条件
-        return 1
-    }else {
-        return n + sum(n-1)
-    }
-}
-```
-
-数组扁平化：把多维数组变成一维数组
-
-```javascript
-function fn(arr){
-    let result = []
-    for(let i = 0; i < arr.length; i++){
-        if(typeof arr[i] === 'object'){
-            result = result.concat(fn(arr[i]))
-        }else {
-            result.push(arr[i])
-        }
-    }
-    return result
-}
-```
-
-斐波那契数列：1 1 2 3 5 8 13 21 34 55 …
-
-```javascript
-function fn(n){
-    if(n < 3){
-        return 1
-    }
-    return fn(n - 1) + fn(n - 2)
-}
-```
-
 ### 闭包
 
 什么是闭包？
@@ -95,32 +52,6 @@ function fn(n){
 2. 变量不自由，会停留在内存中，不会销毁
 
 闭包可以做什么？无意间共享环境
-
-## JS对象
-
-### this指向
-
-this指的是函数运行时所在的“环境”
-
-### call-apply-bind
-
-call、apply、bind：是所有函数都具有的方法
-
-注意：函数也是对象，函数具有方法
-
-`call(参数1, 参数2, 参数3...)`
-
-- 参数1：调用函数时，内部this的具有值，让this指向谁
-- 剩余参数就是函数的参数
-
-`apply(参数1, [参数值1, 参数值2, 参数值3...])`
-
-- 参数1：调用函数时，内部this的具有值，让this指向谁
-- 参数2：是一个数组，数组的每个值代表了函数的参数
-
-`bind(参数1, 参数2, 参数3...)()`
-
-- 参数和`call`一样，但是返回的是一个函数
 
 ## JS对象模式
 
@@ -362,27 +293,6 @@ c // "l"
 d // "l"
 e // "o"
 ```
-
-### 箭头函数
-
-```javascript
-var f = v => v;
-
-// 等同于
-var f = function (v) {
-    return v;
-};
-```
-
-使用注意点
-
-1. 箭头函数没有自己的`this`对象。
-
-2. 不可以当作构造函数，也就是说，不可以对箭头函数使用`new`命令，否则会抛出一个错误。
-
-3. 不可以使用`arguments`对象，该对象在函数体内不存在。如果要用，可以用 rest 参数代替。
-
-4. 不可以使用`yield`命令，因此箭头函数不能用作 Generator 函数。
 
 ### Class
 
