@@ -28,6 +28,7 @@ export default {
             children: [
                 '/notes/js/README.md',
                 '/notes/js/js基础.md',
+                '/notes/js/js函数.md',
                 '/notes/js/DOM.md',
                 '/notes/js/js.md',
             ],
