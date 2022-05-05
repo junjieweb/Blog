@@ -31,7 +31,7 @@
 </a>
 
 <a href="https://v2.vuepress.vuejs.org/zh/" title="VuePress" target="_blank">
-    <img style="margin: 1rem 1rem" src="https://v2.vuepress.vuejs.org/images/hero.png" height="64" alt="VuePress">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/VuePress_logo.png" height="64" alt="VuePress">
 </a>
 
 <a href="https://element.eleme.cn/#/zh-CN" title="Element UI" target="_blank">
@@ -43,7 +43,7 @@
 </a>
 
 <a href="https://vant-contrib.gitee.io/vant/v2/#/zh-CN/" title="Vant" target="_blank">
-    <img style="margin: 1rem 1rem" src="https://img01.yzcdn.cn/vant/logo.png" height="64" alt="Vant">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Vant_logo.png" height="64" alt="Vant">
 </a>
 
 ## 学习
