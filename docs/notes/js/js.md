@@ -55,17 +55,7 @@ JS会提升var声明的变量和函数，移动到当前作用域的开头
 
 ## JS对象模式
 
-### 工厂模式
 
-```javascript
-function fun(cName){
-    let obj = new Object()
-    obj.name = cName
-    return obj
-}
-let obj1 = fun('tom')
-let obj2 = fun('jerry')
-```
 
 ### 构造函数
 
