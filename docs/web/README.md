@@ -2,24 +2,32 @@
 
 ## 常用
 
-<a href="https://github.com/junjieweb" title="GitHub" target="_blank">
-    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/github.svg.png" height="64" alt="GitHub">
-</a>
-
 <a href="https://developer.mozilla.org/zh-CN/" title="MDN Web Docs" target="_blank">
-    <img style="margin: 1rem 1rem" src="https://developer.mozilla.org/favicon-48x48.cbbd161b.png" height="64" alt="MDN Web Docs">
-</a>
-
-<a href="https://gitee.com/" title="Gitee" target="_blank">
-    <img style="margin: 1rem 1rem" src="https://gitee.com/static/images/logo-black.svg?t=158106664" height="64" alt="Gitee">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/MDN_Web_Docs_logo.svg" height="64" alt="MDN Web Docs">
 </a>
 
 <a href="https://www.bilibili.com/" title="bilibili" target="_blank">
-    <img style="margin: 1rem 1rem" src="https://upload.wikimedia.org/wikipedia/en/b/b7/Bilibili_logo.svg" height="64" alt="bilibili">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Bilibili_logo.svg" height="64" alt="bilibili">
+</a>
+
+<a href="https://hyperskill.org/study-plan" target="_blank" title="JetBrains Academy">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/JetBrains_Academy.svg" alt="JetBrains Academy logo"  height="64">
+</a>
+
+<a href="https://github.com/junjieweb" title="GitHub" target="_blank">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Octicons-mark-github.svg" height="64" alt="GitHub">
+</a>
+
+<a href="https://gitee.com/" title="Gitee" target="_blank">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Gitee_logo_black.svg" height="64" alt="Gitee">
+</a>
+
+<a href="https://stackoverflow.com/" title="Stack Overflow" target="_blank">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Stack_Overflow_logo.svg" height="64" alt="Stack Overflow">
 </a>
 <hr>
 <a href="https://cn.vuejs.org/" title="Vue" target="_blank">
-    <img style="margin: 1rem 1rem" src="/images/logo/Vue.js_Logo_2.svg.png" height="64" alt="Vue">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Vue.js_Logo_2.svg" height="64" alt="Vue">
 </a>
 
 <a href="https://v2.vuepress.vuejs.org/zh/" title="VuePress" target="_blank">
@@ -27,11 +35,11 @@
 </a>
 
 <a href="https://element.eleme.cn/#/zh-CN" title="Element UI" target="_blank">
-    <img style="margin: 1rem 1rem" src="/images/logo/Element-UI_logo.svg" height="64" alt="Element UI">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Element-UI_logo.svg" height="64" alt="Element UI">
 </a>
 
 <a href="https://antdv.com/docs/vue/introduce-cn/" title="Ant Design Vue" target="_blank">
-    <img style="margin: 1rem 1rem" src="https://www.antdv.com/assets/logo.1ef800a8.svg" height="64" alt="Ant Design of Vue">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Ant_Design_Vue_logo.svg" height="64" alt="Ant Design of Vue">
 </a>
 
 <a href="https://vant-contrib.gitee.io/vant/v2/#/zh-CN/" title="Vant" target="_blank">
