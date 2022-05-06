@@ -75,11 +75,11 @@
 ## JetBrains
 
 <a href="https://www.jetbrains.com/zh-cn/" title="JetBrains 首页" target="_blank">
-    <img style="margin: 1rem 1rem" src="/images/logo/jb_beam.svg" height="64" alt="JetBrains Logo">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/jb_beam.svg" height="64" alt="JetBrains Logo">
 </a>
 
 <a href="https://www.jetbrains.com/zh-cn/webstorm/" title="WebStorm" target="_blank">
-    <img style="margin: 1rem 1rem" src="/images/logo/WebStorm_icon.svg" height="64" alt="WebStorm">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/WebStorm_icon.svg" height="64" alt="WebStorm">
 </a>
 
 <a href="https://hyperskill.org/study-plan" target="_blank" title="JetBrains Academy">
@@ -122,5 +122,7 @@
 
 ## 编程语言排行榜
 
-| [TIOBE Index](https://www.tiobe.com/tiobe-index/) | [编程语言排行榜](https://hellogithub.com/report/tiobe/) | [PYPL PopularitY of Programming Language](https://pypl.github.io/PYPL.html) |
-|---------------------------------------------------|--------------------------------------------------|-----------------------------------------------------------------------------|
+[TIOBE Index](https://www.tiobe.com/tiobe-index/)  
+[编程语言排行榜](https://hellogithub.com/report/tiobe/)  
+[PYPL PopularitY of Programming Language](https://pypl.github.io/PYPL.html)
+
