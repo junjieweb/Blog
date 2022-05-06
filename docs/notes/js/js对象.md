@@ -107,3 +107,139 @@ Object.keys(obj)
 ```javascript
 Object.getOwnPropertyNames(obj)
 ```
+
+## 原型和原型链
+
+#### 原型
+
+每一个函数都有一个属性叫做`prototype`（显式原型），该属性指向的是一个对象，这个对象就是原型对象
+
+如果函数作为一个构造函数去调用，那么它所创建的实例中会有一个隐含的属性（`__proto__`，隐式原型）指向函数的显式原型（`prototype`）
+
+实例的隐式原型`__prpto__`指向函数的显示原型`prototype`
+
+原型对象就相当于一个公共的区域，可以被所有的该类实例所共享。所有我们可以将实例中共有的属性统一存储到原型中，这样我们只需创建一个属性（方法），即可使所有实例拥有该属性（方法）
+
+#### 原型链
+
+为什么设计原型：继承、让对象的属性和方法实现共享
+
+函数：`prototype`，对象：`__ptoto__`
+
+原型链：每一个对象都有原型`__proto__`，这个原型还有自己的原型，最终形成了原型链，原型链的最顶端是`null`
+
+如果要查找对象的属性或方法，先在对象中查找，如果没有找到，去对象的原型中找，如果还没找到，去对象的原型的原型中去找，直到找不到，返回`undefined`
+
+当访问一个对象的属性时，JS会首先在对象自身中寻找
+
+- 如果找到了，则使用
+- 如果没找到，则去对象的原型（`__proto__`）中寻找
+- 如果找到了，则使用，没找到继续去原型的原型中寻找，以此类推
+- 直到找到`Object`的原型，它是所有原型的原型，它的原型是`null`
+- 如果找到`Object`的原型，依然没有则返回`undefined`
+
+> 定义一个类时，如果属性和方法是对象独有的，就直接在构造函数中设置
+>
+> 如果属性和方法是公共的，每一个对象的值都是相同的，可以通过原型来添加
+
+## 继承
+
+### 原型链继承
+
+儿子继承父亲`Child.prototype = new Parent()`
+
+优点：共享属性和方法
+
+缺点：无法给父构造函数传递参数
+
+面试题
+
+```javascript
+function Foo() {
+    getName = function () {
+        alert(1)
+    }
+    return this
+}
+
+Foo.getName = function () {
+    alert(2)
+}
+Foo.prototype.getName = function () {
+    alert(3)
+}
+var getName = function () {
+    alert(4)
+}
+
+function getName() {
+    alert(5)
+}
+
+// **优先级**：变量 > 函数 > 形参 > 变量提升
+Foo.getName() // 2
+getName() // 4
+// 全局getName = function(){alert(1)}
+Foo().getName() // 1
+getName() // 1
+new Foo().getName() // 3
+```
+
+### 构造函数继承
+
+每次生成一个对象，对象本身的属性和方法不共享
+
+优点：可以向父构造函数传递参数
+
+缺点：不可以共享属性和方法
+
+`call/apply/bind`
+
+```javascript
+function Parent() {
+    this.name = 'tom'
+    this.arr = [1, 2, 3]
+}
+
+function Child() {
+    // 让Parent的this指向对象
+    Parent.call(this)
+}
+
+const obj1 = new Child()
+const obj2 = new Child()
+obj1.arr[0] = 10
+console.log(obj1.arr) // [10, 2, 3]
+console.log(obj2.arr) // [1, 2, 3]
+```
+
+### 组合继承
+
+原型链继承+借用构造函数继承
+
+既可以传递参数，也可以实现该有的共享性
+
+```javascript
+function Parent(name) {
+    this.name = name
+    this.arr = [1, 2, 3]
+}
+
+function Child(name) {
+    // 借用构造函数
+    Parent.call(this, name)
+}
+
+Parent.prototype.run = function () {
+
+}
+// 原型
+Child.prototype = new Parent()
+
+const obj1 = new Child('张三')
+const obj2 = new Child('李四')
+obj1.arr[0] = 10
+console.log(obj1)
+console.log(obj2)
+console.log(obj1.run === obj2.run)
+```
