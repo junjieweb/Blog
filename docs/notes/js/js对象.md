@@ -243,3 +243,221 @@ console.log(obj1)
 console.log(obj2)
 console.log(obj1.run === obj2.run)
 ```
+
+## JS作用域
+
+### 作用域
+
+作用的区域或者作用范围，JS没有块级作用域，只有函数作用域
+
+**全局作用域**：在全局作用域下写的变量：没有区别，都属于window对象的属性
+
+**局部作用域**：在局部作用域写变量
+
+### 作用域链
+
+从当前作用域逐级向上查找
+
+从当前作用域开始找，找不到向外继续找，直到找到window，找不到报错
+
+### 变量提升
+
+JS会提升var声明的变量和函数，移动到当前作用域的开头
+
+**优先级**：变量 > 函数 > 形参 > 变量提升
+
+## JS严格模式-递归-闭包
+
+### 严格模式
+
+`use strict`开启严格模式
+
+使用方式：
+
+1. 针对整个文件，全局严格模式：文件的第一行写：`'use strict'`
+2. 针对单个函数，局部严格模式：函数的第一行写：`'use strict'`
+
+作用：
+
+1. 变量声明：var | window ，`num = 10`报错
+2. 禁止`this`关键字指向全局对象
+3. 函数不能有重名的形参
+
+### 闭包
+
+什么是闭包？
+
+一个函数和对其周围状态（**lexical environment，词法环境**）的引用捆绑在一起（或者说函数被引用包围），这样的组合就是**闭包**（**closure**）。
+也就是说，闭包让你可以在一个内层函数中访问到其外层函数的作用域。在 JavaScript 中，每当创建一个函数，闭包就会在函数创建的同时被创建出来。
+
+> 闭包是一个函数加上到创建函数的作用域的连接，闭包“关闭”了函数的自由变量
+
+1. 有两个函数，作用域是连接关系（scope）
+2. 变量不自由，会停留在内存中，不会销毁
+
+闭包可以做什么？无意间共享环境
+
+### new操作符具体做了什么？
+
+1. 创建一个对象`new Object()`
+2. 原型赋值（指向同一个原型对象）：`对象.__proto__ = Fun.prototype`
+3. 改变this指向：`Fun.call(obj)`
+
+### 深拷贝和浅拷贝
+
+什么是拷贝？复制
+
+> 基本类型是按照值访问的
+
+> 引用类型都是按照引用传递的
+
+#### 浅拷贝
+
+只复制一层对象，当对象的属性是引用类型时，实质上复制的是其引用，当引用指向的值方式变化的时候，原对象的属性值也会跟着变化，互相影响
+
+`Object.assign(target, ...sources)`target目标对象，sources元对象，返回目标对象
+
+#### 深拷贝
+
+在拷贝的时候创建新的对象，并把原对象所有的属性都拷贝到新对象，原属性如果是对象，也会重新创建新的对象并拷贝到新对象属性中，原对象和新对象都是相互独立的，互不影响
+
+方式一：`let newObj = JSON.parse(JSON.stringify(obj))`
+
+方式二：递归
+
+```javascript
+let obj = {
+    a: 10,
+    b: {
+        c: 20
+    }
+}
+
+function deepCopy(obj) {
+    let o = {}
+    if (typeof obj === 'object') {
+        for (let k in obj) {
+            if (obj.hasOwnProperty(k)) {
+                if (typeof obj[k] === 'object') {
+                    o[k] = deepCopy(obj[k])
+                } else {
+                    o[k] = obj[k]
+                }
+            }
+        }
+    }
+    return o
+}
+
+let newObj = deepCopy(obj)
+```
+
+## ES6
+
+https://es6.ruanyifeng.com/
+
+### let、var、const
+
+let：声明变量
+
+1. let声明的变量只在代码块内有效
+2. 不可以重复声明同一个变量
+3. 不存在变量提升
+
+const：常量
+
+1. const声明的变量只在代码块内有效
+2. 不可以重复声明同一个变量
+3. 不存在变量提升
+
+var和let的区别？
+
+1. var声明的变量没有块作用域，let声明的有块作用域
+2. var可以声明同一个变量（覆盖），let不可以
+3. var有变量提升，let没有
+
+### 变量的结构赋值
+
+#### 数组的解构赋值
+
+```javascript
+// 表示，可以从数组中提取值，按照对应位置，对变量赋值。
+let [a, b, c] = [10, 20, 30]
+```
+
+#### 对象的结构赋值
+
+```javascript
+let {a, b} = {a: 10, b: 20}
+```
+
+#### 字符串的结构赋值
+
+```javascript
+const [a, b, c, d, e] = 'hello';
+a // "h"
+b // "e"
+c // "l"
+d // "l"
+e // "o"
+```
+
+### Class
+
+基本用法
+
+```javascript
+class Person {
+    constructor(name) {
+        this.name = name
+    }
+
+    run() {
+        return '这是run方法'
+    }
+}
+
+const p = new Person('tom')
+```
+
+继承
+
+```javascript
+class Child extends Parent {
+    constructor() {
+        super()
+    }
+}
+```
+
+### Promise
+
+Promise是异步编程的一种解决方案
+
+功能：写异步的代码，同步的执行出来，让代码更好的维护易读
+
+同步：只有前一个任务执行完，才能继续执行下一个任务
+
+异步：不进入主线程，进入任务队列，只有任务队列通知主线程，某个异步任务才可以执行，该任务才会进入主线程
+
+1. 每一个Promise实例都有3种状态：初始化(pending)、成功(fulfilled)、失败(rejected)
+2. 每一个Promise实例在刚被new出来的那一刻，状态都是初始化(pending)
+3. executor函数会接收到2个参数，它们都是函数，分别用形参：resolve、reject接收
+
+### async和await
+
+async修饰的函数返回一个Promise对象，Promise实例的结果由async函数执行的返回值决定
+
+await右侧的表达式一般为Promise实例对象, 但也可以是其它的值
+
+- 如果表达式是Promise实例对象, await后的返回值是promise成功的值
+- 如果表达式是其它值, 直接将此值作为await的返回值
+
+await必须写在async函数中, 但async函数中可以没有await
+
+如果await的Promise实例对象失败了, 就会抛出异常, 需要通过try...catch来捕获处理
+
+
+
+
+
