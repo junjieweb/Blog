@@ -4,7 +4,7 @@
 在浏览器标签中当前载入的文档用文档对象模型来表示。这是一个由浏览器生成的“树结构”，使编程语言可以很容易的访问HTML结构 —
 例如浏览器自己在呈现页面时，使用它将样式和其他信息应用于正确的元素，而页面呈现完成以后，开发人员可以用JavaScript操作DOM。
 
-## 查询
+## DOM 查询
 
 #### 通过 `document` 对象查询
 
@@ -32,5 +32,36 @@
 - 获取前一个兄弟元素 `element.previousElementSibling`
 - 获取后一个兄弟节点 `element.nextSibling`
 - 获取后一个兄弟元素 `element.nextElementSibling`
+
+## 元素中的属性
+
+#### 读取
+
+- `element.name`
+- `element.value`
+- `element.id`
+- `element.className`
+
+#### 设置
+
+- `element.name = xxx;`
+- `element.value = xxx;`
+- `element.id = xxx;`
+- `element.className = xxx;`
+
+#### 其他属性
+
+`innerHTML`标签内部的HTML代码，带标签
+
+`innerText`标签内部的文本内容，不带标签
+
+#### 读取一个标签内部的文本
+
+- `element.innerHTML`
+- `element.innerText`
+- `element.textContent`
+- `element.firstChild.nodeValue`
+
+## 创建元素
 
 
