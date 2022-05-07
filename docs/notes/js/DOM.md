@@ -64,4 +64,37 @@
 
 ## 创建元素
 
+创建一个新元素 `document.createElement('标签名')`
+
+创建一个新的文本节点 `document.createTextNode('文本内容')`
+
+## 插入元素
+
+- 向父节点中插入一个子节点 `父节点.appendChild(子节点);`
+- 向元素的指定位置插入子元素 `元素.insertAdjacentElement('位置',元素);`
+- 向元素的指定位置插入HTML代码 `元素.insertAdjacentHTML('位置','HTML代码');`
+- 向元素的指定位置插入文本内容 `元素.insertAdjacentText('位置','文本内容');`
+    - 位置需要一个字符串作为参数：
+        - `'beforebegin'` 开始标签前，成为当前元素的前一个兄弟元素
+        - `'afterbegin'` 开始标签后，成为当前元素的第一个子元素
+        - `'beforeend'` 结束标签前，成为当前元素的最后一个子元素
+        - `'afterend'` 结束标签后，成为当前元素的后一个兄弟元素
+- 使用新节点替换旧节点 `父节点.replaceChild(新节点,旧节点);`
+- 将新节点插入到旧节点的前面 `父节点.inserBefore(新节点,旧节点);`
+
+## 复制元素
+
+将节点进行浅复制（只复制节点本身） `节点.cloneNode()`
+
+对节点进行深复制（复制节点本身及所有的后代节点） `节点.cloneNode(true)`
+
+## 删除元素
+
+`子节点.parentNode.removeChild(子节点);`
+
+`子节点.remove();`
+
+## 事件 Event
+
+
 

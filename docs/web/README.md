@@ -83,7 +83,7 @@
 </a>
 
 <a href="https://hyperskill.org/study-plan" target="_blank" title="JetBrains Academy">
-    <img style="margin: 1rem 1rem" alt="JetBrains Academy logo" src="https://resources.jetbrains.com/storage/products/company/brand/logos/Academy.svg" height="64">
+    <img style="margin: 1rem 1rem" alt="JetBrains Academy logo" src="../.vuepress/public/images/logo/JetBrains_Academy.svg" height="64">
 </a>
 
 <a href="https://www.jetbrains.com/zh-cn/company/brand/" target="_blank" title="JetBrains Brand Assets">
