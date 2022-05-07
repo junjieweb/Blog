@@ -2,14 +2,34 @@
   // any value you like
   //--content-width: 900px !important;
   //--c-border-dark: #3eaf7c;
-  blockquote {
-    border-left: 4px solid #42b983;
+  --c-brand: #4fb0f8 !important;
+  --c-brand-light: #409eff !important;
+  //--c-text-accent: #4fb0f8 ;
+  //--c-border: #4fb0f8 ;
+
+  /*blockquote {
+    //border-left: 4px solid #42b983;
+    border-left: 4px solid #4fb0f8;
     padding: 10px 15px;
     color: #777;
-    background-color: rgba(66, 185, 131, .1);
+    //background-color: rgba(66, 185, 131, .1);
+    background-color: rgba(7, 28, 154, 0.2);
+  }*/
+
+  blockquote {
+    padding: 8px 16px;
+    background-color: #ecf8ff;
+    border-radius: 4px;
+    border-left: 5px solid #50bfff;
+    margin: 20px 0;
+
+    code {
+      color: #409eff;
+    }
   }
 
   code {
-    color: #e96900 !important;
+    //color: #e96900 !important;
+    //color: #409eff !important;
   }
 }
