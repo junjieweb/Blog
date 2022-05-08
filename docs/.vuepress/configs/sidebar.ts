@@ -32,6 +32,7 @@ export default {
                 '/notes/js/js数组.md',
                 '/notes/js/js对象.md',
                 '/notes/js/DOM.md',
+                '/notes/js/BOM.md',
             ],
         },
         {
