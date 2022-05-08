@@ -172,3 +172,17 @@ document.addEventListener('wheel', function (event) {
 
 `event.key` 用来获取当前是哪个按键被按下
 
+## JS 操作 CSS
+
+### 操作内联样式
+
+`元素.style.样式名` 读取样式
+
+`元素.style.样式名 = 样式值;` 设置样式
+
+> **注意**：通过`style`属性所读取和设置的样式都是内联样式，所以通过它所设置的样式通常会立即生效
+> 如果样式名不符合标识符的规范，需要对样式名进行修改（去掉-，-后的字母大写）
+> 
+> 例如：` background-color ---> backgroundColor` `border-left-width ==> borderLeftWidth`
+
+
