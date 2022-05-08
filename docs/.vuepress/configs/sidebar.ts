@@ -24,20 +24,21 @@ export default {
         },
         {
             text: 'JavaScript',
-            // collapsible: true,
+            collapsible: true,
             children: [
                 '/notes/js/README.md',
                 '/notes/js/js基础.md',
                 '/notes/js/js函数.md',
                 '/notes/js/js数组.md',
                 '/notes/js/js对象.md',
+                '/notes/js/Math_Date.md',
                 '/notes/js/DOM.md',
                 '/notes/js/BOM.md',
             ],
         },
         {
             text: 'VUE',
-            // collapsible: true,
+            collapsible: true,
             children: [
                 '/notes/vue/vue2_base.md',
                 '/notes/vue/vue2_cli.md',
