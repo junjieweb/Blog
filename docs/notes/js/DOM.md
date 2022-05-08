@@ -182,7 +182,41 @@ document.addEventListener('wheel', function (event) {
 
 > **注意**：通过`style`属性所读取和设置的样式都是内联样式，所以通过它所设置的样式通常会立即生效
 > 如果样式名不符合标识符的规范，需要对样式名进行修改（去掉-，-后的字母大写）
-> 
+>
 > 例如：` background-color ---> backgroundColor` `border-left-width ==> borderLeftWidth`
 
+#### `getComputedStyle()` 获取当前的生效的样式
 
+**参数**
+
+1. 要获取样式的元素
+2. 要获取的伪类（没有可以不写）
+
+**返回值**： 一个包含了当前元素所有生效的样式的对象
+
+> **注意**：该方法获取的样式全都是只读的，无法修改
+
+#### 其他的样式相关的属性：
+
+`clientWidth` `clientHeight` 获取的是内容区和内边距的总大小
+
+`offsetWidth` `offsetHeight` 获取的是内容区、内边距和边框的总大小
+
+`offsetParent` 获取当前元素的定位父元素,离当前元素最近的开启了定位的祖先元素，如果所有的祖先元素都没有开启定位，则返回body
+
+`offsetLeft` `offsetTop` 当前元素距离其定位父元素的距离
+
+`scrollHeight` `scrollWidth` 获取元素滚动区域的大小
+
+> **注意**：
+> 1. 以上属性都是只读属性，无法修改。
+> 2. 以上属性所获取的值都是不带单位的值，可以直接参与运算
+
+`scrollTop` `scrollLeft` 获取（设置）垂直和水平滚动条滚动的距离
+
+判断滚动条是否到底
+
+- 垂直：`scrollHeight - scrollTop === clientHeight`
+- 水平：`scrollWidth - scrollLeft === clientWidth`
+
+### 修改`class`
