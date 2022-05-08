@@ -220,3 +220,48 @@ document.addEventListener('wheel', function (event) {
 - 水平：`scrollWidth - scrollLeft === clientWidth`
 
 ### 修改`class`
+
+当修改的样式过多时，可以通过修改元素的class属性来影响元素的样式
+
+`classList`可以用来返回当前元素的所有类,`classList`的类型是`DOMTokenList`
+
+`classList`中的方法：
+
+- `add()` 用来向元素中添加一个或多个类
+- `remove()` 用来移除元素中的一个类
+- `replace()` 用来使用一个新的class替换旧的class
+- `toggle()` 切换一个元素的class，有则删除，没有则添加
+- `contains()` 检查一个元素是否含有某个class，如果包含返回true，否则返回false
+
+## 定时器
+
+**`setTimeout()`** 延时调用，可以用来在指定时间后调用函数。参数一：回调函数，要调用的函数，参数二：时间（毫秒）。
+
+`clearTimeout()` 关闭延时调用
+
+**`setInterval()`** 定时调用，参数一：回调函数，要调用的函数，参数二：时间（毫秒）。返回一个定时器的id。
+
+`clearInterval()` 用来关闭定时器，参数为定时器的id，根据id将定时器关闭
+
+`setTimeout()`和`setInterval()`本质上是一样的，是相互替代的
+
+```javascript
+let num = 0;
+let h1 = document.getElementsByTagName('h1')[0];
+let timer = setInterval(function () {
+    num++;
+    h1.innerHTML = num;
+    if (num === 10) {
+        clearInterval(timer);
+    }
+}, 1000);
+
+setTimeout(function test() {
+    num++;
+    h1.innerHTML = num;
+    if (num === 10) {
+        return;
+    }
+    setTimeout(test, 1000);
+}, 1000);
+```
