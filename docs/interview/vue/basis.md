@@ -31,8 +31,6 @@ getter和setter，并且在内部追踪相关依赖，在属性被访问和修�
 
 Vue.js 是采用数据劫持结合发布者-订阅者模式的方式，通过Object.defineProperty()来劫持各个属性的setter，getter，在数据变动时发布消息给订阅者，触发相应的监听回调。主要分为以下几个步骤
 
-<img src="/images/image.png">
-
 - M（model--data）
 
     - 需要observe的数据对象进行递归遍历，包括子属性对象的属性，都加上setter和getter这样的话，给这个对象的某个值赋值，就会触发setter，那么就能监听到了数据变化
