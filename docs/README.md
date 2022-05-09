@@ -1,7 +1,7 @@
 ---
 home: true
 title: 首页
-heroImage: /images/logo2.svg
+heroImage: /images/logo.svg
 tagline: Front-end web developer
 actions:
    - text: 网站导航
