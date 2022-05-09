@@ -50,14 +50,14 @@ export default {
     ],
     '/interview/': [
         {
-            text: 'HTML',
+            text: 'HTML面试题',
             collapsible: true,
             children: [
                 '/interview/html/',
             ],
         },
         {
-            text: 'CSS',
+            text: 'CSS面试题',
             collapsible: true,
             children: [
                 '/interview/css/basis',
