@@ -46,50 +46,6 @@
     <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Vant_logo.png" height="64" alt="Vant">
 </a>
 
-## 学习
-
-<a href="https://zh.javascript.info/" title="现代 JavaScript 教程" target="_blank">
-    <img style="margin: 1rem 1rem" src="https://zh.javascript.info/img/sitetoolbar__logo_en.svg" height="64" alt="现代 JavaScript 教程">
-</a>
-
-<a href="https://markdown.com.cn/" title="Markdown 官方教程" target="_blank">
-    <img style="margin: 1rem 1rem" src="https://upload.wikimedia.org/wikipedia/commons/4/48/Markdown-mark.svg" height="64" alt="Markdown 官方教程">
-</a>
-
-<a href="https://sourceacademy.org/sicpjs/index" title="Source Academy" target="_blank">
-    <img style="margin: 1rem 1rem" src="https://about.sourceacademy.org/assets/sourcepower.ico" height="64" alt="Source Academy">
-</a>
-
-<a href="https://es6.ruanyifeng.com/" title="ES6 入门教程" target="_blank">
-    <img style="margin: 1rem 1rem" src="https://live.staticflickr.com/7306/16407404782_8b9c57eab3_w.jpg" height="64" alt="ES6 入门教程">
-</a>
-
-<a href="http://ife.baidu.com/" title="百度前端技术学园" target="_blank">
-    <img style="margin: 1rem 1rem" src="http://ife.baidu.com/assets/img/ife-logo.png" height="64" alt="百度前端技术学园">
-</a>
-
-<a href="https://chinese.freecodecamp.org/learn" title="free-code-camp" target="_blank">
-    <img style="margin: 1rem 1rem" src="https://upload.wikimedia.org/wikipedia/commons/f/fa/FreeCodeCamp_logo.svg" height="64" alt="free-code-camp">
-</a>
-
-## JetBrains
-
-<a href="https://www.jetbrains.com/zh-cn/" title="JetBrains 首页" target="_blank">
-    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/jb_beam.svg" height="64" alt="JetBrains Logo">
-</a>
-
-<a href="https://www.jetbrains.com/zh-cn/webstorm/" title="WebStorm" target="_blank">
-    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/WebStorm_icon.svg" height="64" alt="WebStorm">
-</a>
-
-<a href="https://hyperskill.org/study-plan" target="_blank" title="JetBrains Academy">
-    <img style="margin: 1rem 1rem" alt="JetBrains Academy logo" src="../.vuepress/public/images/logo/JetBrains_Academy.svg" height="64">
-</a>
-
-<a href="https://www.jetbrains.com/zh-cn/company/brand/" target="_blank" title="JetBrains Brand Assets">
-    <img style="margin: 1rem 1rem" alt="JetBrains Black Box Logo logo" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_square.svg" height="64">
-</a>
-
 ## Google
 
 <a href="https://translate.google.com/" target="_blank" title="Google 翻译">
@@ -112,17 +68,46 @@
     <img style="margin: 1rem 1rem" alt="Gmail" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/640px-Gmail_icon_%282020%29.svg.png" height="64">
 </a>
 
+## JetBrains
+
+<a href="https://www.jetbrains.com/zh-cn/" title="JetBrains 首页" target="_blank">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/jb_beam.svg" height="64" alt="JetBrains Logo">
+</a>
+
+<a href="https://www.jetbrains.com/zh-cn/webstorm/" title="WebStorm" target="_blank">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/WebStorm_icon.svg" height="64" alt="WebStorm">
+</a>
+
+<a href="https://hyperskill.org/study-plan" target="_blank" title="JetBrains Academy">
+    <img style="margin: 1rem 1rem" alt="JetBrains Academy logo" src="../.vuepress/public/images/logo/JetBrains_Academy.svg" height="64">
+</a>
+
+<a href="https://www.jetbrains.com/zh-cn/company/brand/" target="_blank" title="JetBrains Brand Assets">
+    <img style="margin: 1rem 1rem" alt="JetBrains Black Box Logo logo" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_square.svg" height="64">
+</a>
+
+## 学习
+
+[现代 JavaScript 教程](https://zh.javascript.info/)&nbsp;&nbsp;&nbsp;&nbsp;[Markdown 官方教程](https://markdown.com.cn/)
+&nbsp;&nbsp;&nbsp;&nbsp;
+[ES6 入门教程](https://es6.ruanyifeng.com/)
+
+[Source Academy](https://sourceacademy.org/sicpjs/index)&nbsp;&nbsp;&nbsp;&nbsp;[百度前端技术学园](http://ife.baidu.com/)
+&nbsp;&nbsp;&nbsp;&nbsp;[FreeCodeCamp](https://chinese.freecodecamp.org/learn)
+
 ## Microsoft
 
-[Microsoft 365 开发人员计划](https://developer.microsoft.com/zh-cn/microsoft-365/profile)  
-[SharePoint 管理中心](https://junjieweb-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/home)  
+[Microsoft 365 开发人员计划](https://developer.microsoft.com/zh-cn/microsoft-365/profile)&nbsp;&nbsp;&nbsp;&nbsp;
+[SharePoint 管理中心](https://junjieweb-admin.sharepoint.com/_layouts/15/online/AdminHome.aspx#/home)
+&nbsp;&nbsp;&nbsp;&nbsp;
 [Visual Studio Subscriptions](https://my.visualstudio.com/Benefits?mkt=zh-cn)  
-[Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage)  
+[Microsoft 365 admin center](https://admin.microsoft.com/Adminportal/Home?source=applauncher#/homepage)
+&nbsp;&nbsp;&nbsp;&nbsp;
 [Windows Insider Blog](https://blogs.windows.com/windows-insider/)
 
 ## 编程语言排行榜
 
-[TIOBE Index](https://www.tiobe.com/tiobe-index/)  
-[编程语言排行榜](https://hellogithub.com/report/tiobe/)  
+[TIOBE Index](https://www.tiobe.com/tiobe-index/)&nbsp;&nbsp;&nbsp;&nbsp;
+[编程语言排行榜](https://hellogithub.com/report/tiobe/)&nbsp;&nbsp;&nbsp;&nbsp;
 [PYPL PopularitY of Programming Language](https://pypl.github.io/PYPL.html)
 
