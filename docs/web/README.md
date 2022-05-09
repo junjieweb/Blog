@@ -30,10 +30,6 @@
     <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Vue.js_Logo_2.svg" height="64" alt="Vue">
 </a>
 
-<a href="https://v2.vuepress.vuejs.org/zh/" title="VuePress" target="_blank">
-    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/VuePress_logo.png" height="64" alt="VuePress">
-</a>
-
 <a href="https://element.eleme.cn/#/zh-CN" title="Element UI" target="_blank">
     <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Element-UI_logo.svg" height="64" alt="Element UI">
 </a>
@@ -44,6 +40,18 @@
 
 <a href="https://vant-contrib.gitee.io/vant/v2/#/zh-CN/" title="Vant" target="_blank">
     <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/Vant_logo.png" height="64" alt="Vant">
+</a>
+
+<a href="https://v2.vuepress.vuejs.org/zh/" title="VuePress" target="_blank">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/VuePress_logo.png" height="64" alt="VuePress">
+</a>
+<hr>
+<a href="https://www.jetbrains.com/zh-cn/webstorm/" title="WebStorm" target="_blank">
+    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/WebStorm_icon.svg" height="64" alt="WebStorm">
+</a>
+
+<a href="https://code.visualstudio.com/" target="_blank" title="VScode">
+    <img style="margin: 1rem 1rem" alt="VScode" src="../.vuepress/public/images/logo/Visual_Studio_Code_logo.svg" height="64">
 </a>
 
 ## Google
@@ -66,24 +74,6 @@
 
 <a href="https://mail.google.com/mail/u/0/#inbox" target="_blank" title="Gmail">
     <img style="margin: 1rem 1rem" alt="Gmail" src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/640px-Gmail_icon_%282020%29.svg.png" height="64">
-</a>
-
-## JetBrains
-
-<a href="https://www.jetbrains.com/zh-cn/" title="JetBrains 首页" target="_blank">
-    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/jb_beam.svg" height="64" alt="JetBrains Logo">
-</a>
-
-<a href="https://www.jetbrains.com/zh-cn/webstorm/" title="WebStorm" target="_blank">
-    <img style="margin: 1rem 1rem" src="../.vuepress/public/images/logo/WebStorm_icon.svg" height="64" alt="WebStorm">
-</a>
-
-<a href="https://hyperskill.org/study-plan" target="_blank" title="JetBrains Academy">
-    <img style="margin: 1rem 1rem" alt="JetBrains Academy logo" src="../.vuepress/public/images/logo/JetBrains_Academy.svg" height="64">
-</a>
-
-<a href="https://www.jetbrains.com/zh-cn/company/brand/" target="_blank" title="JetBrains Brand Assets">
-    <img style="margin: 1rem 1rem" alt="JetBrains Black Box Logo logo" src="https://resources.jetbrains.com/storage/products/company/brand/logos/jb_square.svg" height="64">
 </a>
 
 ## 学习
