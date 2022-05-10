@@ -157,4 +157,61 @@ console.log(mangseng);
 
 ES6 引入了一种新的原始数据类型 `Symbol`，表示独一无二的值。它是 JavaScript 语言的第七种数据类型，是一种类似于字符串的数据类型。
 
+**特点**
 
+1. Symbol的值是唯一的，用来解决命名冲突的问题
+2. Symbol值不能与其他数据进行运算
+3. Symbol定义的对象属性不能使用`for...in`循环遍历，但是可以使用`Reflect.ownKeys`来获取对象的所有键名
+
+> 注: Symbol类型唯一合理的用法是用变量存储 `symbol` 的值，然后使用存储的值创建对象属性
+
+#### Symbol内置值
+
+除了定义自己使用的 Symbol 值以外，ES6 还提供了11个内置的Symbol值，指向语言内部使用的方法。
+
+| 方法                        | 作用                                                                               |
+|---------------------------|----------------------------------------------------------------------------------|
+| Symbol.hasInstance        | 当其他对象使用instanceof运算符，判断是否为该对象的实例时，会调用这个方法                                        |
+| Symbol.isConcatSpreadable | 对象的Symbol.isConcatSpreadable属性等于的是一个布尔值，表示该对象用于Array.prototype.concat()时，是否可以展开。 |
+| Symbol.species            | 创建衍生对象时，会使用该属性                                                                   |
+| Symbol.match              | 当执行str.match(myObject) 时，如果该属性存在，会调用它，返回该方法的返回值。                                 |
+| Symbol.replace            | 当该对象被str.replace(myObject)方法调用时，会返回该方法的返回值。                                      |
+| Symbol.search             | 当该对象被str. search (myObject)方法调用时，会返回该方法的返回值。                                     |
+| Symbol.split              | 当该对象被str. split (myObject)方法调用时，会返回该方法的返回值。                                      |
+| Symbol.iterator           | 对象进行for...of循环时，会调用Symbol.iterator方法，返回该对象的默认遍历器                                 |
+| Symbol.toPrimitive        | 该对象被转为原始类型的值时，会调用这个方法，返回该对象对应的原始类型值。                                             |
+| Symbol. toStringTag       | 在该对象上面调用toString方法时，返回该方法的返回值                                                    |
+| Symbol. unscopables       | 该对象指定了使用with关键字时，哪些属性会被with环境排除。                                                 |
+
+## 迭代器
+
+迭代器（Iterator）是一种接口，为各种不同的数据结构提供统一的访问机制。任何数据结构只要部署 `Iterator` 接口，就可以完成遍历操作。
+
+ES6创造了一种新的遍历命令`for...of`循环，`Iterator`接口主要供`for...of`消费
+
+原生具备iterator接口的数据(可用`for...of`遍历)
+
+- Array
+- Arguments
+- Set
+- Map
+- String
+- TypedArray
+- NodeList
+
+**工作原理**
+
+- 创建一个指针对象，指向当前数据结构的起始位置
+- 第一次调用对象的next方法，指针自动指向数据结构的第一个成员
+- 接下来不断调用next方法，指针一直往后移动，直到指向最后一个成员
+- 每调用next方法返回一个包含value和done属性的对象
+
+> 注: 需要自定义遍历数据的时候，要想到迭代器。
+
+## `Promise`
+
+Promise是ES6引入的异步编程的新解决方案。语法上Promise是一个构造函数，用来封装异步操作并可以获取其成功或失败的结果。
+
+## `Set`
+
+## `Map`
