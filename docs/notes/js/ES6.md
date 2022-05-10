@@ -49,4 +49,43 @@ let {name, tags: [chou, he, tang], say} = star;
 
 ## 模板字符串
 
+**模板字符串（template string）** 是增强版的字符串，用反引号（`）标识，特点：
+
+1. 字符串中可以出现换行符
+2. 可以使用 `${xxx}` 形式输出变量
+
+```javascript
+//直接使用换行符
+let str = `<ul>
+            <li>沈腾</li>
+            <li>玛丽</li>
+            <li>艾伦</li>
+            <li>魏翔</li>
+        </ul>`;
+//字符串中进行变量拼接
+let star = '魏翔';
+let str2 = `我特别喜欢${star}`;
+```
+
+> 注意：当遇到字符串与变量拼接的情况使用模板字符串
+
+## 简化对象写法
+
+ES6 允许在大括号里面，直接写入变量和函数，作为对象的属性和方法。这样的书写更加简洁。
+
+```javascript
+let name = 'Tom';
+let pos = '北京';
+let change = function () {
+    console.log('改变');
+};
+const i = {
+    name,
+    pos,
+    change,
+    improve() {
+        console.log('提升');
+    }
+}
+```
 
