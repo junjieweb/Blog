@@ -34,6 +34,7 @@ export default {
                 '/notes/js/Math_Date.md',
                 '/notes/js/DOM.md',
                 '/notes/js/BOM.md',
+                '/notes/js/包装类.md',
             ],
         },
         {
