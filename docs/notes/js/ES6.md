@@ -114,3 +114,47 @@ console.log(add.apply({}, [1, 2, 3]));
 
 > 注意：箭头函数不会更改this指向，所以非常适合设置与this无关的回调，比如数组回调、定时器回调，不适合事件回调与对象方法。
 
+## `rest` 参数
+
+ES6引入 `rest` 参数，用于获取函数的实参，用来代替 `arguments`
+
+```javascript
+function main(...args) {
+    //1、使用arguments获取实参
+    console.log(arguments);
+    //2、rest参数
+    console.log(args);
+}
+
+main(12, 23, 2, 2, 4, 12);
+```
+
+> 注意：`rest` 参数非常适合不定个数参数函数的场景
+
+## `spread` 扩展运算符
+
+扩展运算符（spread）也是三个点（`...`）。它好比 `rest` 参数的逆运算，将一个数组转为用逗号分隔的参数序列，对数组进行解包。
+
+```javascript
+//对象的展开
+const skillOne = {
+    q: '天音波'
+};
+const skillTwo = {
+    w: '金钟罩'
+};
+const skillThree = {
+    e: '天雷破'
+};
+const skillFour = {
+    r: '猛龙摆尾'
+};
+const mangseng = {...skillOne, ...skillTwo, ...skillThree, ...skillFour};
+console.log(mangseng);
+```
+
+## `Symbol`
+
+ES6 引入了一种新的原始数据类型 `Symbol`，表示独一无二的值。它是 JavaScript 语言的第七种数据类型，是一种类似于字符串的数据类型。
+
+
