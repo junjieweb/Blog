@@ -36,6 +36,7 @@ export default {
                 '/notes/js/BOM.md',
                 '/notes/js/包装类.md',
                 '/notes/js/正则表达式.md',
+                '/notes/js/ES6.md',
             ],
         },
         {
