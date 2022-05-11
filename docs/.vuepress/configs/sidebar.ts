@@ -19,6 +19,7 @@ export default {
             text: 'CSS',
             // collapsible: true,
             children: [
+                '/notes/css/css_base.md',
                 '/notes/css/README.md',
             ],
         },
