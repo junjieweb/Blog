@@ -17,19 +17,12 @@ export default {
         },
         {
             text: 'CSS',
-            // collapsible: true,
+            collapsible: true,
             children: [
                 '/notes/css/css_base.md',
                 '/notes/css/定位与浮动.md',
                 '/notes/css/弹性盒.md',
                 '/notes/css/媒体查询.md',
-            ],
-        },
-        {
-            text: 'Less',
-            // collapsible: true,
-            children: [
-                '/notes/less.md',
             ],
         },
         {
@@ -47,6 +40,13 @@ export default {
                 '/notes/js/包装类.md',
                 '/notes/js/正则表达式.md',
                 '/notes/js/ES6.md',
+            ],
+        },
+        {
+            text: 'Less',
+            collapsible: true,
+            children: [
+                '/notes/less.md',
             ],
         },
         {
