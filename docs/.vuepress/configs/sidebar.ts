@@ -23,6 +23,13 @@ export default {
             ],
         },
         {
+            text: 'Less',
+            // collapsible: true,
+            children: [
+                '/notes/less.md',
+            ],
+        },
+        {
             text: 'JavaScript',
             collapsible: true,
             children: [
