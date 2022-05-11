@@ -9,14 +9,14 @@ export default {
             ],
         },
         {
-            text: 'HTML',
+            text: '🔶HTML',
             // collapsible: true,
             children: [
                 '/notes/html/README.md',
             ],
         },
         {
-            text: 'CSS',
+            text: '🏳️‍🌈CSS',
             collapsible: true,
             children: [
                 '/notes/css/css_base.md',
@@ -26,7 +26,7 @@ export default {
             ],
         },
         {
-            text: 'JavaScript',
+            text: '🟨JavaScript',
             collapsible: true,
             children: [
                 '/notes/js/README.md',
@@ -43,14 +43,14 @@ export default {
             ],
         },
         {
-            text: 'Less',
+            text: '🔵Less',
             collapsible: true,
             children: [
                 '/notes/less.md',
             ],
         },
         {
-            text: 'VUE',
+            text: '🥬VUE',
             collapsible: true,
             children: [
                 '/notes/vue/vue2_base.md',
