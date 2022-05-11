@@ -21,6 +21,7 @@ export default {
             children: [
                 '/notes/css/css_base.md',
                 '/notes/css/定位与浮动.md',
+                '/notes/css/弹性盒.md',
                 '/notes/css/README.md',
             ],
         },
