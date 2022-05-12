@@ -10,7 +10,7 @@ export default {
         },
         {
             text: '🔶HTML',
-            // collapsible: true,
+            collapsible: true,
             children: [
                 '/notes/html/README.md',
             ],
@@ -50,7 +50,7 @@ export default {
             ],
         },
         {
-            text: '🥬VUE',
+            text: '🟩VUE',
             collapsible: true,
             children: [
                 '/notes/vue/vue2_base.md',

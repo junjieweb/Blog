@@ -2,7 +2,7 @@
 home: true
 title: 首页
 heroImage: /images/logo.svg
-tagline: Front-end web developer
+tagline: Embraces Open Source
 actions:
    - text: 网站导航
      link: /web/index.html
