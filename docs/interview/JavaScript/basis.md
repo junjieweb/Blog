@@ -547,7 +547,7 @@ CommonJS和ES6 Module都可以对引⼊的对象进⾏赋值，即对对象内�
 - 与特定平台相关，一般无法移植到其他平台
 - C、C++等属于编译型语言
 
-### **for...in和for...of的区别 **
+## 022 - `for...in`和`for...of`的区别
 
 for…of 是ES6新增的遍历方式，允许遍历一个含有iterator接口的数据结构（数组、字符串、Map、Set、类数组对象【伪数组】等，注意：对象没有iterator）并且返回各项的值
 
@@ -556,7 +556,7 @@ for…of 是ES6新增的遍历方式，允许遍历一个含有iterator接口的
     - for… in 会遍历对象的整个原型链，性能非常差不推荐使用，而 for … of 只遍历当前对象不会遍历原型链
     - 对于数组的遍历，for…in 会返回数组中所有可枚举的属性(包括原型链上可枚举的属性)，for…of 只返回数组的下标对应的属性值
 
-### **如何使用for...of遍历对象 **
+## 023 - 如何使用`for...of`遍历对象
 
 - for…of是作为ES6新增的遍历方式，允许遍历一个含有iterator接口的数据结构（数组、对象等）并且返回各项的值，普通的对象用for..of遍历是会报错的。
 
@@ -566,7 +566,7 @@ for…of 是ES6新增的遍历方式，允许遍历一个含有iterator接口的
 
     - 如果不是类数组对象，就给对象添加一个[Symbol.iterator]属性，并指向一个迭代器即可
 
-### **数组的遍历方法有哪些**
+## 024 - 数组的遍历方法有哪些
 
 - for...of
 
@@ -610,66 +610,88 @@ for…of 是ES6新增的遍历方式，允许遍历一个含有iterator接口的
 
         - 数组方法，reduce()对数组正序操作；reduceRight()对数组逆序操作
 
-### **forEach和map方法有什么区别**
+## 025 - forEach和map方法有什么区别
 
 - forEach()方法会针对每一个元素执行提供的函数，对数据的操作会改变原数组，该方法没有返回值
 - map()方法不会改变原数组的值，有返回值，返回一个新数组，新数组中的值为原数组调用函数处理之后的值
 
-### **addEventListener()方法的参数和使用**
+## 026 - `addEventListener()`方法的参数和使用
 
-- 概念
-
-    - EventTarget.addEventListener() 方法将指定的监听器注册到 EventTarget 上，当该对象触发指定的事件时，指定的回调函数就会被执行。 事件目标可以是一个文档上的元素
-      Element，Document和Window或者任何其他支持事件的对象。
+`EventTarget.addEventListener()` 方法将指定的监听器注册到 EventTarget 上，当该对象触发指定的事件时，指定的回调函数就会被执行。 事件目标可以是一个文档上的元素
+Element，Document和Window或者任何其他支持事件的对象。
 
 - 原理
 
     - 将实现EventListener的函数或对象添加到调用它的EventTarget上的指定事件类型的事件侦听器列表中。
 
-- 语法
+**语法**
 
-    -
+- type
 
-        - type
+    - 表示监听事件类型的字符串
 
-            - 表示监听事件类型的字符串
+- listener
 
-        - listener
+    - 当所监听的事件类型触发时，会接收到一个事件通知（实现了 Event 接口的对象）对象。listener 必须是一个实现了 EventListener 接口的对象，或者是一个函数。
 
-            - 当所监听的事件类型触发时，会接收到一个事件通知（实现了 Event 接口的对象）对象。listener 必须是一个实现了 EventListener 接口的对象，或者是一个函数。
+- options 可选
 
-        - options 可选
+    - 一个指定有关 listener 属性的可选参数对象。可用的选项如下：
+      ● capture:  Boolean，表示 listener 会在该类型的事件捕获阶段传播到该 EventTarget 时触发。
+      ● once:  Boolean，表示 listener 在添加之后最多只调用一次。如果是 true， listener 会在其被调用之后自动移除。
+      ● passive: Boolean，设置为true时，表示 listener 永远不会调用 preventDefault()。如果 listener 仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告。
+      ● signal：AbortSignal，该 AbortSignal 的 abort() 方法被调用时，监听器会被移除。
 
-            - 一个指定有关 listener 属性的可选参数对象。可用的选项如下：
-              ● capture:  Boolean，表示 listener 会在该类型的事件捕获阶段传播到该 EventTarget 时触发。
-              ● once:  Boolean，表示 listener 在添加之后最多只调用一次。如果是 true， listener 会在其被调用之后自动移除。
-              ● passive: Boolean，设置为true时，表示 listener 永远不会调用 preventDefault()。如果 listener 仍然调用了这个函数，客户端将会忽略它并抛出一个控制台警告。
-              ● signal：AbortSignal，该 AbortSignal 的 abort() 方法被调用时，监听器会被移除。
+- useCapture 可选
 
-        - useCapture 可选
+    - Boolean，在DOM树中，注册了listener的元素， 是否要先于它下面的EventTarget，调用该listener。 当useCapture(设为true)
+      时，沿着DOM树向上冒泡的事件，不会触发listener。当一个元素嵌套了另一个元素，并且两个元素都对同一事件注册了一个处理函数时，所发生的事件冒泡和事件捕获是两种不同的事件传播方式。事件传播模式决定了元素以哪个顺序接收事件。如果没有指定，
+      useCapture 默认为 false 。
 
-            - Boolean，在DOM树中，注册了listener的元素， 是否要先于它下面的EventTarget，调用该listener。 当useCapture(设为true)
-              时，沿着DOM树向上冒泡的事件，不会触发listener。当一个元素嵌套了另一个元素，并且两个元素都对同一事件注册了一个处理函数时，所发生的事件冒泡和事件捕获是两种不同的事件传播方式。事件传播模式决定了元素以哪个顺序接收事件。如果没有指定，
-              useCapture 默认为 false 。
+- wantsUntrusted
 
-        - wantsUntrusted
+    - 如果为 true , 则事件处理程序会接收网页自定义的事件。此参数只适用于 Gecko（chrome的默认值为true，其他常规网页的默认值为false），主要用于附加组件的代码和浏览器本身。
 
-            - 如果为 true , 则事件处理程序会接收网页自定义的事件。此参数只适用于 Gecko（chrome的默认值为true，其他常规网页的默认值为false），主要用于附加组件的代码和浏览器本身。
+## 027 - 如何实现深拷贝？
 
-### **如何实现深拷贝？**
+在拷贝的时候创建新的对象，并把原对象所有的属性都拷贝到新对象，原属性如果是对象，也会重新创建新的对象并拷贝到新对象属性中，原对象和新对象都是相互独立的，互不影响
 
-- JSON.stringify()
+方式一：`let newObj = JSON.parse(JSON.stringify(obj))`
 
-    -
+JSON.parse(JSON.stringify(obj))是目前比较常用的深拷贝方法之一，它的原理就是利用JSON.stringify 将js对象序列化（JSON字符串），再使用JSON.parse来反序列化(
+还原)js对象。
 
-        - ● JSON.parse(JSON.stringify(obj))是目前比较常用的深拷贝方法之一，它的原理就是利用JSON.stringify 将js对象序列化（JSON字符串），再使用JSON.parse来反序列化(
-          还原)js对象。
-        - ● 这个方法可以简单粗暴的实现深拷贝，但是还存在问题，拷贝的对象中如果有函数，undefined，symbol，当使用过JSON.stringify()进行处理之后，都会消失。
+这个方法可以简单粗暴的实现深拷贝，但是还存在问题，拷贝的对象中如果有函数，undefined，symbol，当使用过JSON.stringify()进行处理之后，都会消失。
 
-- 函数库lodash的_.cloneDeep方法
+方式二：递归
 
-    -
+```javascript
+let obj = {
+    a: 10,
+    b: {
+        c: 20
+    }
+}
 
-- 手写实现深拷贝函数
+function deepCopy(obj) {
+    let o = {}
+    if (typeof obj === 'object') {
+        for (let k in obj) {
+            if (obj.hasOwnProperty(k)) {
+                if (typeof obj[k] === 'object') {
+                    o[k] = deepCopy(obj[k])
+                } else {
+                    o[k] = obj[k]
+                }
+            }
+        }
+    }
+    return o
+}
 
-    -
+let newObj = deepCopy(obj)
+```
+
+方式三：函数库lodash的`_.cloneDeep`方法
+
+
