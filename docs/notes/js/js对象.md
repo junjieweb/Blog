@@ -317,41 +317,6 @@ JS会提升var声明的变量和函数，移动到当前作用域的开头
 
 `Object.assign(target, ...sources)`target目标对象，sources元对象，返回目标对象
 
-#### 深拷贝
-
-在拷贝的时候创建新的对象，并把原对象所有的属性都拷贝到新对象，原属性如果是对象，也会重新创建新的对象并拷贝到新对象属性中，原对象和新对象都是相互独立的，互不影响
-
-方式一：`let newObj = JSON.parse(JSON.stringify(obj))`
-
-方式二：递归
-
-```javascript
-let obj = {
-    a: 10,
-    b: {
-        c: 20
-    }
-}
-
-function deepCopy(obj) {
-    let o = {}
-    if (typeof obj === 'object') {
-        for (let k in obj) {
-            if (obj.hasOwnProperty(k)) {
-                if (typeof obj[k] === 'object') {
-                    o[k] = deepCopy(obj[k])
-                } else {
-                    o[k] = obj[k]
-                }
-            }
-        }
-    }
-    return o
-}
-
-let newObj = deepCopy(obj)
-```
-
 ## ES6
 
 https://es6.ruanyifeng.com/
