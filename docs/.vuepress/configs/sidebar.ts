@@ -125,7 +125,7 @@ export default {
             text: '计算机网络',
             collapsible: true,
             children: [
-                '/interview/computer-network.md',
+                '/interview/计算机网络.md',
             ],
         }, {
             text: '前端工程化',
