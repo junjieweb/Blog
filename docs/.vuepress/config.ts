@@ -5,16 +5,16 @@ import sidebar from "./configs/sidebar";
 
 export default defineUserConfig<DefaultThemeOptions>({
     // 站点配置
-    base: '/Front-end-Developer/',
+    base: '/Blog/',
     lang: 'zh-CN',
     title: 'Junjie',
     description: 'Front-end web developer',
-    head: [['link', {rel: 'icon', href: '/Front-end-Developer/images/logo_left.svg'}]],
+    head: [['link', {rel: 'icon', href: '/Blog/images/logo_left.svg'}]],
     // 主题和它的配置
     theme: '@vuepress/theme-default',
     themeConfig: {
         logo: 'images/logo_left.svg',
-        repo: 'https://www.github.com/junjieweb/Front-end-Developer',
+        repo: 'https://www.github.com/junjieweb/Blog',
         navbar,
         sidebar,
     },
