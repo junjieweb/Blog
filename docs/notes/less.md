@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 # Less
 
 less是一种动态样式语言，属于CSS预处理器的范畴，它拓展了CSS语言，增加了变量、Mixin（混合）、函数等特性，使CSS更容易维护和拓展
@@ -33,6 +37,36 @@ less既可以在客户端上运行，也可以借助Node.js在服务端运行
 **子元素选择器**：在子元素前加 `>` 即可
 
 **伪元素、伪类、结构类等带冒号的选择器**：在选择器前加 `&`
+
+```less
+ul {
+  width: 300px;
+  margin: 100px auto;
+  border: 1px solid black;
+  list-style: none;
+
+  li {
+    height: 30px;
+    line-height: 30px;
+
+    a {
+      color: red;
+    }
+
+    &:hover {
+      background-color: pink;
+    }
+
+    &:nth-child(2) {
+      background-color: red;
+    }
+  }
+
+  > a {
+    color: yellowgreen;
+  }
+}
+```
 
 ## 混合（Mixin）
 
