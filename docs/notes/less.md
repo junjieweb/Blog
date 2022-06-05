@@ -1,7 +1,3 @@
----
-sidebar_position: 5
----
-
 # Less
 
 less是一种动态样式语言，属于CSS预处理器的范畴，它拓展了CSS语言，增加了变量、Mixin（混合）、函数等特性，使CSS更容易维护和拓展
