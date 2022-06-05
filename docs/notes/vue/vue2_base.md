@@ -34,6 +34,29 @@
    (2). for
    ```
 
+```html
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<body>
+<!-- 准备好一个容器 -->
+<div id="root">
+    <h1>Hello {{name.toUpperCase()}}</h1>
+</div>
+</body>
+<script>
+    //阻止 vue 在启动时生成生产提示
+    Vue.config.productionTip = false;
+
+    //创建Vue实例
+    new Vue({
+        el: "#root",//el用于指定当前Vue实例为哪个容器服务，值通常为css选择器字符串
+        data: {//data中用于存储数据，数据供el所指定的容器去使用
+            name: 'Vue'
+        },
+    });
+</script>
+```
+
 ## 模板语法
 
 Vue模板语法有2大类：
@@ -137,6 +160,44 @@ Vue中有2种数据绑定的方式：
 3. 一个重要的原则：
 
     - **由Vue管理的函数，一定不要写箭头函数，一旦写了箭头函数，this就不再是Vue实例了。**
+
+```html
+
+<div id="root">
+    <h1>Hello {{name}}</h1>
+</div>
+<script>
+    Vue.config.productionTip = false;//阻止 vue 在启动时生成生产提示
+
+    /*//el的两种写法
+    const vm = new Vue({
+        // el: '#root',//第一种写法
+        data: {
+            name: 'Vue'
+        }
+    })
+    console.log(vm)
+    vm.$mount('#root')//第二种写法*/
+
+    //data的两种写法
+    new Vue({
+        el: '#root',
+        //data的第一种写法：对象式
+        /*data:{
+            name:'Vue'
+        }*/
+
+        //data的第二种写法：函数式
+        data() {
+            console.log(this)//此处的this是Vue的实例对象
+            return {
+                name: 'Vue'
+            }
+        }
+    })
+
+</script>
+```
 
 ## MVVM模型
 
