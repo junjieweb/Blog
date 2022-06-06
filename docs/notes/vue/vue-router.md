@@ -121,48 +121,48 @@
 
 2. 如何使用
 
-    1. 给路由命名：
+   1. 给路由命名：
 
-       ```js
-       {
-        path:'/demo',
-        component:Demo,
-        children:[
-         {
-          path:'test',
-          component:Test,
-          children:[
-           {
-                             name:'hello' //给路由命名
-            path:'welcome',
-            component:Hello,
-           }
-          ]
-         }
-        ]
-       }
-       ```
+      ```js
+      {
+       path:'/demo',
+       component:Demo,
+       children:[
+        {
+         path:'test',
+         component:Test,
+         children:[
+          {
+                            name:'hello' //给路由命名
+           path:'welcome',
+           component:Hello,
+          }
+         ]
+        }
+       ]
+      }
+      ```
 
-    2. 简化跳转：
+   2. 简化跳转：
 
-       ```vue
-       <!--简化前，需要写完整的路径 -->
-       <router-link to="/demo/test/welcome">跳转</router-link>
-       
-       <!--简化后，直接通过名字跳转 -->
-       <router-link :to="{name:'hello'}">跳转</router-link>
-       
-       <!--简化写法配合传递参数 -->
-       <router-link 
-        :to="{
-         name:'hello',
-         query:{
-            id:666,
-                   title:'你好'
-         }
-        }"
-       >跳转</router-link>
-       ```
+      ```vue
+      <!--简化前，需要写完整的路径 -->
+      <router-link to="/demo/test/welcome">跳转</router-link>
+      
+      <!--简化后，直接通过名字跳转 -->
+      <router-link :to="{name:'hello'}">跳转</router-link>
+      
+      <!--简化写法配合传递参数 -->
+      <router-link 
+       :to="{
+        name:'hello',
+        query:{
+           id:666,
+                  title:'你好'
+        }
+       }"
+      >跳转</router-link>
+      ```
 
 ### 6.路由的params参数
 
@@ -224,28 +224,28 @@
 
 ```js
 {
-    name:'xiangqing',
-        path
+   name:'xiangqing',
+           path
 :
-    'detail/:id',
-        component
+   'detail/:id',
+           component
 :
-    Detail,
+   Detail,
 
-        //第一种写法：props值为对象，该对象中所有的key-value的组合最终都会通过props传给Detail组件
-        // props:{a:900}
+           //第一种写法：props值为对象，该对象中所有的key-value的组合最终都会通过props传给Detail组件
+           // props:{a:900}
 
-        //第二种写法：props值为布尔值，布尔值为true，则把路由收到的所有params参数通过props传给Detail组件
-        // props:true
+           //第二种写法：props值为布尔值，布尔值为true，则把路由收到的所有params参数通过props传给Detail组件
+           // props:true
 
-        //第三种写法：props值为函数，该函数返回的对象中每一组key-value都会通过props传给Detail组件
-        props(route)
-    {
-        return {
-            id: route.query.id,
-            title: route.query.title
-        }
-    }
+           //第三种写法：props值为函数，该函数返回的对象中每一组key-value都会通过props传给Detail组件
+           props(route)
+   {
+      return {
+         id: route.query.id,
+         title: route.query.title
+      }
+   }
 }
 ```
 
@@ -299,8 +299,8 @@
 
 1. 作用：路由组件所独有的两个钩子，用于捕获路由组件的激活状态。
 2. 具体名字：
-    1. ```activated```路由组件被激活时触发。
-    2. ```deactivated```路由组件失活时触发。
+   1. ```activated```路由组件被激活时触发。
+   2. ```deactivated```路由组件失活时触发。
 
 ### 12.路由守卫
 
@@ -371,10 +371,10 @@
 1. 对于一个url来说，什么是hash值？—— #及其后面的内容就是hash值。
 2. hash值不会包含在 HTTP 请求中，即：hash值不会带给服务器。
 3. hash模式：
-    1. 地址中永远带着#号，不美观 。
-    2. 若以后将地址通过第三方手机app分享，若app校验严格，则地址会被标记为不合法。
-    3. 兼容性较好。
+   1. 地址中永远带着#号，不美观 。
+   2. 若以后将地址通过第三方手机app分享，若app校验严格，则地址会被标记为不合法。
+   3. 兼容性较好。
 4. history模式：
-    1. 地址干净，美观 。
-    2. 兼容性和hash模式相比略差。
-    3. 应用部署上线时需要后端人员支持，解决刷新页面服务端404的问题。
+   1. 地址干净，美观 。
+   2. 兼容性和hash模式相比略差。
+   3. 应用部署上线时需要后端人员支持，解决刷新页面服务端404的问题。
