@@ -10,10 +10,10 @@
 
 1. 熟练运用HTML + CSS来制作符合W3C规范页面。
 2. 熟悉Less、Sass等CSS预编译语言
-3. 熟悉Javascript，有良好的编码习惯，熟悉 ES6+ 语法，了解TypeScript。
+3. 熟悉JavaScript，有良好的编码习惯，熟悉 ES6+ 语法，了解TypeScript。
 4. 熟练使用HTML5 + CSS3实现移动端布局，使用rem以及弹性盒，实现适配，解决多端适配使用。
-5. 熟悉常用流程工具和构建打包工具：git、webpack、npm等。
-6. 熟练使用Vue全家桶进行项目开发。
+5. 熟悉组件化开发，擅长使用 Vue 及相关生态
+6. 了解小程序开发，了解uni-app
 7. 了解SEO相关内容。
 
 ## 项目经历
