@@ -41,7 +41,7 @@ VuePress 作为项目依赖安装，并在 package.json 中配置了如下脚本
 }
 ```
 
-### GitHub Pages
+#### GitHub Pages
 
 设置正确的 base 选项。
 
