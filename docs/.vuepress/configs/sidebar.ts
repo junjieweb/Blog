@@ -67,6 +67,13 @@ export default {
                 '/notes/ts笔记.md',
             ],
         },
+        {
+            text: 'GitHub',
+            collapsible: true,
+            children: [
+                '/notes/GitHub.md',
+            ],
+        },
     ],
     '/interview/': [
         {
