@@ -60,6 +60,13 @@ export default {
                 '/notes/vue/vue3.md',
             ],
         },
+        {
+            text: 'TypeScript',
+            collapsible: true,
+            children: [
+                '/notes/ts笔记.md',
+            ],
+        },
     ],
     '/interview/': [
         {
@@ -127,13 +134,15 @@ export default {
             children: [
                 '/interview/计算机网络.md',
             ],
-        }, {
+        },
+        {
             text: '前端工程化',
             collapsible: true,
             children: [
                 '/interview/前端工程化.md',
             ],
-        }, {
+        },
+        {
             text: '性能优化',
             collapsible: true,
             children: [
