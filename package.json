@@ -9,6 +9,8 @@
   },
   "scripts": {
     "docs:dev": "vuepress dev docs",
-    "docs:build": "vuepress build docs"
+    "start": "npm run docs:dev",
+    "docs:build": "vuepress build docs",
+    "build": "npm run docs:build"
   }
 }
